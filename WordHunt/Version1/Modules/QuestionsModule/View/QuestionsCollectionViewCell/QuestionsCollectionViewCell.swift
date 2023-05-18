@@ -64,7 +64,8 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     private func setupLbl(){
         self.answerLbl.layer.borderColor = UIColor.white.cgColor
         self.answerLbl.layer.borderWidth = 5
-        self.answerLbl.layer.cornerRadius = 10
+        self.answerLbl.layer.cornerRadius = 20
+        self.answerLbl.clipsToBounds = true
         self.answer = ""
     }
     
@@ -72,7 +73,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         isUserInteractionEnabled = false
         switch isCorrect{
         case true:
-            animateCorrectAnsLbl(label: answerLbl, newText: answer, characterDelay: 0.1, animationDuration: 0.5, scale: 1.2) { _ in
+            animateCorrectAnsLbl(label: answerLbl, newText: answer, characterDelay: 0.2, animationDuration: 0.5, scale: 1.2) { _ in
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.3){
                     self.answer = ""
                     self.answerLbl.backgroundColor = .clear

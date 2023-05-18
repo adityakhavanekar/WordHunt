@@ -25,9 +25,13 @@ class AlphabetCollectionViewCell: UICollectionViewCell {
     
     private func setupUI(){
         isThisSelected = false
+        alphabetLbl.textColor = .black
+        setInternalView()
+    }
+    private func setInternalView(){
         internalView.backgroundColor = .white
         internalView.layer.cornerRadius =  5
-        alphabetLbl.textColor = .black
+        internalView.clipsToBounds = true
     }
 
 }
