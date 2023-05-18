@@ -70,6 +70,23 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         self.answer = ""
     }
     
+    private func showTemporaryLabel(text: String) {
+        let label = UILabel()
+        label.text = text
+        label.textAlignment = .center
+        label.textColor = .white
+        label.backgroundColor = .black
+        label.frame = CGRect(x: 0, y: 0, width: self.bounds.width / 2, height: 50)
+        label.center = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
+        label.clipsToBounds = true
+        label.layer.cornerRadius = 10
+        self.addSubview(label)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            label.removeFromSuperview()
+        }
+    }
+    
     private func isAnswerCorrect(isCorrect:Bool){
         isUserInteractionEnabled = false
         switch isCorrect{
@@ -101,24 +118,6 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         }else{
             isAnswerCorrect(isCorrect: false)
             showTemporaryLabel(text: "Wrong Answer")
-        }
-        
-    }
-    
-    func showTemporaryLabel(text: String) {
-        let label = UILabel()
-        label.text = text
-        label.textAlignment = .center
-        label.textColor = .white
-        label.backgroundColor = .black
-        label.frame = CGRect(x: 0, y: 0, width: self.bounds.width / 2, height: 50)
-        label.center = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
-        label.clipsToBounds = true
-        label.layer.cornerRadius = 10
-        self.addSubview(label)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            label.removeFromSuperview()
         }
     }
     
@@ -157,17 +156,26 @@ extension QuestionsCollectionViewCell:UICollectionViewDelegate,UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionViewAlphabet.cellForItem(at: indexPath) as? AlphabetCollectionViewCell else {return}
         if cell.isThisSelected == true{
+            selectedCellAction(cell: cell, isSelected: true)
+        }else{
+            selectedCellAction(cell: cell, isSelected: false)
+        }
+        animateViewScaling(view: cell.internalView)
+    }
+    
+    private func selectedCellAction(cell:AlphabetCollectionViewCell,isSelected:Bool){
+        switch isSelected{
+        case true:
             cell.isThisSelected = false
             cell.alphabetLbl.textColor = .black
             cell.internalView.backgroundColor = .white
             answer = removeFirstOccurrenceOf(cell.alphabetLbl.text!, from: answer)
-        }else{
+        case false:
             cell.isThisSelected = true
             cell.alphabetLbl.textColor = .white
             cell.internalView.backgroundColor = .systemGreen
             answer += cell.alphabetLbl.text!
         }
-        animateViewScaling(view: cell.internalView)
     }
 }
 
