@@ -30,6 +30,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     }
     
     var data = ["A","B","C","D","E","F","G","H","I","J"]
+    let answersData = ["C","D","E"]
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -88,7 +89,12 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func submitBtnClicked(_ sender: UIButton) {
-        isAnswerCorrect(isCorrect: true)
+        if answer == ""{
+            
+        }else{
+            isAnswerCorrect(isCorrect: true)
+        }
+        
     }
     
     @IBAction func resetBtnClicked(_ sender: UIButton) {
