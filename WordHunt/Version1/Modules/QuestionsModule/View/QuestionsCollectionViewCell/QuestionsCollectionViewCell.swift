@@ -30,7 +30,8 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     }
     
     var data = ["A","B","C","D","E","F","G","H","I","J"]
-    let answersData = ["C","D","E"]
+    let answersData = ["CFH","ACHE"]
+    var myAnswers = [String]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -83,19 +84,28 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
                 }
             }
         case false:
+            self.answer = ""
             self.isUserInteractionEnabled = true
+            self.collectionViewAlphabet.reloadData()
             print("False")
         }
     }
     
     @IBAction func submitBtnClicked(_ sender: UIButton) {
-        if answer == ""{
-            
-        }else{
+        if myAnswers.contains(answer){
+            print("Already answered")
+            answer = ""
+            self.collectionViewAlphabet.reloadData()
+        }else if myAnswers.contains(answer) == false && answersData.contains(answer){
             isAnswerCorrect(isCorrect: true)
+            myAnswers.append(answer)
+        }else{
+            isAnswerCorrect(isCorrect: false)
         }
         
     }
+    
+    
     
     @IBAction func resetBtnClicked(_ sender: UIButton) {
         isUserInteractionEnabled = false
