@@ -4,12 +4,15 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuestionsViewController" customModule="WordHunt" customModuleProvider="target">
             <connections>
-                <outlet property="questionsCollectionVIew" destination="DxD-Ac-aQf" id="1Ap-ct-lBG"/>
+                <outlet property="collectionViewQuestions" destination="SxT-yE-veN" id="fgg-uz-lUB"/>
+                <outlet property="featuredImgView" destination="4Wh-ch-WuI" id="Jnz-Nc-3rB"/>
+                <outlet property="timerView" destination="LNF-De-fwo" id="H11-fq-yhe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,26 +21,61 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="DxD-Ac-aQf">
-                    <rect key="frame" x="0.0" y="79" width="393" height="689"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SzJ-Kv-ePZ">
-                        <size key="itemSize" width="128" height="128"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNa-B9-Ke3">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jum" translatesAutoresizingMaskIntoConstraints="NO" id="4Wh-ch-WuI">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="265.66666666666669"/>
+                        </imageView>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="SxT-yE-veN">
+                            <rect key="frame" x="0.0" y="265.66666666666674" width="393" height="443.33333333333326"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="URV-qZ-C4M">
+                                <size key="itemSize" width="128" height="128"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LNF-De-fwo" customClass="SRCountdownTimer" customModule="SRCountdownTimer">
+                            <rect key="frame" x="156.66666666666666" y="225.66666666666669" width="80" height="80"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="VzO-Du-9GV"/>
+                                <constraint firstAttribute="height" constant="80" id="di6-sp-rBg"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.99215686270000003" green="0.6705882353" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="4Wh-ch-WuI" firstAttribute="top" secondItem="fNa-B9-Ke3" secondAttribute="top" id="0Su-wY-aIF"/>
+                        <constraint firstItem="4Wh-ch-WuI" firstAttribute="height" secondItem="fNa-B9-Ke3" secondAttribute="height" multiplier="0.35" id="4ev-E6-1kJ"/>
+                        <constraint firstAttribute="trailing" secondItem="4Wh-ch-WuI" secondAttribute="trailing" id="6tz-7s-OJ1"/>
+                        <constraint firstItem="4Wh-ch-WuI" firstAttribute="leading" secondItem="fNa-B9-Ke3" secondAttribute="leading" id="A8b-Ju-yzD"/>
+                        <constraint firstItem="SxT-yE-veN" firstAttribute="top" secondItem="4Wh-ch-WuI" secondAttribute="bottom" id="CKm-N4-PG2"/>
+                        <constraint firstItem="LNF-De-fwo" firstAttribute="centerX" secondItem="fNa-B9-Ke3" secondAttribute="centerX" id="Ck5-QD-3za"/>
+                        <constraint firstItem="SxT-yE-veN" firstAttribute="leading" secondItem="fNa-B9-Ke3" secondAttribute="leading" id="UH2-uc-LEa"/>
+                        <constraint firstAttribute="trailing" secondItem="SxT-yE-veN" secondAttribute="trailing" id="aGN-p5-GCZ"/>
+                        <constraint firstAttribute="bottom" secondItem="SxT-yE-veN" secondAttribute="bottom" constant="50" id="dyC-zT-Wqp"/>
+                        <constraint firstItem="LNF-De-fwo" firstAttribute="top" secondItem="4Wh-ch-WuI" secondAttribute="bottom" constant="-40" id="euz-jh-KjG"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="DxD-Ac-aQf" secondAttribute="bottom" constant="50" id="NLM-G3-9qL"/>
-                <constraint firstItem="DxD-Ac-aQf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="ae9-Al-y8N"/>
-                <constraint firstItem="DxD-Ac-aQf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="oXz-Qu-JLd"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="DxD-Ac-aQf" secondAttribute="trailing" id="vrw-g2-Rxi"/>
+                <constraint firstItem="fNa-B9-Ke3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Hvb-bf-GZV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="fNa-B9-Ke3" secondAttribute="bottom" id="VoU-FX-gOD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fNa-B9-Ke3" secondAttribute="trailing" id="f6y-ih-vzG"/>
+                <constraint firstItem="fNa-B9-Ke3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="lxq-gK-Lef"/>
             </constraints>
-            <point key="canvasLocation" x="102" y="20"/>
+            <point key="canvasLocation" x="34" y="21"/>
         </view>
     </objects>
+    <resources>
+        <image name="jum" width="540" height="360"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

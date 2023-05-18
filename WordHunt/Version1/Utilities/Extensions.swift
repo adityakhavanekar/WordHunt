@@ -48,7 +48,7 @@ extension UILabel {
             }
         }
     
-    func animateNew2(newText: String, characterDelay: TimeInterval, animationDuration: TimeInterval, scale: CGFloat) {
+    func animateNew2(newText: String, characterDelay: TimeInterval, animationDuration: TimeInterval, scale: CGFloat,completion: ((Bool)->(Void))?) {
             let originalTransform = transform
             
             DispatchQueue.main.async {
@@ -65,7 +65,7 @@ extension UILabel {
                             }, completion: { _ in
                                 UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
                                     self.transform = originalTransform
-                                }, completion: nil)
+                                }, completion: completion)
                             })
                         }
                     }
@@ -73,4 +73,32 @@ extension UILabel {
             }
         }
 
+}
+
+extension UIColor {
+    convenience init?(hexString: String, alpha: CGFloat = 1.0) {
+        var hexFormatted = hexString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        hexFormatted = hexFormatted.replacingOccurrences(of: "#", with: "")
+        
+        let scanner = Scanner(string: hexFormatted)
+        var hexValue: UInt64 = 0
+        
+        if scanner.scanHexInt64(&hexValue) {
+            var red, green, blue: CGFloat
+            
+            if hexFormatted.count == 6 {
+                red = CGFloat((hexValue & 0xFF0000) >> 16) / 255.0
+                green = CGFloat((hexValue & 0x00FF00) >> 8) / 255.0
+                blue = CGFloat(hexValue & 0x0000FF) / 255.0
+            } else {
+                red = CGFloat((hexValue & 0xFF00) >> 8) / 255.0
+                green = CGFloat(hexValue & 0x00FF) / 255.0
+                blue = CGFloat(0x0000) / 255.0
+            }
+            
+            self.init(red: red, green: green, blue: blue, alpha: alpha)
+        } else {
+            return nil
+        }
+    }
 }
