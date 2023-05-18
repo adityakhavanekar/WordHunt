@@ -9,7 +9,6 @@ import UIKit
 
 class QuestionsCollectionViewCell: UICollectionViewCell {
     
-    
     @IBOutlet weak var helpView: UIView!
     @IBOutlet weak var resetBtn: UIButton!
     @IBOutlet weak var submitBtn: UIButton!
