@@ -9,6 +9,7 @@ import UIKit
 
 class QuestionsCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var backgroundImgView: UIImageView!
     @IBOutlet weak var answerLbl: PaddingLabel!
     @IBOutlet weak var alphabetsCollectionView: UICollectionView!
     

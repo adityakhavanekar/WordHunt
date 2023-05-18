@@ -94,6 +94,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		181830D32A16216B004309DA /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				186880CA2A16007B00848325 /* QuestionsModule */,
+				186880C92A16007300848325 /* HomeModule */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
 		186880892A16006100848325 = {
 			isa = PBXGroup;
 			children = (
@@ -150,9 +159,8 @@
 		186880C82A16006B00848325 /* Version1 */ = {
 			isa = PBXGroup;
 			children = (
+				181830D32A16216B004309DA /* Modules */,
 				186880D52A1600F500848325 /* Utilities */,
-				186880CA2A16007B00848325 /* QuestionsModule */,
-				186880C92A16007300848325 /* HomeModule */,
 			);
 			path = Version1;
 			sourceTree = "<group>";

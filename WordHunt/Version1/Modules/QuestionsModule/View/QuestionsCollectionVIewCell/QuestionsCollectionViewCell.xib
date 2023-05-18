@@ -73,6 +73,7 @@
             <connections>
                 <outlet property="alphabetsCollectionView" destination="Wf4-cA-Z44" id="bur-VS-6bP"/>
                 <outlet property="answerLbl" destination="qv0-WY-LEc" id="hPL-ES-wcQ"/>
+                <outlet property="backgroundImgView" destination="uMl-W8-bz6" id="8M3-5z-w56"/>
             </connections>
             <point key="canvasLocation" x="93.89312977099236" y="206.33802816901411"/>
         </collectionViewCell>
