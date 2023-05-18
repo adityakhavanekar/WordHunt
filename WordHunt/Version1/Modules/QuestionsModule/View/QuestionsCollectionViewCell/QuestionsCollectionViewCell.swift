@@ -63,11 +63,11 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupLbl(){
-        self.answerLbl.layer.borderColor = UIColor.white.cgColor
-        self.answerLbl.layer.borderWidth = 5
-        self.answerLbl.layer.cornerRadius = 20
-        self.answerLbl.clipsToBounds = true
-        self.answer = ""
+        answerLbl.layer.borderColor = UIColor.white.cgColor
+        answerLbl.layer.borderWidth = 5
+        answerLbl.layer.cornerRadius = 20
+        answerLbl.clipsToBounds = true
+        answer = ""
     }
     
     private func showTemporaryLabel(text: String) {
@@ -81,7 +81,6 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         label.clipsToBounds = true
         label.layer.cornerRadius = 10
         self.addSubview(label)
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             label.removeFromSuperview()
         }
@@ -100,10 +99,9 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
                 }
             }
         case false:
-            self.answer = ""
-            self.isUserInteractionEnabled = true
-            self.collectionViewAlphabet.reloadData()
-            print("False")
+            answer = ""
+            collectionViewAlphabet.reloadData()
+            isUserInteractionEnabled = true
         }
     }
     
@@ -111,7 +109,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         if myAnswers.contains(answer){
             answer = ""
             showTemporaryLabel(text: "Already Answered")
-            self.collectionViewAlphabet.reloadData()
+            collectionViewAlphabet.reloadData()
         }else if myAnswers.contains(answer) == false && answersData.contains(answer){
             isAnswerCorrect(isCorrect: true)
             myAnswers.append(answer)
