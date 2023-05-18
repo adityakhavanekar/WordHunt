@@ -9,9 +9,25 @@ import UIKit
 
 class AlphabetCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var internalView: UIView!
+    @IBOutlet weak var alphabetLbl: UILabel!
+    
+    var isThisSelected:Bool = false
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupUI()
+    }
+    
+    override func prepareForReuse() {
+        setupUI()
+    }
+    
+    private func setupUI(){
+        isThisSelected = false
+        internalView.backgroundColor = .white
+        internalView.layer.cornerRadius =  5
+        alphabetLbl.textColor = .black
     }
 
 }

@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,11 +22,11 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47L-yo-arA">
                                 <rect key="frame" x="5" y="5" width="200" height="158"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="35"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="47L-yo-arA" secondAttribute="bottom" constant="5" id="D4v-fW-uXf"/>
                             <constraint firstAttribute="trailing" secondItem="47L-yo-arA" secondAttribute="trailing" constant="5" id="Prb-7i-Ec0"/>
@@ -38,6 +37,7 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="o7U-8X-0iv" secondAttribute="bottom" constant="5" id="Eh6-m3-rrF"/>
                 <constraint firstAttribute="trailing" secondItem="o7U-8X-0iv" secondAttribute="trailing" constant="5" id="EyS-Il-zxE"/>
@@ -45,12 +45,11 @@
                 <constraint firstItem="o7U-8X-0iv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="cil-aG-AET"/>
             </constraints>
             <size key="customSize" width="220" height="178"/>
+            <connections>
+                <outlet property="alphabetLbl" destination="47L-yo-arA" id="gnt-mH-GHg"/>
+                <outlet property="internalView" destination="o7U-8X-0iv" id="Jyd-PP-5i8"/>
+            </connections>
             <point key="canvasLocation" x="207.63358778625954" y="64.788732394366207"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

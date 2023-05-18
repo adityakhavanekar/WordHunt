@@ -30,6 +30,7 @@ class QuestionsViewController: UIViewController {
         timerView.layer.masksToBounds = true
         timerView.lineColor = .systemTeal
         timerView.backgroundColor = .white
+        timerView.labelTextColor = .black
         timerView.lineWidth = 10
         timerView.delegate = self
         timerView.start(beginingValue: 10)
