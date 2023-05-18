@@ -29,8 +29,8 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    var data = ["A","B","C","D","E","F","G","H","I","J"]
-    let answersData = ["CFH","ACHE"]
+    var data = ["A","B","C","D","E","F","G","H","I","J"]   //Will be replaced by api data
+    let answersData = ["CFH","ACHE"]                       //Will be replaced by api data
     var myAnswers = [String]()
     
     override func awakeFromNib() {
@@ -93,19 +93,35 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     
     @IBAction func submitBtnClicked(_ sender: UIButton) {
         if myAnswers.contains(answer){
-            print("Already answered")
             answer = ""
+            showTemporaryLabel(text: "Already Answered")
             self.collectionViewAlphabet.reloadData()
         }else if myAnswers.contains(answer) == false && answersData.contains(answer){
             isAnswerCorrect(isCorrect: true)
             myAnswers.append(answer)
         }else{
             isAnswerCorrect(isCorrect: false)
+            showTemporaryLabel(text: "Wrong Answer")
         }
         
     }
     
-    
+    func showTemporaryLabel(text: String) {
+        let label = UILabel()
+        label.text = text
+        label.textAlignment = .center
+        label.textColor = .white
+        label.backgroundColor = .black
+        label.frame = CGRect(x: 0, y: 0, width: self.bounds.width / 2, height: 50)
+        label.center = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
+        label.clipsToBounds = true
+        label.layer.cornerRadius = 10
+        self.addSubview(label)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            label.removeFromSuperview()
+        }
+    }
     
     @IBAction func resetBtnClicked(_ sender: UIButton) {
         isUserInteractionEnabled = false
@@ -114,6 +130,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         isUserInteractionEnabled = true
     }
 }
+
 // CollectionViewCells
 extension QuestionsCollectionViewCell:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
