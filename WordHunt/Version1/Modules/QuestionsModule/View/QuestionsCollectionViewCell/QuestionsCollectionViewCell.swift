@@ -106,7 +106,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
                 }
             }
         case false:
-            animateWrongAnsLbl(label: answerLbl, newText: answer, characterDelay: 0.2, animationDuration: 0.1, shakeDistance: 20) { _ in
+            animateWrongAnsLbl(label: answerLbl, newText: answer, characterDelay: 0.1, animationDuration: 0.1, shakeDistance: 20) { _ in
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.3){
                     self.answer = ""
                     self.answerLbl.backgroundColor = .clear
@@ -122,7 +122,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     }
     
     private func checkIfStringExists(word: String) -> Bool {
-        if (element?.answers.map { $0.word }.contains(word)) == true{
+        if (element?.answers.map { $0.word.uppercased() }.contains(word)) == true{
             return true
         }else{
             return false
@@ -163,7 +163,7 @@ extension QuestionsCollectionViewCell:UICollectionViewDelegate,UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionViewAlphabet.dequeueReusableCell(withReuseIdentifier: "AlphabetCollectionViewCell", for: indexPath) as? AlphabetCollectionViewCell else {return UICollectionViewCell()}
-        cell.alphabetLbl.text = element?.chars[indexPath.row]
+        cell.alphabetLbl.text = element?.chars[indexPath.row].uppercased()
         return cell
     }
     
