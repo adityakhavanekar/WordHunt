@@ -204,7 +204,7 @@ extension QuestionsCollectionViewCell{
         }
     }
     
-    func removeFirstOccurrenceOf(_ characterToRemove: String, from inputString: String) -> String {
+    private func removeFirstOccurrenceOf(_ characterToRemove: String, from inputString: String) -> String {
         var modifiedString = inputString
         if let range = modifiedString.range(of: String(characterToRemove)) {
             modifiedString.replaceSubrange(range, with: "")
@@ -212,7 +212,7 @@ extension QuestionsCollectionViewCell{
         return modifiedString
     }
     
-    func animatePopEffect(for label: UILabel) {
+    private func animatePopEffect(for label: UILabel) {
         label.alpha = 0.0
         label.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
         UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseInOut, animations: {
@@ -229,7 +229,7 @@ extension QuestionsCollectionViewCell{
         })
     }
     
-    func animateViewScaling(view: UIView) {
+    private func animateViewScaling(view: UIView) {
         UIView.animate(withDuration: 0.1, delay: 0.0, options: [], animations: {
             view.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         }, completion: { _ in
@@ -239,7 +239,7 @@ extension QuestionsCollectionViewCell{
         })
     }
     
-    func configure3DButton(button: UIButton) {
+    private func configure3DButton(button: UIButton) {
         button.layer.cornerRadius = 5
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.clear.cgColor
@@ -260,7 +260,7 @@ extension QuestionsCollectionViewCell{
         }
     }
     
-    func animateCorrectAnsLbl(label:UILabel,newText: String, characterDelay: TimeInterval, animationDuration: TimeInterval, scale: CGFloat,completion: ((Bool)->(Void))?) {
+    private func animateCorrectAnsLbl(label:UILabel,newText: String, characterDelay: TimeInterval, animationDuration: TimeInterval, scale: CGFloat,completion: ((Bool)->(Void))?) {
         let originalTransform = transform
         DispatchQueue.main.async {
             label.text = ""
@@ -283,7 +283,7 @@ extension QuestionsCollectionViewCell{
         }
     }
     
-    func animateWrongAnsLbl(label: UILabel, newText: String, characterDelay: TimeInterval, animationDuration: TimeInterval, shakeDistance: CGFloat, completion: ((Bool) -> Void)?) {
+    private func animateWrongAnsLbl(label: UILabel, newText: String, characterDelay: TimeInterval, animationDuration: TimeInterval, shakeDistance: CGFloat, completion: ((Bool) -> Void)?) {
         let originalTransform = label.transform
         DispatchQueue.main.async {
             label.text = ""
