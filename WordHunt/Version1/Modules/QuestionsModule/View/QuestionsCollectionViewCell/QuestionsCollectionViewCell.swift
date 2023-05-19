@@ -106,9 +106,18 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
                 }
             }
         case false:
-            answer = ""
-            collectionViewAlphabet.reloadData()
-            isUserInteractionEnabled = true
+            animateWrongAnsLbl(label: answerLbl, newText: answer, characterDelay: 0.2, animationDuration: 0.1, shakeDistance: 20) { _ in
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.3){
+                    self.answer = ""
+                    self.answerLbl.backgroundColor = .clear
+                    self.collectionViewAlphabet.reloadData()
+                    if self.myAnswers.count == self.element?.answers.count{
+                        self.showTemporaryLabel(text: "Done")
+                        print("Done")
+                    }
+                    self.isUserInteractionEnabled = true
+                }
+            }
         }
     }
     
@@ -121,28 +130,21 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func submitBtnClicked(_ sender: UIButton) {
-        if myAnswers.contains(answer){
-            answer = ""
-            showTemporaryLabel(text: "Already Answered")
-            collectionViewAlphabet.reloadData()
-        }else if myAnswers.contains(answer) == false && checkIfStringExists(word: answer) == true{
-            myAnswers.append(answer)
-            isAnswerCorrect(isCorrect: true)
+        if answer == ""{
+            showTemporaryLabel(text: "Please start typing")
         }else{
-            isAnswerCorrect(isCorrect: false)
-            showTemporaryLabel(text: "Wrong Answer")
+            if myAnswers.contains(answer){
+                answer = ""
+                showTemporaryLabel(text: "Already Answered")
+                collectionViewAlphabet.reloadData()
+            }else if myAnswers.contains(answer) == false && checkIfStringExists(word: answer) == true{
+                myAnswers.append(answer)
+                isAnswerCorrect(isCorrect: true)
+            }else{
+                isAnswerCorrect(isCorrect: false)
+                showTemporaryLabel(text: "Wrong Answer")
+            }
         }
-//        if myAnswers.contains(answer){
-//            answer = ""
-//            showTemporaryLabel(text: "Already Answered")
-//            collectionViewAlphabet.reloadData()
-//        }else if myAnswers.contains(answer) == false && answersData.contains(answer){
-//            isAnswerCorrect(isCorrect: true)
-//            myAnswers.append(answer)
-//        }else{
-//            isAnswerCorrect(isCorrect: false)
-//            showTemporaryLabel(text: "Wrong Answer")
-//        }
     }
     
     @IBAction func resetBtnClicked(_ sender: UIButton) {
@@ -275,6 +277,31 @@ extension QuestionsCollectionViewCell{
                             label.backgroundColor = .systemGreen
                         }, completion: { _ in
                             UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
+                                label.transform = originalTransform
+                            }, completion: completion)
+                        })
+                    }
+                }
+            }
+        }
+    }
+    
+    func animateWrongAnsLbl(label: UILabel, newText: String, characterDelay: TimeInterval, animationDuration: TimeInterval, shakeDistance: CGFloat, completion: ((Bool) -> Void)?) {
+        let originalTransform = label.transform
+        DispatchQueue.main.async {
+            label.text = ""
+            for (index, character) in newText.enumerated() {
+                DispatchQueue.main.asyncAfter(deadline: .now() + characterDelay * Double(index)) {
+                    label.text?.append(character)
+                    if index == newText.count - 1 {
+                        UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
+                            // Shake animation
+                            let shakeTransform = CGAffineTransform(translationX: -shakeDistance, y: 0)
+                            label.transform = shakeTransform
+                            label.backgroundColor = .systemRed
+                        }, completion: { _ in
+                            UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
+                                // Restore original position
                                 label.transform = originalTransform
                             }, completion: completion)
                         })
