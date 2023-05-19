@@ -70,22 +70,6 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         answer = ""
     }
     
-    private func showTemporaryLabel(text: String) {
-        let label = UILabel()
-        label.text = text
-        label.textAlignment = .center
-        label.textColor = .white
-        label.backgroundColor = .black
-        label.frame = CGRect(x: 0, y: 0, width: self.bounds.width / 2, height: 50)
-        label.center = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
-        label.clipsToBounds = true
-        label.layer.cornerRadius = 10
-        self.addSubview(label)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            label.removeFromSuperview()
-        }
-    }
-    
     private func isAnswerCorrect(isCorrect:Bool){
         isUserInteractionEnabled = false
         switch isCorrect{
@@ -202,8 +186,24 @@ extension QuestionsCollectionViewCell:UICollectionViewDelegate,UICollectionViewD
     }
 }
 
-//Animations and UI/UX
+//Animations and UI
 extension QuestionsCollectionViewCell{
+    private func showTemporaryLabel(text: String) {
+        let label = UILabel()
+        label.text = text
+        label.textAlignment = .center
+        label.textColor = .white
+        label.backgroundColor = .black
+        label.frame = CGRect(x: 0, y: 0, width: self.bounds.width / 2, height: 50)
+        label.center = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
+        label.clipsToBounds = true
+        label.layer.cornerRadius = 10
+        self.addSubview(label)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            label.removeFromSuperview()
+        }
+    }
+    
     func removeFirstOccurrenceOf(_ characterToRemove: String, from inputString: String) -> String {
         var modifiedString = inputString
         if let range = modifiedString.range(of: String(characterToRemove)) {
