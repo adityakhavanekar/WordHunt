@@ -28,10 +28,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    var data = ["A","B","C","D","E","F","G","H","I","J"]   //Will be replaced by api data
-    let answersData = ["CFH","ACHE"]                       //Will be replaced by api data
     var myAnswers = [String]()
-    
     var element:WordHuntElement?
     
     override func awakeFromNib() {
