@@ -51,6 +51,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         setupCollectionView()
         setupButtons()
         setupLbl()
+        myAnswers.removeAll()
     }
     private func setupCollectionView(){
         collectionViewAlphabet.register(UINib(nibName: "AlphabetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AlphabetCollectionViewCell")
@@ -97,6 +98,10 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
                     self.answer = ""
                     self.answerLbl.backgroundColor = .clear
                     self.collectionViewAlphabet.reloadData()
+                    if self.myAnswers.count == self.element?.answers.count{
+                        self.showTemporaryLabel(text: "Done")
+                        print("Done")
+                    }
                     self.isUserInteractionEnabled = true
                 }
             }
@@ -107,18 +112,37 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    private func checkIfStringExists(word: String) -> Bool {
+        if (element?.answers.map { $0.word }.contains(word)) == true{
+            return true
+        }else{
+            return false
+        }
+    }
+    
     @IBAction func submitBtnClicked(_ sender: UIButton) {
         if myAnswers.contains(answer){
             answer = ""
             showTemporaryLabel(text: "Already Answered")
             collectionViewAlphabet.reloadData()
-        }else if myAnswers.contains(answer) == false && answersData.contains(answer){
-            isAnswerCorrect(isCorrect: true)
+        }else if myAnswers.contains(answer) == false && checkIfStringExists(word: answer) == true{
             myAnswers.append(answer)
+            isAnswerCorrect(isCorrect: true)
         }else{
             isAnswerCorrect(isCorrect: false)
             showTemporaryLabel(text: "Wrong Answer")
         }
+//        if myAnswers.contains(answer){
+//            answer = ""
+//            showTemporaryLabel(text: "Already Answered")
+//            collectionViewAlphabet.reloadData()
+//        }else if myAnswers.contains(answer) == false && answersData.contains(answer){
+//            isAnswerCorrect(isCorrect: true)
+//            myAnswers.append(answer)
+//        }else{
+//            isAnswerCorrect(isCorrect: false)
+//            showTemporaryLabel(text: "Wrong Answer")
+//        }
     }
     
     @IBAction func resetBtnClicked(_ sender: UIButton) {
