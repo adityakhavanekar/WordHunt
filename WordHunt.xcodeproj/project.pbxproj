@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		184277482A175550004B09CE /* wordHuntModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184277472A175550004B09CE /* wordHuntModel.swift */; };
+		1842774B2A175587004B09CE /* QuestionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842774A2A175587004B09CE /* QuestionsViewModel.swift */; };
+		1842774D2A1755C8004B09CE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842774C2A1755C8004B09CE /* NetworkManager.swift */; };
 		186880962A16006100848325 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186880952A16006100848325 /* AppDelegate.swift */; };
 		186880982A16006100848325 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186880972A16006100848325 /* SceneDelegate.swift */; };
 		1868809A2A16006100848325 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186880992A16006100848325 /* ViewController.swift */; };
@@ -50,6 +53,9 @@
 /* Begin PBXFileReference section */
 		0958D609331A95A0833268EB /* Pods-WordHunt-WordHuntUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordHunt-WordHuntUITests.release.xcconfig"; path = "Target Support Files/Pods-WordHunt-WordHuntUITests/Pods-WordHunt-WordHuntUITests.release.xcconfig"; sourceTree = "<group>"; };
 		181E01336390CDC44516A8AF /* Pods_WordHunt_WordHuntUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WordHunt_WordHuntUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		184277472A175550004B09CE /* wordHuntModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordHuntModel.swift; sourceTree = "<group>"; };
+		1842774A2A175587004B09CE /* QuestionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewModel.swift; sourceTree = "<group>"; };
+		1842774C2A1755C8004B09CE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		186880922A16006100848325 /* WordHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		186880952A16006100848325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		186880972A16006100848325 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +137,22 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
+		184277462A174354004B09CE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				184277472A175550004B09CE /* wordHuntModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		184277492A17556A004B09CE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1842774A2A175587004B09CE /* QuestionsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		186880892A16006100848325 = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +227,8 @@
 		186880CA2A16007B00848325 /* QuestionsModule */ = {
 			isa = PBXGroup;
 			children = (
+				184277492A17556A004B09CE /* ViewModel */,
+				184277462A174354004B09CE /* Model */,
 				188425FA2A16512B00EE4251 /* View */,
 			);
 			path = QuestionsModule;
@@ -215,6 +239,7 @@
 			children = (
 				186880D62A16010200848325 /* PaddingLbl.swift */,
 				186880DD2A160CF900848325 /* Extensions.swift */,
+				1842774C2A1755C8004B09CE /* NetworkManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -500,6 +525,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1842774D2A1755C8004B09CE /* NetworkManager.swift in Sources */,
+				184277482A175550004B09CE /* wordHuntModel.swift in Sources */,
 				188426072A1652FE00EE4251 /* AlphabetCollectionViewCell.swift in Sources */,
 				186880A02A16006100848325 /* WordHunt.xcdatamodeld in Sources */,
 				188425FD2A16514800EE4251 /* QuestionsViewController.swift in Sources */,
@@ -509,6 +536,7 @@
 				186880962A16006100848325 /* AppDelegate.swift in Sources */,
 				186880982A16006100848325 /* SceneDelegate.swift in Sources */,
 				186880D72A16010200848325 /* PaddingLbl.swift in Sources */,
+				1842774B2A175587004B09CE /* QuestionsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

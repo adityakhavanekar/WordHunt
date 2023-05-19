@@ -14,9 +14,12 @@ class QuestionsViewController: UIViewController {
     @IBOutlet weak var timerView: SRCountdownTimer!
     @IBOutlet weak var featuredImgView: UIImageView!
     
+    var viewModel:QuestionsViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        callViewModel()
     }
     
     private func setupUI(){
@@ -41,6 +44,14 @@ class QuestionsViewController: UIViewController {
         collectionViewQuestions.dataSource = self
         collectionViewQuestions.delegate = self
     }
+    
+    private func callViewModel(){
+        viewModel?.getWords(completion: {
+            DispatchQueue.main.async {
+                self.collectionViewQuestions.reloadData()
+            }
+        })
+    }
 }
 
 extension QuestionsViewController: SRCountdownTimerDelegate{
@@ -49,11 +60,12 @@ extension QuestionsViewController: SRCountdownTimerDelegate{
 
 extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return viewModel?.getCount() ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionViewQuestions.dequeueReusableCell(withReuseIdentifier: "QuestionsCollectionViewCell", for: indexPath) as? QuestionsCollectionViewCell else {return UICollectionViewCell()}
+        cell.element = viewModel?.getElement(index: indexPath.row)
         return cell
     }
     

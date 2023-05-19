@@ -32,6 +32,8 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     let answersData = ["CFH","ACHE"]                       //Will be replaced by api data
     var myAnswers = [String]()
     
+    var element:WordHuntElement?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
@@ -130,12 +132,12 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
 // CollectionViewCells
 extension QuestionsCollectionViewCell:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
+        return element?.chars.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionViewAlphabet.dequeueReusableCell(withReuseIdentifier: "AlphabetCollectionViewCell", for: indexPath) as? AlphabetCollectionViewCell else {return UICollectionViewCell()}
-        cell.alphabetLbl.text = data[indexPath.row]
+        cell.alphabetLbl.text = element?.chars[indexPath.row]
         return cell
     }
     
