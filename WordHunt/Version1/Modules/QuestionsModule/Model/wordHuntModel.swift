@@ -8,8 +8,8 @@
 import Foundation
 struct WordHuntElement: Codable {
     let id: String
-    let chars: [String]
-    let answers: [Answer]
+    var chars: [String]
+    var answers: [Answer]
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"

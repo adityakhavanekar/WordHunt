@@ -36,7 +36,6 @@ class QuestionsViewController: UIViewController {
         timerView.labelTextColor = .black
         timerView.lineWidth = 10
         timerView.delegate = self
-        timerView.start(beginingValue: 10)
     }
     
     private func setupCollectionView(){
@@ -55,7 +54,14 @@ class QuestionsViewController: UIViewController {
 }
 
 extension QuestionsViewController: SRCountdownTimerDelegate{
-    
+    func timerDidEnd(sender: SRCountdownTimer, elapsedTime: TimeInterval) {
+        guard let count = viewModel?.getCount() else {return}
+        let currentIndexPath = collectionViewQuestions.indexPathsForVisibleItems.first
+        let nextIndexPath = IndexPath(item: ((currentIndexPath?.item)!) + 1, section: currentIndexPath!.section)
+        if currentIndexPath!.item < count-1{
+            collectionViewQuestions.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
+        }
+    }
 }
 
 extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
@@ -65,7 +71,15 @@ extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionViewQuestions.dequeueReusableCell(withReuseIdentifier: "QuestionsCollectionViewCell", for: indexPath) as? QuestionsCollectionViewCell else {return UICollectionViewCell()}
-        cell.element = viewModel?.getElement(index: indexPath.row)
+        if let object = viewModel?.getElement(index: indexPath.row){
+            let totalAnswers = object.answers.count
+            self.timerView.start(beginingValue: totalAnswers * 70)
+            var newObject = object
+            newObject.chars = newObject.chars.shuffled()
+            cell.delegate = self
+            cell.element = newObject
+        }
+        
         return cell
     }
     
@@ -81,4 +95,20 @@ extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewData
         return 0
     }
     
+}
+
+extension QuestionsViewController:AnsweredAll{
+    func answered(cell:QuestionsCollectionViewCell) {
+        guard let indexPath = collectionViewQuestions.indexPath(for: cell) else { return }
+        if let count = viewModel?.getCount(){
+            if indexPath.row < count - 1 {
+                let nextIndexPath = IndexPath(row: indexPath.row + 1, section: indexPath.section)
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.5){
+                    self.timerView.end()
+                    self.collectionViewQuestions.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
+                    self.timerView.start(beginingValue: (cell.element?.answers.count)! * 70)
+                }
+            }
+        }
+    }
 }

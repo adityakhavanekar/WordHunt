@@ -7,6 +7,12 @@
 
 import UIKit
 
+
+
+protocol AnsweredAll{
+    func answered(cell:QuestionsCollectionViewCell)
+}
+
 class QuestionsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var helpView: UIView!
@@ -15,6 +21,8 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var answerLbl: PaddingLabel!
     @IBOutlet weak var collectionViewAlphabet: UICollectionView!
     @IBOutlet weak var answerLblTopConstraint: NSLayoutConstraint!
+    
+    var delegate:AnsweredAll?
     
     var answer:String = "" {
         didSet{
@@ -82,6 +90,8 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
                     if self.myAnswers.count == self.element?.answers.count{
                         self.showTemporaryLabel(text: "Done")
                         print("Done")
+                        self.isUserInteractionEnabled = false
+                        self.delegate?.answered(cell: self)
                     }
                     self.isUserInteractionEnabled = true
                 }
