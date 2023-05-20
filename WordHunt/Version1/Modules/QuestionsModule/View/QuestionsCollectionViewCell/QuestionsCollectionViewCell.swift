@@ -7,7 +7,9 @@
 
 import UIKit
 
-
+protocol hintPressed{
+    
+}
 
 protocol AnsweredAll{
     func answered(cell:QuestionsCollectionViewCell)
@@ -85,7 +87,8 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
             animateCorrectAnsLbl(label: answerLbl, newText: answer, characterDelay: 0.2, animationDuration: 0.5, scale: 1.2) { _ in
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.3){
                     self.answer = ""
-                    self.answerLbl.backgroundColor = .clear
+                    self.answerLbl.textColor = .black
+                    self.answerLbl.backgroundColor = .white
                     self.collectionViewAlphabet.reloadData()
                     if self.myAnswers.count == self.element?.answers.count{
                         self.showTemporaryLabel(text: "Done")
@@ -100,7 +103,8 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
             animateWrongAnsLbl(label: answerLbl, newText: answer, characterDelay: 0.1, animationDuration: 0.1, shakeDistance: 20) { _ in
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.3){
                     self.answer = ""
-                    self.answerLbl.backgroundColor = .clear
+                    self.answerLbl.textColor = .black
+                    self.answerLbl.backgroundColor = .white
                     self.collectionViewAlphabet.reloadData()
                     if self.myAnswers.count == self.element?.answers.count{
                         self.showTemporaryLabel(text: "Done")
@@ -281,6 +285,7 @@ extension QuestionsCollectionViewCell{
                         UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
                             let scaleTransform = CGAffineTransform(scaleX: scale, y: scale)
                             label.transform = scaleTransform
+                            label.textColor = .white
                             label.backgroundColor = .systemGreen
                         }, completion: { _ in
                             UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
@@ -305,6 +310,7 @@ extension QuestionsCollectionViewCell{
                             // Shake animation
                             let shakeTransform = CGAffineTransform(translationX: -shakeDistance, y: 0)
                             label.transform = shakeTransform
+                            label.textColor = .white
                             label.backgroundColor = .systemRed
                         }, completion: { _ in
                             UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {

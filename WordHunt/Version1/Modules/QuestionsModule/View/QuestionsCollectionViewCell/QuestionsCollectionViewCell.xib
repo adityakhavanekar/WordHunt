@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,10 +17,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="516" height="544"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEb-cg-yQf" customClass="PaddingLabel" customModule="WordHunt" customModuleProvider="target">
-                        <rect key="frame" x="203.66666666666663" y="100" width="109" height="48"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEb-cg-yQf" customClass="PaddingLabel" customModule="WordHunt" customModuleProvider="target">
+                        <rect key="frame" x="35" y="100" width="446" height="50"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="grJ-X8-Z4O"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="WQR-vo-D7c">
@@ -113,6 +118,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="jEb-cg-yQf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="100" id="3mJ-VT-ypY"/>
+                <constraint firstAttribute="trailing" secondItem="jEb-cg-yQf" secondAttribute="trailing" constant="35" id="DLu-fa-fCe"/>
                 <constraint firstItem="WQR-vo-D7c" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="DWY-yd-lCS"/>
                 <constraint firstAttribute="trailing" secondItem="WQR-vo-D7c" secondAttribute="trailing" constant="20" id="Ey0-s1-wQd"/>
                 <constraint firstItem="uWB-Wc-yE0" firstAttribute="top" secondItem="QGq-Vu-CpR" secondAttribute="bottom" constant="10" id="GIU-H4-HOn"/>
@@ -122,6 +128,7 @@
                 <constraint firstItem="WQR-vo-D7c" firstAttribute="top" secondItem="uWB-Wc-yE0" secondAttribute="bottom" constant="10" id="Lqs-43-0Ba"/>
                 <constraint firstItem="jEb-cg-yQf" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="b7f-21-Quu"/>
                 <constraint firstItem="uWB-Wc-yE0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="b8P-1s-u8T"/>
+                <constraint firstItem="jEb-cg-yQf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="35" id="fYX-a0-ej6"/>
             </constraints>
             <size key="customSize" width="516" height="544"/>
             <connections>
