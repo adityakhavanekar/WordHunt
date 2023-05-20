@@ -7,8 +7,13 @@
 
 import UIKit
 
+enum Help{
+    case hint
+    case time
+}
+
 protocol hintPressed{
-    
+    func helpNeeded(type:Help)
 }
 
 protocol AnsweredAll{
@@ -17,6 +22,8 @@ protocol AnsweredAll{
 
 class QuestionsCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var timeImgView: UIImageView!
+    @IBOutlet weak var hintImgView: UIImageView!
     @IBOutlet weak var helpView: UIView!
     @IBOutlet weak var resetBtn: UIButton!
     @IBOutlet weak var submitBtn: UIButton!
@@ -58,6 +65,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         setupCollectionView()
         setupButtons()
         setupLbl()
+        setupHelpImageView()
         myAnswers.removeAll()
     }
     private func setupCollectionView(){
@@ -78,6 +86,27 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         answerLbl.layer.cornerRadius = 20
         answerLbl.clipsToBounds = true
         answer = ""
+    }
+    
+    private func setupHelpImageView(){
+        
+        hintImgView.layer.cornerRadius = 3
+        timeImgView.layer.cornerRadius = 3
+        
+        hintImgView.isUserInteractionEnabled = true
+        let hintTapGesture = UITapGestureRecognizer(target: self, action: #selector(hintImageViewTapped))
+        hintImgView.addGestureRecognizer(hintTapGesture)
+        
+        timeImgView.isUserInteractionEnabled = true
+        let timeTapGesture = UITapGestureRecognizer(target: self, action: #selector(timeImageViewTapped))
+        timeImgView.addGestureRecognizer(timeTapGesture)
+    }
+    
+    @objc func hintImageViewTapped() {
+        animateImageView(hintImgView)
+    }
+    @objc func timeImageViewTapped() {
+        animateImageView(timeImgView)
     }
     
     private func isAnswerCorrect(isCorrect:Bool){
@@ -321,6 +350,27 @@ extension QuestionsCollectionViewCell{
                     }
                 }
             }
+        }
+    }
+    
+    func animateImageView(_ imageView: UIImageView) {
+        // Define the initial scale of the image view
+        let initialScale: CGFloat = 1.0
+        
+        // Define the scale when the image view is tapped
+        let tappedScale: CGFloat = 1.2
+        
+        // Animate the image view to the tapped scale and then back to the initial scale
+        UIView.animate(withDuration: 0.2, animations: {
+            imageView.backgroundColor = .lightGray
+            // Scale the image view to the tapped scale
+            imageView.transform = CGAffineTransform(scaleX: tappedScale, y: tappedScale)
+        }) { _ in
+            UIView.animate(withDuration: 0.2, animations: {
+                // Scale the image view back to the initial scale
+                imageView.backgroundColor = .clear
+                imageView.transform = CGAffineTransform(scaleX: initialScale, y: initialScale)
+            })
         }
     }
 }

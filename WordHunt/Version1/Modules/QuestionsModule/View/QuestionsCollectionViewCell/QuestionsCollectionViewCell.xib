@@ -136,8 +136,10 @@
                 <outlet property="answerLblTopConstraint" destination="3mJ-VT-ypY" id="Pg3-h7-bWj"/>
                 <outlet property="collectionViewAlphabet" destination="WQR-vo-D7c" id="xjC-nQ-9yx"/>
                 <outlet property="helpView" destination="QGq-Vu-CpR" id="2du-vg-Z8C"/>
+                <outlet property="hintImgView" destination="AYQ-aO-TOf" id="caL-cp-7Fl"/>
                 <outlet property="resetBtn" destination="Z0k-Pr-SZp" id="So9-43-t2v"/>
                 <outlet property="submitBtn" destination="qyU-Zz-WVP" id="XPU-RR-Qub"/>
+                <outlet property="timeImgView" destination="qYU-GE-LHH" id="udx-zP-vqg"/>
             </connections>
             <point key="canvasLocation" x="297.70992366412213" y="-41.549295774647888"/>
         </collectionViewCell>

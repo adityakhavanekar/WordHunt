@@ -55,12 +55,14 @@ class QuestionsViewController: UIViewController {
 
 extension QuestionsViewController: SRCountdownTimerDelegate{
     func timerDidEnd(sender: SRCountdownTimer, elapsedTime: TimeInterval) {
-        guard let count = viewModel?.getCount() else {return}
-        let currentIndexPath = collectionViewQuestions.indexPathsForVisibleItems.first
-        let nextIndexPath = IndexPath(item: ((currentIndexPath?.item)!) + 1, section: currentIndexPath!.section)
-        if currentIndexPath!.item < count-1{
-            collectionViewQuestions.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
-        }
+//        guard let count = viewModel?.getCount() else {return}
+//        let currentIndexPath = collectionViewQuestions.indexPathsForVisibleItems.first
+//        let nextIndexPath = IndexPath(item: ((currentIndexPath?.item)!) + 1, section: currentIndexPath!.section)
+//        if currentIndexPath!.item < count-1{
+//            collectionViewQuestions.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
+//        }
+        let vc = HelpViewController()
+        self.present(vc, animated: true)
     }
 }
 
@@ -73,7 +75,8 @@ extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewData
         guard let cell = collectionViewQuestions.dequeueReusableCell(withReuseIdentifier: "QuestionsCollectionViewCell", for: indexPath) as? QuestionsCollectionViewCell else {return UICollectionViewCell()}
         if let object = viewModel?.getElement(index: indexPath.row){
             let totalAnswers = object.answers.count
-            self.timerView.start(beginingValue: totalAnswers * 70)
+//            self.timerView.start(beginingValue: totalAnswers * 70)
+            self.timerView.start(beginingValue: 10)
             var newObject = object
             newObject.chars = newObject.chars.shuffled()
             cell.delegate = self

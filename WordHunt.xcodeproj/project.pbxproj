@@ -28,6 +28,8 @@
 		188426032A16525400EE4251 /* QuestionsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188426012A16525400EE4251 /* QuestionsCollectionViewCell.xib */; };
 		188426072A1652FE00EE4251 /* AlphabetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188426052A1652FE00EE4251 /* AlphabetCollectionViewCell.swift */; };
 		188426082A1652FE00EE4251 /* AlphabetCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188426062A1652FE00EE4251 /* AlphabetCollectionViewCell.xib */; };
+		18EE4DC12A190D8400F7B842 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE4DBF2A190D8400F7B842 /* HelpViewController.swift */; };
+		18EE4DC22A190D8400F7B842 /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EE4DC02A190D8400F7B842 /* HelpViewController.xib */; };
 		6735E4F99A9042CD7E3347FC /* Pods_WordHuntTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0BFBCCAAC4DE88BBE043FB4 /* Pods_WordHuntTests.framework */; };
 		B5DD62A87A1ECD93785133F1 /* Pods_WordHunt_WordHuntUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181E01336390CDC44516A8AF /* Pods_WordHunt_WordHuntUITests.framework */; };
 		F5F676A4E012A082B5D8100C /* Pods_WordHunt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B8A8767BE0E3CE0ECA3960 /* Pods_WordHunt.framework */; };
@@ -78,6 +80,8 @@
 		188426012A16525400EE4251 /* QuestionsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionsCollectionViewCell.xib; sourceTree = "<group>"; };
 		188426052A1652FE00EE4251 /* AlphabetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetCollectionViewCell.swift; sourceTree = "<group>"; };
 		188426062A1652FE00EE4251 /* AlphabetCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlphabetCollectionViewCell.xib; sourceTree = "<group>"; };
+		18EE4DBF2A190D8400F7B842 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		18EE4DC02A190D8400F7B842 /* HelpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpViewController.xib; sourceTree = "<group>"; };
 		491ACA907A48757C98A29BC4 /* Pods-WordHuntTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordHuntTests.debug.xcconfig"; path = "Target Support Files/Pods-WordHuntTests/Pods-WordHuntTests.debug.xcconfig"; sourceTree = "<group>"; };
 		894DDF18AF3E8D990D28BA69 /* Pods-WordHunt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordHunt.debug.xcconfig"; path = "Target Support Files/Pods-WordHunt/Pods-WordHunt.debug.xcconfig"; sourceTree = "<group>"; };
 		90B8A8767BE0E3CE0ECA3960 /* Pods_WordHunt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WordHunt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +135,7 @@
 		181830D32A16216B004309DA /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				18EE4DBD2A190D6100F7B842 /* HelpModule */,
 				186880CA2A16007B00848325 /* QuestionsModule */,
 				186880C92A16007300848325 /* HomeModule */,
 			);
@@ -273,6 +278,39 @@
 			path = AlphabetCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		18EE4DBD2A190D6100F7B842 /* HelpModule */ = {
+			isa = PBXGroup;
+			children = (
+				18EE4DC42A19147200F7B842 /* ExtraHelp */,
+				18EE4DC32A19146400F7B842 /* GameOver */,
+			);
+			path = HelpModule;
+			sourceTree = "<group>";
+		};
+		18EE4DBE2A190D7000F7B842 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18EE4DBF2A190D8400F7B842 /* HelpViewController.swift */,
+				18EE4DC02A190D8400F7B842 /* HelpViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18EE4DC32A19146400F7B842 /* GameOver */ = {
+			isa = PBXGroup;
+			children = (
+				18EE4DBE2A190D7000F7B842 /* View */,
+			);
+			path = GameOver;
+			sourceTree = "<group>";
+		};
+		18EE4DC42A19147200F7B842 /* ExtraHelp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ExtraHelp;
+			sourceTree = "<group>";
+		};
 		557A5A7284893D80F68D3192 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,6 +435,7 @@
 				186880A22A16006300848325 /* Assets.xcassets in Resources */,
 				188425FE2A16514800EE4251 /* QuestionsViewController.xib in Resources */,
 				1868809D2A16006100848325 /* Main.storyboard in Resources */,
+				18EE4DC22A190D8400F7B842 /* HelpViewController.xib in Resources */,
 				188426032A16525400EE4251 /* QuestionsCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -528,6 +567,7 @@
 				1842774D2A1755C8004B09CE /* NetworkManager.swift in Sources */,
 				184277482A175550004B09CE /* wordHuntModel.swift in Sources */,
 				188426072A1652FE00EE4251 /* AlphabetCollectionViewCell.swift in Sources */,
+				18EE4DC12A190D8400F7B842 /* HelpViewController.swift in Sources */,
 				186880A02A16006100848325 /* WordHunt.xcdatamodeld in Sources */,
 				188425FD2A16514800EE4251 /* QuestionsViewController.swift in Sources */,
 				188426022A16525400EE4251 /* QuestionsCollectionViewCell.swift in Sources */,

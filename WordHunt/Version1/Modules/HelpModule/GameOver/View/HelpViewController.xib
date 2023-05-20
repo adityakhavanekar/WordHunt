@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HelpViewController" customModule="WordHunt" customModuleProvider="target">
+            <connections>
+                <outlet property="internalView" destination="jjV-3j-e22" id="UHu-eg-bD7"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jjV-3j-e22">
+                    <rect key="frame" x="39.333333333333343" y="213" width="314.33333333333326" height="426"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBs-yD-S6W">
+                            <rect key="frame" x="20" y="40" width="274.33333333333331" height="42"/>
+                            <fontDescription key="fontDescription" type="system" weight="black" pointSize="35"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="oBs-yD-S6W" secondAttribute="trailing" constant="20" id="1Z1-ND-63Y"/>
+                        <constraint firstItem="oBs-yD-S6W" firstAttribute="leading" secondItem="jjV-3j-e22" secondAttribute="leading" constant="20" id="th3-Io-vDW"/>
+                        <constraint firstItem="oBs-yD-S6W" firstAttribute="top" secondItem="jjV-3j-e22" secondAttribute="top" constant="40" id="u3W-5L-ucO"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.30493719846207573" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="jjV-3j-e22" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3HA-pm-1pq"/>
+                <constraint firstItem="jjV-3j-e22" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="6p2-GB-vRE"/>
+                <constraint firstItem="jjV-3j-e22" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="BMz-uH-QzU"/>
+                <constraint firstItem="jjV-3j-e22" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.5" id="G8g-xH-61O"/>
+            </constraints>
+            <point key="canvasLocation" x="69" y="20"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
