@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		183356C62A1A60D000906776 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183356C42A1A60D000906776 /* HomeViewController.swift */; };
+		183356C72A1A60D000906776 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183356C52A1A60D000906776 /* HomeViewController.xib */; };
+		183356CB2A1A669F00906776 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183356C92A1A669F00906776 /* HomeTableViewCell.swift */; };
+		183356CC2A1A669F00906776 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183356CA2A1A669F00906776 /* HomeTableViewCell.xib */; };
 		184277482A175550004B09CE /* wordHuntModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184277472A175550004B09CE /* wordHuntModel.swift */; };
 		1842774B2A175587004B09CE /* QuestionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842774A2A175587004B09CE /* QuestionsViewModel.swift */; };
 		1842774D2A1755C8004B09CE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842774C2A1755C8004B09CE /* NetworkManager.swift */; };
@@ -55,6 +59,10 @@
 /* Begin PBXFileReference section */
 		0958D609331A95A0833268EB /* Pods-WordHunt-WordHuntUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordHunt-WordHuntUITests.release.xcconfig"; path = "Target Support Files/Pods-WordHunt-WordHuntUITests/Pods-WordHunt-WordHuntUITests.release.xcconfig"; sourceTree = "<group>"; };
 		181E01336390CDC44516A8AF /* Pods_WordHunt_WordHuntUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WordHunt_WordHuntUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		183356C42A1A60D000906776 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		183356C52A1A60D000906776 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		183356C92A1A669F00906776 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		183356CA2A1A669F00906776 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		184277472A175550004B09CE /* wordHuntModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordHuntModel.swift; sourceTree = "<group>"; };
 		1842774A2A175587004B09CE /* QuestionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewModel.swift; sourceTree = "<group>"; };
 		1842774C2A1755C8004B09CE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -142,6 +150,25 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
+		183356C32A1A609F00906776 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				183356C82A1A667B00906776 /* HomeTableViewCell */,
+				183356C42A1A60D000906776 /* HomeViewController.swift */,
+				183356C52A1A60D000906776 /* HomeViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		183356C82A1A667B00906776 /* HomeTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				183356C92A1A669F00906776 /* HomeTableViewCell.swift */,
+				183356CA2A1A669F00906776 /* HomeTableViewCell.xib */,
+			);
+			path = HomeTableViewCell;
+			sourceTree = "<group>";
+		};
 		184277462A174354004B09CE /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +252,7 @@
 		186880C92A16007300848325 /* HomeModule */ = {
 			isa = PBXGroup;
 			children = (
+				183356C32A1A609F00906776 /* View */,
 			);
 			path = HomeModule;
 			sourceTree = "<group>";
@@ -434,9 +462,11 @@
 				188426082A1652FE00EE4251 /* AlphabetCollectionViewCell.xib in Resources */,
 				186880A22A16006300848325 /* Assets.xcassets in Resources */,
 				188425FE2A16514800EE4251 /* QuestionsViewController.xib in Resources */,
+				183356CC2A1A669F00906776 /* HomeTableViewCell.xib in Resources */,
 				1868809D2A16006100848325 /* Main.storyboard in Resources */,
 				18EE4DC22A190D8400F7B842 /* HelpViewController.xib in Resources */,
 				188426032A16525400EE4251 /* QuestionsCollectionViewCell.xib in Resources */,
+				183356C72A1A60D000906776 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,6 +599,8 @@
 				188426072A1652FE00EE4251 /* AlphabetCollectionViewCell.swift in Sources */,
 				18EE4DC12A190D8400F7B842 /* HelpViewController.swift in Sources */,
 				186880A02A16006100848325 /* WordHunt.xcdatamodeld in Sources */,
+				183356C62A1A60D000906776 /* HomeViewController.swift in Sources */,
+				183356CB2A1A669F00906776 /* HomeTableViewCell.swift in Sources */,
 				188425FD2A16514800EE4251 /* QuestionsViewController.swift in Sources */,
 				188426022A16525400EE4251 /* QuestionsCollectionViewCell.swift in Sources */,
 				186880DE2A160CF900848325 /* Extensions.swift in Sources */,

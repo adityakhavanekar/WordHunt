@@ -20,8 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         if let windowScene = scene as? UIWindowScene{
             let window = UIWindow(windowScene: windowScene)
-            let vc = QuestionsViewController()
-            vc.viewModel = QuestionsViewModel(url: URL(string: "http://127.0.0.1:3050/wordQuestions")!)
+            let vc = HomeViewController()
+//            vc.viewModel = QuestionsViewModel(url: URL(string: "http://127.0.0.1:3050/wordQuestions")!)
             navigationController = UINavigationController(rootViewController:vc)
             
             window.rootViewController = navigationController
