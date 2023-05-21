@@ -17,7 +17,7 @@ protocol hintPressed{
 }
 
 protocol AnsweredAll{
-    func answered(cell:QuestionsCollectionViewCell)
+    func answered(cell:QuestionsCollectionViewCell,points:Int)
 }
 
 class QuestionsCollectionViewCell: UICollectionViewCell {
@@ -50,6 +50,9 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        if UIScreen.main.bounds.height <= 700{
+            answerLblTopConstraint.constant = answerLblTopConstraint.constant - 30
+        }
         setupUI()
     }
     
@@ -58,9 +61,6 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupUI(){
-        if UIScreen.main.bounds.height <= 700{
-            answerLblTopConstraint.constant = answerLblTopConstraint.constant - 30
-        }
         helpView.layer.cornerRadius = 5
         setupCollectionView()
         setupButtons()
@@ -103,7 +103,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
                         self.showTemporaryLabel(text: "Done")
                         print("Done")
                         self.isUserInteractionEnabled = false
-                        self.delegate?.answered(cell: self)
+                        self.delegate?.answered(cell: self, points: 1)
                     }
                     self.isUserInteractionEnabled = true
                 }

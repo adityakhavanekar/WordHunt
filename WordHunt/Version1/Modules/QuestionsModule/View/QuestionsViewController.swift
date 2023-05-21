@@ -10,11 +10,24 @@ import SRCountdownTimer
 
 class QuestionsViewController: UIViewController {
 
+    @IBOutlet weak var scoreLbl: UILabel!
+    @IBOutlet weak var highScoreLbl: UILabel!
     @IBOutlet weak var collectionViewQuestions: UICollectionView!
     @IBOutlet weak var timerView: SRCountdownTimer!
     @IBOutlet weak var featuredImgView: UIImageView!
     
     var viewModel:QuestionsViewModel?
+    var highScore:Int = 0 {
+        didSet{
+            self.highScoreLbl.text = "High Score: \(highScore)"
+        }
+    }
+    var score:Int = 0{
+        didSet{
+            self.scoreLbl.text = "Score: \(score)"
+        }
+    }
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +37,10 @@ class QuestionsViewController: UIViewController {
     
     private func setupUI(){
         self.navigationController?.navigationBar.isHidden = true
+        score = 0
         configureTimer()
         setupCollectionView()
+        setupUserDefaults()
     }
     
     private func configureTimer(){
@@ -54,6 +69,15 @@ class QuestionsViewController: UIViewController {
             }
         })
     }
+    
+    private func setupUserDefaults(){
+//        defaults.removeObject(forKey: "Highscore")
+        if defaults.object(forKey: "Highscore") != nil{
+            highScore = defaults.object(forKey: "Highscore") as! Int
+        }else{
+            highScore = 0
+        }
+    }
 }
 
 extension QuestionsViewController: SRCountdownTimerDelegate{
@@ -77,7 +101,6 @@ extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionViewQuestions.dequeueReusableCell(withReuseIdentifier: "QuestionsCollectionViewCell", for: indexPath) as? QuestionsCollectionViewCell else {return UICollectionViewCell()}
         if let object = viewModel?.getElement(index: indexPath.row){
-            let totalAnswers = object.answers.count
             var newObject = object
             newObject.chars = newObject.chars.shuffled()
             cell.delegate = self
@@ -102,7 +125,18 @@ extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewData
 }
 
 extension QuestionsViewController:AnsweredAll{
-    func answered(cell:QuestionsCollectionViewCell) {
+    func answered(cell:QuestionsCollectionViewCell,points:Int) {
+        if defaults.object(forKey: "Highscore") != nil{
+            score += points
+            if score > highScore{
+                highScore = score
+                defaults.set(highScore, forKey: "Highscore")
+            }
+        }else{
+            score += points
+            highScore = score
+            defaults.set(highScore, forKey: "Highscore")
+        }
         guard let indexPath = collectionViewQuestions.indexPath(for: cell) else { return }
         if let count = viewModel?.getCount(){
             if indexPath.row < count - 1 {

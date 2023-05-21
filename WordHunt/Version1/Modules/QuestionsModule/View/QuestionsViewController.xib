@@ -12,6 +12,8 @@
             <connections>
                 <outlet property="collectionViewQuestions" destination="SxT-yE-veN" id="fgg-uz-lUB"/>
                 <outlet property="featuredImgView" destination="4Wh-ch-WuI" id="Jnz-Nc-3rB"/>
+                <outlet property="highScoreLbl" destination="7wU-Z6-sth" id="x2g-Wf-c2C"/>
+                <outlet property="scoreLbl" destination="dKL-5n-wgc" id="8kL-je-usu"/>
                 <outlet property="timerView" destination="LNF-De-fwo" id="H11-fq-yhe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
