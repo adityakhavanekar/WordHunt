@@ -92,12 +92,22 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ghi-Zj-g3Z">
                                 <rect key="frame" x="10" y="5" width="90" height="40"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tip" translatesAutoresizingMaskIntoConstraints="NO" id="AYQ-aO-TOf">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cT5-z6-3zP">
                                         <rect key="frame" x="0.0" y="0.0" width="37.666666666666664" height="40"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="time" translatesAutoresizingMaskIntoConstraints="NO" id="qYU-GE-LHH">
-                                        <rect key="frame" x="52.666666666666686" y="0.0" width="37.333333333333343" height="40"/>
-                                    </imageView>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="tip"/>
+                                        <connections>
+                                            <action selector="hintTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="BhG-5q-7Gs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JW4-iZ-tAd">
+                                        <rect key="frame" x="52.666666666666686" y="0.0" width="37.333333333333371" height="40"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="time"/>
+                                        <connections>
+                                            <action selector="timeTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="kLE-V2-Ekq"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
@@ -136,10 +146,10 @@
                 <outlet property="answerLblTopConstraint" destination="3mJ-VT-ypY" id="Pg3-h7-bWj"/>
                 <outlet property="collectionViewAlphabet" destination="WQR-vo-D7c" id="xjC-nQ-9yx"/>
                 <outlet property="helpView" destination="QGq-Vu-CpR" id="2du-vg-Z8C"/>
-                <outlet property="hintImgView" destination="AYQ-aO-TOf" id="caL-cp-7Fl"/>
+                <outlet property="hintBtn" destination="cT5-z6-3zP" id="pC8-Jc-bFj"/>
                 <outlet property="resetBtn" destination="Z0k-Pr-SZp" id="So9-43-t2v"/>
                 <outlet property="submitBtn" destination="qyU-Zz-WVP" id="XPU-RR-Qub"/>
-                <outlet property="timeImgView" destination="qYU-GE-LHH" id="udx-zP-vqg"/>
+                <outlet property="timeBtn" destination="JW4-iZ-tAd" id="nrI-Ew-6QT"/>
             </connections>
             <point key="canvasLocation" x="297.70992366412213" y="-41.549295774647888"/>
         </collectionViewCell>

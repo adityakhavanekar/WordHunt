@@ -48,6 +48,9 @@ class QuestionsViewController: UIViewController {
         viewModel?.getWords(completion: {
             DispatchQueue.main.async {
                 self.collectionViewQuestions.reloadData()
+                if let count = self.viewModel?.getElement(index: 0)?.answers.count{
+                    self.timerView.start(beginingValue:count*70)
+                }
             }
         })
     }
@@ -75,8 +78,6 @@ extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewData
         guard let cell = collectionViewQuestions.dequeueReusableCell(withReuseIdentifier: "QuestionsCollectionViewCell", for: indexPath) as? QuestionsCollectionViewCell else {return UICollectionViewCell()}
         if let object = viewModel?.getElement(index: indexPath.row){
             let totalAnswers = object.answers.count
-//            self.timerView.start(beginingValue: totalAnswers * 70)
-            self.timerView.start(beginingValue: 10)
             var newObject = object
             newObject.chars = newObject.chars.shuffled()
             cell.delegate = self
@@ -107,9 +108,10 @@ extension QuestionsViewController:AnsweredAll{
             if indexPath.row < count - 1 {
                 let nextIndexPath = IndexPath(row: indexPath.row + 1, section: indexPath.section)
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.5){
-                    self.timerView.end()
                     self.collectionViewQuestions.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
-                    self.timerView.start(beginingValue: (cell.element?.answers.count)! * 70)
+                    if let count = cell.element?.answers.count{
+                        self.timerView.start(beginingValue: count * 70)
+                    }
                 }
             }
         }

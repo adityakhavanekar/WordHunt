@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HelpViewController" customModule="WordHunt" customModuleProvider="target">
             <connections>
-                <outlet property="internalView" destination="jjV-3j-e22" id="UHu-eg-bD7"/>
+                <outlet property="internalView" destination="jjV-3j-e22" id="vDM-xG-e6s"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,21 +20,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jjV-3j-e22">
-                    <rect key="frame" x="39.333333333333343" y="213" width="314.33333333333326" height="426"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBs-yD-S6W">
-                            <rect key="frame" x="20" y="40" width="274.33333333333331" height="42"/>
-                            <fontDescription key="fontDescription" type="system" weight="black" pointSize="35"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="oBs-yD-S6W" secondAttribute="trailing" constant="20" id="1Z1-ND-63Y"/>
-                        <constraint firstItem="oBs-yD-S6W" firstAttribute="leading" secondItem="jjV-3j-e22" secondAttribute="leading" constant="20" id="th3-Io-vDW"/>
-                        <constraint firstItem="oBs-yD-S6W" firstAttribute="top" secondItem="jjV-3j-e22" secondAttribute="top" constant="40" id="u3W-5L-ucO"/>
-                    </constraints>
+                    <rect key="frame" x="39.333333333333343" y="170.33333333333337" width="314.33333333333326" height="511.33333333333326"/>
+                    <color key="backgroundColor" systemColor="systemYellowColor"/>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -43,14 +30,14 @@
                 <constraint firstItem="jjV-3j-e22" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3HA-pm-1pq"/>
                 <constraint firstItem="jjV-3j-e22" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="6p2-GB-vRE"/>
                 <constraint firstItem="jjV-3j-e22" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="BMz-uH-QzU"/>
-                <constraint firstItem="jjV-3j-e22" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.5" id="G8g-xH-61O"/>
+                <constraint firstItem="jjV-3j-e22" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.6" id="G8g-xH-61O"/>
             </constraints>
-            <point key="canvasLocation" x="69" y="20"/>
+            <point key="canvasLocation" x="67.938931297709928" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
