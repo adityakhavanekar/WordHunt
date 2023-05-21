@@ -44,4 +44,16 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return homeTableView.frame.height/4.5
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = QuestionsViewController()
+        switch indexPath.row{
+        case 0:
+            vc.isClassic = true
+            vc.viewModel = QuestionsViewModel(url: URL(string: "http://127.0.0.1:3050/wordQuestions")!)
+        default:
+            print("Error")
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

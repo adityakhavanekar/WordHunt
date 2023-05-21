@@ -13,13 +13,68 @@ class HelpViewController: UIViewController {
     @IBOutlet weak var btnView: UIView!
     @IBOutlet weak var internalView: UIView!
     
+    @IBOutlet weak var highScoreLbl: UILabel!
+    @IBOutlet weak var scoreLbl: UILabel!
+    
+    
+    var completion : (()->Void)?
+    var scoreString:String = ""
+    var highScoreString:String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+    
+    private func setupUI(){
         if UIScreen.main.bounds.height <= 850{
             internalViewHeightConstraint.constant = internalViewHeightConstraint.constant + 70
         }
+        scoreLbl.text = scoreString
+        highScoreLbl.text = highScoreString
         btnView.layer.cornerRadius = 15
         internalView.layer.cornerRadius = 20
+        addLiftedShadow(to: btnView)
+        makeViewClickable(btnView, target: self, action: #selector(handleTap))
+    }
+    
+    @IBAction func noThanksClicked(_ sender: UIButton) {
+        self.dismiss(animated: true,completion: completion)
+    }
+    
+    @objc func handleTap() {
+        performInOutAnimation(for: btnView)
     }
 
+}
+
+//Animation and UI
+extension HelpViewController{
+    func makeViewClickable(_ view: UIView, target: Any, action: Selector) {
+        view.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: target, action: action)
+        view.addGestureRecognizer(tapGesture)
+    }
+    func performInOutAnimation(for view: UIView) {
+        let animationDuration = 0.05
+        
+        UIView.animate(withDuration: animationDuration, animations: {
+            view.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+            view.alpha = 0.8
+        }) { (_) in
+            UIView.animate(withDuration: animationDuration, animations: {
+                view.transform = .identity
+                view.alpha = 1.0
+            })
+        }
+    }
+    private func addLiftedShadow(to view: UIView) {
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 2)
+        view.layer.shadowOpacity = 0.5
+        view.layer.shadowRadius = 4
+        view.layer.shadowPath = UIBezierPath(rect: view.bounds).cgPath
+        view.layer.shouldRasterize = true
+        view.layer.rasterizationScale = UIScreen.main.scale
+    }
 }

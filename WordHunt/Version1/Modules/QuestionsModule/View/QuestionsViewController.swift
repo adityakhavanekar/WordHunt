@@ -9,7 +9,7 @@ import UIKit
 import SRCountdownTimer
 
 class QuestionsViewController: UIViewController {
-
+    
     @IBOutlet weak var scoreLbl: UILabel!
     @IBOutlet weak var highScoreLbl: UILabel!
     @IBOutlet weak var collectionViewQuestions: UICollectionView!
@@ -17,6 +17,7 @@ class QuestionsViewController: UIViewController {
     @IBOutlet weak var featuredImgView: UIImageView!
     
     var viewModel:QuestionsViewModel?
+    var isClassic:Bool = true
     var highScore:Int = 0 {
         didSet{
             self.highScoreLbl.text = "High Score: \(highScore)"
@@ -38,6 +39,9 @@ class QuestionsViewController: UIViewController {
     private func setupUI(){
         self.navigationController?.navigationBar.isHidden = true
         score = 0
+        if isClassic == false{
+            self.highScoreLbl.isHidden = true
+        }
         configureTimer()
         setupCollectionView()
         setupUserDefaults()
@@ -59,6 +63,16 @@ class QuestionsViewController: UIViewController {
         collectionViewQuestions.delegate = self
     }
     
+    private func setupUserDefaults(){
+        if isClassic == true{
+            if defaults.object(forKey: "Highscore") != nil{
+                highScore = defaults.object(forKey: "Highscore") as! Int
+            }else{
+                highScore = 0
+            }
+        }
+    }
+    
     private func callViewModel(){
         viewModel?.getWords(completion: {
             DispatchQueue.main.async {
@@ -69,26 +83,28 @@ class QuestionsViewController: UIViewController {
             }
         })
     }
-    
-    private func setupUserDefaults(){
-//        defaults.removeObject(forKey: "Highscore")
-        if defaults.object(forKey: "Highscore") != nil{
-            highScore = defaults.object(forKey: "Highscore") as! Int
-        }else{
-            highScore = 0
-        }
-    }
 }
 
 extension QuestionsViewController: SRCountdownTimerDelegate{
     func timerDidEnd(sender: SRCountdownTimer, elapsedTime: TimeInterval) {
-//        guard let count = viewModel?.getCount() else {return}
-//        let currentIndexPath = collectionViewQuestions.indexPathsForVisibleItems.first
-//        let nextIndexPath = IndexPath(item: ((currentIndexPath?.item)!) + 1, section: currentIndexPath!.section)
-//        if currentIndexPath!.item < count-1{
-//            collectionViewQuestions.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
-//        }
+        //        guard let count = viewModel?.getCount() else {return}
+        //        let currentIndexPath = collectionViewQuestions.indexPathsForVisibleItems.first
+        //        let nextIndexPath = IndexPath(item: ((currentIndexPath?.item)!) + 1, section: currentIndexPath!.section)
+        //        if currentIndexPath!.item < count-1{
+        //            collectionViewQuestions.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
+        //        }
         let vc = HelpViewController()
+        if isClassic == true{
+            vc.scoreString = "Score: \(score)"
+            vc.highScoreString = "High score: \(highScore)"
+        }else{
+            vc.scoreString = ""
+            vc.highScoreString = ""
+        }
+        vc.completion = {
+            self.collectionViewQuestions.isUserInteractionEnabled = false
+            self.navigationController?.popViewController(animated: true)
+        }
         self.present(vc, animated: true)
     }
 }
@@ -126,16 +142,20 @@ extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewData
 
 extension QuestionsViewController:AnsweredAll{
     func answered(cell:QuestionsCollectionViewCell,points:Int) {
-        if defaults.object(forKey: "Highscore") != nil{
-            score += points
-            if score > highScore{
+        if isClassic == true{
+            if defaults.object(forKey: "Highscore") != nil{
+                score += points
+                if score > highScore{
+                    highScore = score
+                    defaults.set(highScore, forKey: "Highscore")
+                }
+            }else{
+                score += points
                 highScore = score
                 defaults.set(highScore, forKey: "Highscore")
             }
         }else{
             score += points
-            highScore = score
-            defaults.set(highScore, forKey: "Highscore")
         }
         guard let indexPath = collectionViewQuestions.indexPath(for: cell) else { return }
         if let count = viewModel?.getCount(){

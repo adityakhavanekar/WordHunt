@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -11,48 +11,50 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HelpViewController" customModule="WordHunt" customModuleProvider="target">
             <connections>
                 <outlet property="btnView" destination="IHQ-0E-5qw" id="7Go-Wm-JQl"/>
+                <outlet property="highScoreLbl" destination="xVX-Qo-bqs" id="lf0-eH-SgY"/>
                 <outlet property="internalView" destination="jjV-3j-e22" id="vDM-xG-e6s"/>
                 <outlet property="internalViewHeightConstraint" destination="G8g-xH-61O" id="Ij6-gj-JrI"/>
+                <outlet property="scoreLbl" destination="waC-xF-uoj" id="CFW-mW-gSb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jjV-3j-e22">
-                    <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
+                    <rect key="frame" x="37.666666666666657" y="223.33333333333334" width="300" height="365.33333333333326"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09Q-B2-keI">
-                            <rect key="frame" x="40" y="40" width="220" height="36"/>
+                            <rect key="frame" x="40" y="39.999999999999972" width="220" height="36"/>
                             <fontDescription key="fontDescription" type="system" weight="black" pointSize="30"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(But there is still a chance to continue from here)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyV-me-Hv3">
-                            <rect key="frame" x="40" y="96" width="220" height="41"/>
+                            <rect key="frame" x="40" y="95.999999999999972" width="220" height="40.666666666666657"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                             <color key="textColor" red="0.80784313725490198" green="0.80784313725490198" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="waC-xF-uoj">
-                            <rect key="frame" x="40" y="157" width="220" height="24"/>
+                            <rect key="frame" x="40" y="156.66666666666666" width="220" height="24"/>
                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High score: 100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVX-Qo-bqs">
-                            <rect key="frame" x="40" y="201" width="220" height="24"/>
+                            <rect key="frame" x="40" y="200.66666666666666" width="220" height="24"/>
                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IHQ-0E-5qw">
-                            <rect key="frame" x="66" y="245" width="168" height="50"/>
+                            <rect key="frame" x="66" y="244.66666666666663" width="168" height="50"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Continue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eM-sP-eay">
-                                    <rect key="frame" x="20" y="14.5" width="74" height="21"/>
+                                    <rect key="frame" x="20" y="14.333333333333314" width="74" height="21"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -73,12 +75,15 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHn-Wd-RMJ">
-                            <rect key="frame" x="40" y="310" width="220" height="33"/>
+                            <rect key="frame" x="40" y="309.66666666666663" width="220" height="33"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal" title="No Thanks">
                                 <color key="titleColor" red="0.80784313725490198" green="0.80784313725490198" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="noThanksClicked:" destination="-1" eventType="touchUpInside" id="GkM-df-yml"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemIndigoColor"/>

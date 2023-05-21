@@ -19,6 +19,7 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     private func setupUI(){
+        self.selectionStyle = .none
         setupInternalView()
     }
     
