@@ -22,7 +22,7 @@ class QuestionsViewModel{
             case .success(let gotData):
                 do{
                     let jsonData = try JSONDecoder().decode([WordHuntElement].self, from: gotData)
-                    self.wordHunt = jsonData
+                    self.wordHunt = jsonData.shuffled()
                     completion()
                 }catch{
                     print("error")
