@@ -106,6 +106,9 @@ extension QuestionsViewController: SRCountdownTimerDelegate{
             self.collectionViewQuestions.isUserInteractionEnabled = false
             self.navigationController?.popViewController(animated: true)
         }
+        vc.continueCompletion = {
+            self.timerView.start(beginingValue: 70)
+        }
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true)
     }
@@ -169,6 +172,8 @@ extension QuestionsViewController:AnsweredAll{
                         self.timerView.start(beginingValue: count * 70)
                     }
                 }
+            }else{
+                
             }
         }
     }

@@ -56,7 +56,6 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
                 cell.categoryDescLbl.text = ""
             case 2:
                 cell.internalImgView.image = UIImage(named: "brand")
-                
                 cell.internalView.applyGradientBackground(color1: "#F73758", color2: "#FB638B")
                 cell.categoryLbl.text = "Brands"
                 cell.categoryDescLbl.text = ""

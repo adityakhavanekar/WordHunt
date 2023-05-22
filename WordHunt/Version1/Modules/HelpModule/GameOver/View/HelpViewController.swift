@@ -18,6 +18,8 @@ class HelpViewController: UIViewController {
     
     
     var completion : (()->Void)?
+    var continueCompletion : (()->Void)?
+    
     var scoreString:String = ""
     var highScoreString:String = ""
     var isTrue:Bool = true
@@ -46,7 +48,9 @@ class HelpViewController: UIViewController {
     }
     
     @objc func handleTap() {
-        performInOutAnimation(for: btnView)
+        performInOutAnimation(for: btnView){
+            self.dismiss(animated: true,completion: self.continueCompletion)
+        }
     }
 
 }
@@ -58,7 +62,8 @@ extension HelpViewController{
         let tapGesture = UITapGestureRecognizer(target: target, action: action)
         view.addGestureRecognizer(tapGesture)
     }
-    func performInOutAnimation(for view: UIView) {
+    
+    func performInOutAnimation(for view: UIView,completion:@escaping ()->()) {
         let animationDuration = 0.05
         
         UIView.animate(withDuration: animationDuration, animations: {
@@ -68,6 +73,8 @@ extension HelpViewController{
             UIView.animate(withDuration: animationDuration, animations: {
                 view.transform = .identity
                 view.alpha = 1.0
+                completion()
+
             })
         }
     }
