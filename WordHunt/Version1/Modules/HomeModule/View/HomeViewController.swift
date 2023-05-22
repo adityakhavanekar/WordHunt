@@ -58,7 +58,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
                 cell.categoryLbl.text = "Animals"
                 cell.categoryDescLbl.text = ""
             case 2:
-                cell.internalImgView.image = UIImage(named: "brand2")
+                cell.internalImgView.image = UIImage(named: "brand")
                 cell.internalView.applyGradientBackground(color1: "#F73758", color2: "#FB638B")
                 cell.categoryLbl.text = "Brands"
                 cell.categoryDescLbl.text = ""
@@ -87,6 +87,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
             vc.viewModel = QuestionsViewModel(url: URL(string: "http://127.0.0.1:3050/animalQuestions")!)
         case 2:
             vc.isClassic = false
+            vc.featuredImageStr = "brandsV"
             vc.viewModel = QuestionsViewModel(url: URL(string: "http://127.0.0.1:3050/brandQuestions")!)
         default:
             print("Error")
