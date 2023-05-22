@@ -98,6 +98,7 @@ extension QuestionsViewController: SRCountdownTimerDelegate{
             vc.scoreString = "Score: \(score)"
             vc.highScoreString = "High score: \(highScore)"
         }else{
+            vc.isTrue = false
             vc.scoreString = ""
             vc.highScoreString = ""
         }

@@ -37,7 +37,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,8 +54,14 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
                 cell.internalView.applyGradientBackground(color1: "#629135", color2: "#CBDD6F")
                 cell.categoryLbl.text = "Animals"
                 cell.categoryDescLbl.text = ""
+            case 2:
+                cell.internalImgView.image = UIImage(named: "brand")
+                
+                cell.internalView.applyGradientBackground(color1: "#F73758", color2: "#FB638B")
+                cell.categoryLbl.text = "Brands"
+                cell.categoryDescLbl.text = ""
             default:
-                cell.internalView.backgroundColor = .black
+                cell.internalView.backgroundColor = .white
             }
         }
         

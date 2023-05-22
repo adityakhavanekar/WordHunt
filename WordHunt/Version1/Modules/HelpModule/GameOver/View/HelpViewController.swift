@@ -20,6 +20,7 @@ class HelpViewController: UIViewController {
     var completion : (()->Void)?
     var scoreString:String = ""
     var highScoreString:String = ""
+    var isTrue:Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,9 @@ class HelpViewController: UIViewController {
     }
     
     private func setupUI(){
+        if isTrue == false{
+            internalViewHeightConstraint.constant = internalViewHeightConstraint.constant - 50
+        }
         if UIScreen.main.bounds.height <= 850{
             internalViewHeightConstraint.constant = internalViewHeightConstraint.constant + 70
         }
