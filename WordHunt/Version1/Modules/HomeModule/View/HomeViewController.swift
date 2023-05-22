@@ -19,6 +19,9 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        setupUI()
+    }
     
     private func setupUI(){
         scoreView.layer.cornerRadius = 10
@@ -48,14 +51,14 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
                 cell.internalImgView.image = UIImage(named: "alphabet")
                 cell.internalView.applyGradientBackground(color1: "#0094B2", color2: "#00BBD4")
                 cell.categoryLbl.text = "Classic"
-                cell.categoryDescLbl.text = "Unlimited words"
+                cell.categoryDescLbl.text = "Unlimited words\nUnlimited Hints"
             case 1:
                 cell.internalImgView.image = UIImage(named:"animals")
                 cell.internalView.applyGradientBackground(color1: "#629135", color2: "#CBDD6F")
                 cell.categoryLbl.text = "Animals"
                 cell.categoryDescLbl.text = ""
             case 2:
-                cell.internalImgView.image = UIImage(named: "brand")
+                cell.internalImgView.image = UIImage(named: "brand2")
                 cell.internalView.applyGradientBackground(color1: "#F73758", color2: "#FB638B")
                 cell.categoryLbl.text = "Brands"
                 cell.categoryDescLbl.text = ""
@@ -80,6 +83,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
             vc.viewModel = QuestionsViewModel(url: URL(string: "http://127.0.0.1:3050/wordQuestions")!)
         case 1:
             vc.isClassic = false
+            vc.featuredImageStr = "animalsV"
             vc.viewModel = QuestionsViewModel(url: URL(string: "http://127.0.0.1:3050/animalQuestions")!)
         case 2:
             vc.isClassic = false

@@ -16,6 +16,7 @@ class QuestionsViewController: UIViewController {
     @IBOutlet weak var timerView: SRCountdownTimer!
     @IBOutlet weak var featuredImgView: UIImageView!
     
+    var featuredImageStr:String?
     var viewModel:QuestionsViewModel?
     var isClassic:Bool = true
     var highScore:Int = 0 {
@@ -45,6 +46,9 @@ class QuestionsViewController: UIViewController {
         configureTimer()
         setupCollectionView()
         setupUserDefaults()
+        if let img = featuredImageStr{
+            featuredImgView.image = UIImage(named: img)
+        }
     }
     
     private func configureTimer(){
