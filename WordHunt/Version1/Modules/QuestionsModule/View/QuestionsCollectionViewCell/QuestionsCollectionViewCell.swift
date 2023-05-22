@@ -35,13 +35,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     
     var answer:String = "" {
         didSet{
-            if answer == ""{
-//                self.answerLbl.layer.borderWidth = 0
-            }else{
-//                self.answerLbl.layer.borderWidth = 5
-            }
             self.answerLbl.text = answer
-//            self.animatePopEffect(for: answerLbl)
         }
     }
     
