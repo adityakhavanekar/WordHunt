@@ -60,7 +60,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
                 cell.categoryLbl.text = "Brands"
                 cell.categoryDescLbl.text = ""
             default:
-                cell.internalView.backgroundColor = .white
+                cell.internalView.backgroundColor = .lightGray
             }
         }
         

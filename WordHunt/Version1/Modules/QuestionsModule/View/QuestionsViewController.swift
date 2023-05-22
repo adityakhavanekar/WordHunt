@@ -87,12 +87,6 @@ class QuestionsViewController: UIViewController {
 
 extension QuestionsViewController: SRCountdownTimerDelegate{
     func timerDidEnd(sender: SRCountdownTimer, elapsedTime: TimeInterval) {
-        //        guard let count = viewModel?.getCount() else {return}
-        //        let currentIndexPath = collectionViewQuestions.indexPathsForVisibleItems.first
-        //        let nextIndexPath = IndexPath(item: ((currentIndexPath?.item)!) + 1, section: currentIndexPath!.section)
-        //        if currentIndexPath!.item < count-1{
-        //            collectionViewQuestions.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
-        //        }
         let vc = HelpViewController()
         if isClassic == true{
             vc.scoreString = "Score: \(score)"
