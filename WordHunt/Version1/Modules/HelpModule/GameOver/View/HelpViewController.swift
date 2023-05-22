@@ -34,7 +34,6 @@ class HelpViewController: UIViewController {
         highScoreLbl.text = highScoreString
         btnView.layer.cornerRadius = 15
         internalView.layer.cornerRadius = 20
-        addLiftedShadow(to: btnView)
         makeViewClickable(btnView, target: self, action: #selector(handleTap))
     }
     
@@ -68,13 +67,14 @@ extension HelpViewController{
             })
         }
     }
-    private func addLiftedShadow(to view: UIView) {
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOffset = CGSize(width: 0, height: 2)
-        view.layer.shadowOpacity = 0.5
-        view.layer.shadowRadius = 4
-        view.layer.shadowPath = UIBezierPath(rect: view.bounds).cgPath
-        view.layer.shouldRasterize = true
-        view.layer.rasterizationScale = UIScreen.main.scale
-    }
+//    private func addLiftedShadow(to view: UIView) {
+//        view.layer.shadowColor = UIColor.black.cgColor
+//        view.layer.shadowOffset = CGSize(width: 0, height: 2)
+//        view.layer.shadowOpacity = 0.1
+//        view.layer.shadowRadius = 2
+//        view.layer.shadowPath = UIBezierPath(rect: view.bounds).cgPath
+//        view.layer.shouldRasterize = true
+//        view.clipsToBounds = true
+//        view.layer.rasterizationScale = UIScreen.main.scale
+//    }
 }

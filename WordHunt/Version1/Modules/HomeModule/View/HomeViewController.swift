@@ -9,8 +9,11 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var highscoreLbl: UILabel!
     @IBOutlet weak var scoreView: UIView!
     @IBOutlet weak var homeTableView: UITableView!
+    
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +22,7 @@ class HomeViewController: UIViewController {
     
     private func setupUI(){
         scoreView.layer.cornerRadius = 10
+        highscoreLbl.text = "Highscore: \(defaults.object(forKey: "Highscore") ?? "")"
         setupTableView()
     }
     

@@ -105,6 +105,7 @@ extension QuestionsViewController: SRCountdownTimerDelegate{
             self.collectionViewQuestions.isUserInteractionEnabled = false
             self.navigationController?.popViewController(animated: true)
         }
+        vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true)
     }
 }

@@ -294,50 +294,35 @@ extension QuestionsCollectionViewCell{
     private func animateCorrectAnsLbl(label:UILabel,newText: String, characterDelay: TimeInterval, animationDuration: TimeInterval, scale: CGFloat,completion: ((Bool)->(Void))?) {
         let originalTransform = transform
         DispatchQueue.main.async {
-            label.text = ""
-            for (index, character) in newText.enumerated() {
-                DispatchQueue.main.asyncAfter(deadline: .now() + characterDelay * Double(index)) {
-                    label.text?.append(character)
-                    if index == newText.count - 1 {
-                        UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
-                            let scaleTransform = CGAffineTransform(scaleX: scale, y: scale)
-                            label.transform = scaleTransform
-                            label.textColor = .white
-                            label.backgroundColor = .systemGreen
-                        }, completion: { _ in
-                            UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
-                                label.transform = originalTransform
-                            }, completion: completion)
-                        })
-                    }
-                }
-            }
+            UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
+                let scaleTransform = CGAffineTransform(scaleX: scale, y: scale)
+                label.transform = scaleTransform
+                label.textColor = .white
+                label.backgroundColor = .systemGreen
+            }, completion: { _ in
+                UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
+                    label.transform = originalTransform
+                }, completion: completion)
+            })
         }
     }
     
     private func animateWrongAnsLbl(label: UILabel, newText: String, characterDelay: TimeInterval, animationDuration: TimeInterval, shakeDistance: CGFloat, completion: ((Bool) -> Void)?) {
         let originalTransform = label.transform
         DispatchQueue.main.async {
-            label.text = ""
-            for (index, character) in newText.enumerated() {
-                DispatchQueue.main.asyncAfter(deadline: .now() + characterDelay * Double(index)) {
-                    label.text?.append(character)
-                    if index == newText.count - 1 {
-                        UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
-                            // Shake animation
-                            let shakeTransform = CGAffineTransform(translationX: -shakeDistance, y: 0)
-                            label.transform = shakeTransform
-                            label.textColor = .white
-                            label.backgroundColor = .systemRed
-                        }, completion: { _ in
-                            UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
-                                // Restore original position
-                                label.transform = originalTransform
-                            }, completion: completion)
-                        })
-                    }
-                }
-            }
+            
+            UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
+                // Shake animation
+                let shakeTransform = CGAffineTransform(translationX: -shakeDistance, y: 0)
+                label.transform = shakeTransform
+                label.textColor = .white
+                label.backgroundColor = .systemRed
+            }, completion: { _ in
+                UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
+                    // Restore original position
+                    label.transform = originalTransform
+                }, completion: completion)
+            })
         }
     }
 }
