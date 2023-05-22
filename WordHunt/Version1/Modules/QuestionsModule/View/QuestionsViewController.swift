@@ -83,6 +83,11 @@ class QuestionsViewController: UIViewController {
             }
         })
     }
+    
+    @IBAction func homeBtnClicked(_ sender: UIButton) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
 }
 
 extension QuestionsViewController: SRCountdownTimerDelegate{

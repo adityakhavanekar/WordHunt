@@ -76,8 +76,6 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupLbl(){
-//        answerLbl.layer.borderColor = UIColor.white.cgColor
-//        answerLbl.layer.borderWidth = 5
         answerLbl.layer.cornerRadius = 20
         answerLbl.clipsToBounds = true
         answer = ""
@@ -152,7 +150,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         isUserInteractionEnabled = true
     }
     @IBAction func hintTapped(_ sender: UIButton) {
-        print("Hint Tapped")
+        print(element?.answers[0].hint ?? "")
     }
     
     @IBAction func timeTapped(_ sender: UIButton) {
