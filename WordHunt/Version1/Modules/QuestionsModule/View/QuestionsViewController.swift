@@ -7,14 +7,26 @@
 
 import UIKit
 import SRCountdownTimer
+import GoogleMobileAds
 
 class QuestionsViewController: UIViewController {
     
+    @IBOutlet weak var adView: UIView!
     @IBOutlet weak var scoreLbl: UILabel!
     @IBOutlet weak var highScoreLbl: UILabel!
     @IBOutlet weak var collectionViewQuestions: UICollectionView!
     @IBOutlet weak var timerView: SRCountdownTimer!
     @IBOutlet weak var featuredImgView: UIImageView!
+    
+    private let banner:GADBannerView = {
+        let banner = GADBannerView()
+//        ca-app-pub-8260816350989246/6510909087
+//TESTAD: ca-app-pub-3940256099942544/2934735716
+        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        banner.load(GADRequest())
+        banner.backgroundColor = .clear
+        return banner
+    }()
     
     var featuredImageStr:String?
     var viewModel:QuestionsViewModel?
@@ -48,6 +60,15 @@ class QuestionsViewController: UIViewController {
         setupUserDefaults()
         if let img = featuredImageStr{
             featuredImgView.image = UIImage(named: img)
+        }
+        configureAd()
+    }
+    
+    private func configureAd(){
+        banner.rootViewController = self
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.2){
+            self.banner.frame = self.adView.bounds
+            self.adView.addSubview(self.banner)
         }
     }
     

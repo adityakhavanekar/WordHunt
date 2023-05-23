@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuestionsViewController" customModule="WordHunt" customModuleProvider="target">
             <connections>
+                <outlet property="adView" destination="AL4-fH-3aR" id="tfP-wj-yrb"/>
                 <outlet property="collectionViewQuestions" destination="SxT-yE-veN" id="fgg-uz-lUB"/>
                 <outlet property="featuredImgView" destination="4Wh-ch-WuI" id="Jnz-Nc-3rB"/>
                 <outlet property="highScoreLbl" destination="7wU-Z6-sth" id="x2g-Wf-c2C"/>
@@ -71,6 +72,10 @@
                                 <action selector="homeBtnClicked:" destination="-1" eventType="touchUpInside" id="b09-E5-cpc"/>
                             </connections>
                         </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AL4-fH-3aR" userLabel="adView">
+                            <rect key="frame" x="0.0" y="709" width="393" height="50"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.99215686270000003" green="0.6705882353" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
@@ -90,6 +95,10 @@
                         <constraint firstAttribute="trailing" secondItem="SxT-yE-veN" secondAttribute="trailing" id="aGN-p5-GCZ"/>
                         <constraint firstAttribute="bottom" secondItem="SxT-yE-veN" secondAttribute="bottom" constant="50" id="dyC-zT-Wqp"/>
                         <constraint firstItem="LNF-De-fwo" firstAttribute="top" secondItem="4Wh-ch-WuI" secondAttribute="bottom" constant="-40" id="euz-jh-KjG"/>
+                        <constraint firstAttribute="trailing" secondItem="AL4-fH-3aR" secondAttribute="trailing" id="ksf-RB-rXK"/>
+                        <constraint firstItem="AL4-fH-3aR" firstAttribute="top" secondItem="SxT-yE-veN" secondAttribute="bottom" id="lrE-6W-Y26"/>
+                        <constraint firstItem="AL4-fH-3aR" firstAttribute="leading" secondItem="fNa-B9-Ke3" secondAttribute="leading" id="rWN-gc-ZKO"/>
+                        <constraint firstAttribute="bottom" secondItem="AL4-fH-3aR" secondAttribute="bottom" id="wny-MP-uaR"/>
                     </constraints>
                 </view>
             </subviews>
@@ -101,7 +110,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fNa-B9-Ke3" secondAttribute="trailing" id="f6y-ih-vzG"/>
                 <constraint firstItem="fNa-B9-Ke3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="lxq-gK-Lef"/>
             </constraints>
-            <point key="canvasLocation" x="34" y="21"/>
+            <point key="canvasLocation" x="32.824427480916029" y="20.422535211267608"/>
         </view>
     </objects>
     <resources>
