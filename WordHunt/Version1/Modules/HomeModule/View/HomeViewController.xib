@@ -56,17 +56,25 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" bouncesZoom="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MIP-LD-Sn5">
-                    <rect key="frame" x="0.0" y="129" width="393" height="689"/>
+                    <rect key="frame" x="0.0" y="129" width="393" height="639"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P9c-hg-SgW" userLabel="adView">
+                    <rect key="frame" x="0.0" y="768" width="393" height="50"/>
+                    <color key="backgroundColor" systemColor="systemPinkColor"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="SzR-K2-0dL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="1l0-Zt-0NM"/>
                 <constraint firstItem="caU-1e-n5p" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="HYp-Bd-oF3"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="MIP-LD-Sn5" secondAttribute="bottom" id="ThM-qN-BSm"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="P9c-hg-SgW" secondAttribute="trailing" id="RWn-Ds-S9b"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="MIP-LD-Sn5" secondAttribute="bottom" constant="50" id="ThM-qN-BSm"/>
+                <constraint firstItem="P9c-hg-SgW" firstAttribute="top" secondItem="MIP-LD-Sn5" secondAttribute="bottom" id="TwR-cF-sxD"/>
                 <constraint firstItem="MIP-LD-Sn5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bKO-dv-cQg"/>
+                <constraint firstItem="P9c-hg-SgW" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="fyN-i7-0YA"/>
+                <constraint firstItem="P9c-hg-SgW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hyf-bJ-Jah"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MIP-LD-Sn5" secondAttribute="trailing" id="l0t-A7-ZDp"/>
                 <constraint firstItem="MIP-LD-Sn5" firstAttribute="top" secondItem="SzR-K2-0dL" secondAttribute="bottom" constant="20" id="lha-qE-a5C"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SzR-K2-0dL" secondAttribute="trailing" constant="16" id="rza-jQ-05s"/>
@@ -82,6 +90,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
