@@ -6,14 +6,26 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var adView: UIView!
     @IBOutlet weak var highscoreLbl: UILabel!
     @IBOutlet weak var scoreView: UIView!
     @IBOutlet weak var homeTableView: UITableView!
     
     let defaults = UserDefaults.standard
+    
+    private let banner:GADBannerView = {
+        let banner = GADBannerView()
+//        ca-app-pub-8260816350989246/6510909087
+//TESTAD: ca-app-pub-3940256099942544/2934735716
+        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        banner.load(GADRequest())
+        banner.backgroundColor = .clear
+        return banner
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +39,15 @@ class HomeViewController: UIViewController {
         scoreView.layer.cornerRadius = 10
         highscoreLbl.text = "Highscore: \(defaults.object(forKey: "Highscore") ?? "")"
         setupTableView()
+        configureAd()
+    }
+    
+    private func configureAd(){
+        banner.rootViewController = self
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.2){
+            self.banner.frame = self.adView.bounds
+            self.adView.addSubview(self.banner)
+        }
     }
     
     private func setupTableView(){

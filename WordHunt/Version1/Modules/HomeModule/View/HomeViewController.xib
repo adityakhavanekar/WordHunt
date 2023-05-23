@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="WordHunt" customModuleProvider="target">
             <connections>
+                <outlet property="adView" destination="P9c-hg-SgW" id="4zd-lx-a3h"/>
                 <outlet property="highscoreLbl" destination="hsx-y9-6Ks" id="MhO-SZ-CAb"/>
                 <outlet property="homeTableView" destination="MIP-LD-Sn5" id="0C7-b8-3h1"/>
                 <outlet property="scoreView" destination="SzR-K2-0dL" id="Msv-kN-Thl"/>
