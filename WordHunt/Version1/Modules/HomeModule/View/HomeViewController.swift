@@ -100,20 +100,3 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         self.present(vc2, animated: true)
     }
 }
-
-extension UIView{
-    func applyGradientBackground(color1: String, color2: String) {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.bounds
-        
-        let color1 = UIColor(hexString: color1)?.cgColor
-        let color2 = UIColor(hexString: color2)?.cgColor
-        
-        gradientLayer.colors = [color1, color2]
-        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
-        
-        self.layer.insertSublayer(gradientLayer, at: 0)
-    }
-}
-
