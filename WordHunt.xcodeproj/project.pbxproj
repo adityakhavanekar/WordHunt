@@ -34,6 +34,7 @@
 		188426032A16525400EE4251 /* QuestionsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188426012A16525400EE4251 /* QuestionsCollectionViewCell.xib */; };
 		188426072A1652FE00EE4251 /* AlphabetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188426052A1652FE00EE4251 /* AlphabetCollectionViewCell.swift */; };
 		188426082A1652FE00EE4251 /* AlphabetCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188426062A1652FE00EE4251 /* AlphabetCollectionViewCell.xib */; };
+		18E227212A1D09420017F306 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 18E227202A1D09420017F306 /* GoogleMobileAds */; };
 		18EE4DC12A190D8400F7B842 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE4DBF2A190D8400F7B842 /* HelpViewController.swift */; };
 		18EE4DC22A190D8400F7B842 /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EE4DC02A190D8400F7B842 /* HelpViewController.xib */; };
 		6735E4F99A9042CD7E3347FC /* Pods_WordHuntTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0BFBCCAAC4DE88BBE043FB4 /* Pods_WordHuntTests.framework */; };
@@ -108,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18E227212A1D09420017F306 /* GoogleMobileAds in Frameworks */,
 				F5F676A4E012A082B5D8100C /* Pods_WordHunt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,6 +383,9 @@
 			dependencies = (
 			);
 			name = WordHunt;
+			packageProductDependencies = (
+				18E227202A1D09420017F306 /* GoogleMobileAds */,
+			);
 			productName = WordHunt;
 			productReference = 186880922A16006100848325 /* WordHunt.app */;
 			productType = "com.apple.product-type.application";
@@ -456,6 +461,9 @@
 				Base,
 			);
 			mainGroup = 186880892A16006100848325;
+			packageReferences = (
+				18E2271F2A1D09420017F306 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
 			productRefGroup = 186880932A16006100848325 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -968,6 +976,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		18E2271F2A1D09420017F306 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		18E227202A1D09420017F306 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 18E2271F2A1D09420017F306 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		1868809E2A16006100848325 /* WordHunt.xcdatamodeld */ = {
