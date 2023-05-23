@@ -101,7 +101,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JW4-iZ-tAd">
-                                        <rect key="frame" x="52.666666666666686" y="0.0" width="37.333333333333371" height="40"/>
+                                        <rect key="frame" x="52.666666666666686" y="0.0" width="37.333333333333343" height="40"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="time"/>
                                         <connections>
@@ -122,6 +122,12 @@
                             <constraint firstAttribute="height" constant="50" id="lXQ-b5-3Bi"/>
                         </constraints>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*No of letters: 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvg-xv-4MW">
+                        <rect key="frame" x="20.000000000000007" y="346" width="113.66666666666669" height="18"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -139,6 +145,8 @@
                 <constraint firstItem="jEb-cg-yQf" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="b7f-21-Quu"/>
                 <constraint firstItem="uWB-Wc-yE0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="b8P-1s-u8T"/>
                 <constraint firstItem="jEb-cg-yQf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="35" id="fYX-a0-ej6"/>
+                <constraint firstItem="uvg-xv-4MW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="imP-7U-LIV"/>
+                <constraint firstItem="uWB-Wc-yE0" firstAttribute="top" secondItem="uvg-xv-4MW" secondAttribute="bottom" constant="10" id="jaO-Rc-CfN"/>
             </constraints>
             <size key="customSize" width="516" height="544"/>
             <connections>
@@ -147,6 +155,7 @@
                 <outlet property="collectionViewAlphabet" destination="WQR-vo-D7c" id="xjC-nQ-9yx"/>
                 <outlet property="helpView" destination="QGq-Vu-CpR" id="2du-vg-Z8C"/>
                 <outlet property="hintBtn" destination="cT5-z6-3zP" id="pC8-Jc-bFj"/>
+                <outlet property="letterCountLbl" destination="uvg-xv-4MW" id="HMd-NO-bB6"/>
                 <outlet property="resetBtn" destination="Z0k-Pr-SZp" id="So9-43-t2v"/>
                 <outlet property="submitBtn" destination="qyU-Zz-WVP" id="XPU-RR-Qub"/>
                 <outlet property="timeBtn" destination="JW4-iZ-tAd" id="nrI-Ew-6QT"/>

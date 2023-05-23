@@ -22,6 +22,7 @@ protocol AnsweredAll{
 
 class QuestionsCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var letterCountLbl: UILabel!
     @IBOutlet weak var timeBtn: UIButton!
     @IBOutlet weak var hintBtn: UIButton!
     @IBOutlet weak var helpView: UIView!

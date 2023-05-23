@@ -125,6 +125,12 @@ extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionViewQuestions.dequeueReusableCell(withReuseIdentifier: "QuestionsCollectionViewCell", for: indexPath) as? QuestionsCollectionViewCell else {return UICollectionViewCell()}
         if let object = viewModel?.getElement(index: indexPath.row){
+            if isClassic == true{
+                cell.letterCountLbl.isHidden = false
+                cell.letterCountLbl.text = "*No of letters \(object.answers[0].word.count)"
+            }else{
+                cell.letterCountLbl.isHidden = true
+            }
             var newObject = object
             newObject.chars = newObject.chars.shuffled()
             cell.delegate = self
