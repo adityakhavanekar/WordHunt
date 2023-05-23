@@ -11,6 +11,8 @@
 		183356C72A1A60D000906776 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183356C52A1A60D000906776 /* HomeViewController.xib */; };
 		183356CB2A1A669F00906776 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183356C92A1A669F00906776 /* HomeTableViewCell.swift */; };
 		183356CC2A1A669F00906776 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183356CA2A1A669F00906776 /* HomeTableViewCell.xib */; };
+		183356D62A1CFAF200906776 /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183356D42A1CFAF200906776 /* CounterViewController.swift */; };
+		183356D72A1CFAF200906776 /* CounterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183356D52A1CFAF200906776 /* CounterViewController.xib */; };
 		184277482A175550004B09CE /* wordHuntModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184277472A175550004B09CE /* wordHuntModel.swift */; };
 		1842774B2A175587004B09CE /* QuestionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842774A2A175587004B09CE /* QuestionsViewModel.swift */; };
 		1842774D2A1755C8004B09CE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842774C2A1755C8004B09CE /* NetworkManager.swift */; };
@@ -63,6 +65,8 @@
 		183356C52A1A60D000906776 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		183356C92A1A669F00906776 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		183356CA2A1A669F00906776 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
+		183356D42A1CFAF200906776 /* CounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewController.swift; sourceTree = "<group>"; };
+		183356D52A1CFAF200906776 /* CounterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CounterViewController.xib; sourceTree = "<group>"; };
 		184277472A175550004B09CE /* wordHuntModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordHuntModel.swift; sourceTree = "<group>"; };
 		1842774A2A175587004B09CE /* QuestionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewModel.swift; sourceTree = "<group>"; };
 		1842774C2A1755C8004B09CE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 		181830D32A16216B004309DA /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				183356D32A1CFAD600906776 /* Counter */,
 				18EE4DBD2A190D6100F7B842 /* HelpModule */,
 				186880CA2A16007B00848325 /* QuestionsModule */,
 				186880C92A16007300848325 /* HomeModule */,
@@ -167,6 +172,23 @@
 				183356CA2A1A669F00906776 /* HomeTableViewCell.xib */,
 			);
 			path = HomeTableViewCell;
+			sourceTree = "<group>";
+		};
+		183356D32A1CFAD600906776 /* Counter */ = {
+			isa = PBXGroup;
+			children = (
+				183356D82A1D055100906776 /* View */,
+			);
+			path = Counter;
+			sourceTree = "<group>";
+		};
+		183356D82A1D055100906776 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				183356D42A1CFAF200906776 /* CounterViewController.swift */,
+				183356D52A1CFAF200906776 /* CounterViewController.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		184277462A174354004B09CE /* Model */ = {
@@ -309,7 +331,6 @@
 		18EE4DBD2A190D6100F7B842 /* HelpModule */ = {
 			isa = PBXGroup;
 			children = (
-				18EE4DC42A19147200F7B842 /* ExtraHelp */,
 				18EE4DC32A19146400F7B842 /* GameOver */,
 			);
 			path = HelpModule;
@@ -330,13 +351,6 @@
 				18EE4DBE2A190D7000F7B842 /* View */,
 			);
 			path = GameOver;
-			sourceTree = "<group>";
-		};
-		18EE4DC42A19147200F7B842 /* ExtraHelp */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ExtraHelp;
 			sourceTree = "<group>";
 		};
 		557A5A7284893D80F68D3192 /* Frameworks */ = {
@@ -460,6 +474,7 @@
 			files = (
 				186880A52A16006300848325 /* LaunchScreen.storyboard in Resources */,
 				188426082A1652FE00EE4251 /* AlphabetCollectionViewCell.xib in Resources */,
+				183356D72A1CFAF200906776 /* CounterViewController.xib in Resources */,
 				186880A22A16006300848325 /* Assets.xcassets in Resources */,
 				188425FE2A16514800EE4251 /* QuestionsViewController.xib in Resources */,
 				183356CC2A1A669F00906776 /* HomeTableViewCell.xib in Resources */,
@@ -601,6 +616,7 @@
 				186880A02A16006100848325 /* WordHunt.xcdatamodeld in Sources */,
 				183356C62A1A60D000906776 /* HomeViewController.swift in Sources */,
 				183356CB2A1A669F00906776 /* HomeTableViewCell.swift in Sources */,
+				183356D62A1CFAF200906776 /* CounterViewController.swift in Sources */,
 				188425FD2A16514800EE4251 /* QuestionsViewController.swift in Sources */,
 				188426022A16525400EE4251 /* QuestionsCollectionViewCell.swift in Sources */,
 				186880DE2A160CF900848325 /* Extensions.swift in Sources */,

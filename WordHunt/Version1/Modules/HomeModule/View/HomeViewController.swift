@@ -76,6 +76,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc2 = CounterViewController()
         let vc = QuestionsViewController()
         switch indexPath.row{
         case 0:
@@ -92,7 +93,11 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         default:
             print("Error")
         }
-        self.navigationController?.pushViewController(vc, animated: true)
+        vc2.completion = {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        vc2.modalPresentationStyle = .overFullScreen
+        self.present(vc2, animated: true)
     }
 }
 
