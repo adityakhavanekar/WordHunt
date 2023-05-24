@@ -133,7 +133,7 @@ extension QuestionsViewController: SRCountdownTimerDelegate{
             self.navigationController?.popViewController(animated: true)
         }
         vc.continueCompletion = {
-            self.timerView.start(beginingValue: 70)
+            self.show()
         }
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true)
@@ -212,9 +212,38 @@ extension QuestionsViewController:Answered{
 }
 
 extension QuestionsViewController:GADFullScreenContentDelegate{
-//    Test: ca-app-pub-3940256099942544/1712485313
-//    ca-app-pub-8260816350989246/3635094615
-    func loadRewardedAd() {
+    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+        loadRewardedAd(completion: {
+            self.show()
+        })
+    }
+    
+    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("Ad will present full screen content.")
+    }
+    
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        self.timerView.start(beginingValue: 5)
+        print("Ad did dismiss full screen content.")
+    }
+    
+    func show() {
+        if let ad = rewardedAd {
+            ad.present(fromRootViewController: self) {
+                let reward = ad.adReward
+                print("Reward received with currency \(reward.amount), amount \(reward.amount.doubleValue)")
+                // TODO: Reward the user.
+            }
+        } else {
+            
+            print("Ad wasn't ready")
+        }
+    }
+    
+    
+    //    Test: ca-app-pub-3940256099942544/1712485313
+    //    ca-app-pub-8260816350989246/3635094615
+    func loadRewardedAd(completion:(()->())?=nil) {
         let request = GADRequest()
         GADRewardedAd.load(withAdUnitID:"ca-app-pub-3940256099942544/1712485313",
                            request: request,
@@ -226,31 +255,8 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
             rewardedAd = ad
             print("Rewarded ad loaded.")
             rewardedAd?.fullScreenContentDelegate = self
+            completion?()
         }
         )
-    }
-    
-    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
-        print("Ad did fail to present full screen content.")
-      }
-
-      func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-        print("Ad will present full screen content.")
-      }
-
-      func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-        print("Ad did dismiss full screen content.")
-      }
-    
-    func show() {
-      if let ad = rewardedAd {
-        ad.present(fromRootViewController: self) {
-          let reward = ad.adReward
-          print("Reward received with currency \(reward.amount), amount \(reward.amount.doubleValue)")
-          // TODO: Reward the user.
-        }
-      } else {
-        print("Ad wasn't ready")
-      }
     }
 }
