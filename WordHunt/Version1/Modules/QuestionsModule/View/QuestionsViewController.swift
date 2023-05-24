@@ -17,6 +17,7 @@ class QuestionsViewController: UIViewController {
     @IBOutlet weak var collectionViewQuestions: UICollectionView!
     @IBOutlet weak var timerView: SRCountdownTimer!
     @IBOutlet weak var featuredImgView: UIImageView!
+    
     private var rewardedAd: GADRewardedAd?
     private let banner:GADBannerView = {
         let banner = GADBannerView()
@@ -176,7 +177,7 @@ extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewData
     
 }
 
-extension QuestionsViewController:AnsweredAll{
+extension QuestionsViewController:Answered{
     func answered(cell:QuestionsCollectionViewCell,points:Int) {
         if isClassic == true{
             if defaults.object(forKey: "Highscore") != nil{

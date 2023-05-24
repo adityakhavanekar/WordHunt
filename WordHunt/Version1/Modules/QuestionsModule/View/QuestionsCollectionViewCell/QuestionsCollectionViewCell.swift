@@ -9,21 +9,20 @@ import UIKit
 
 enum Help{
     case hint
-    case time
 }
 
-protocol hintPressed{
+protocol HintPressed{
     func helpNeeded(type:Help)
 }
 
-protocol AnsweredAll{
+protocol Answered{
     func answered(cell:QuestionsCollectionViewCell,points:Int)
 }
 
 class QuestionsCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var hintLbl: PaddingLabel!
     @IBOutlet weak var letterCountLbl: UILabel!
-    @IBOutlet weak var timeBtn: UIButton!
     @IBOutlet weak var hintBtn: UIButton!
     @IBOutlet weak var helpView: UIView!
     @IBOutlet weak var resetBtn: UIButton!
@@ -32,7 +31,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var collectionViewAlphabet: UICollectionView!
     @IBOutlet weak var answerLblTopConstraint: NSLayoutConstraint!
     
-    var delegate:AnsweredAll?
+    var delegate:Answered?
     
     var answer:String = "" {
         didSet{
@@ -46,7 +45,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         if UIScreen.main.bounds.height <= 700{
-            answerLblTopConstraint.constant = answerLblTopConstraint.constant - 30
+            answerLblTopConstraint.constant = answerLblTopConstraint.constant - 50
         }
         setupUI()
     }
@@ -56,11 +55,20 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupUI(){
+        setupHintLbl()
         helpView.layer.cornerRadius = 5
         setupCollectionView()
         setupButtons()
         setupLbl()
         myAnswers.removeAll()
+    }
+    
+    private func setupHintLbl(){
+        hintLbl.isHidden = true
+        hintLbl.layer.cornerRadius = 5
+        hintLbl.layer.borderColor = UIColor.white.cgColor
+        hintLbl.layer.borderWidth = 2
+        hintLbl.clipsToBounds = true
     }
     private func setupCollectionView(){
         collectionViewAlphabet.register(UINib(nibName: "AlphabetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AlphabetCollectionViewCell")
@@ -72,8 +80,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     private func setupButtons(){
         configure3DButton(button: submitBtn)
         configure3DButton(button: resetBtn)
-        configure3DButton(button: hintBtn)
-        configure3DButton(button: timeBtn)
+        configure3DButtonNew(button: hintBtn)
     }
     
     private func setupLbl(){
@@ -151,13 +158,11 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         isUserInteractionEnabled = true
     }
     @IBAction func hintTapped(_ sender: UIButton) {
+        hintLbl.text = "*Hint: \(element?.answers[0].hint ?? "")"
+        hintLbl.isHidden = false
+        simpleAnimateLabel(hintLbl)
         print(element?.answers[0].hint ?? "")
     }
-    
-    @IBAction func timeTapped(_ sender: UIButton) {
-        print("Time tapped")
-    }
-    
 }
 
 // CollectionViewCells
@@ -273,6 +278,16 @@ extension QuestionsCollectionViewCell{
         button.layer.shadowOpacity = 0.5
         button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
     }
+    private func configure3DButtonNew(button: UIButton) {
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.clear.cgColor
+//        button.layer.shadowColor = UIColor.init(hexString: "#013220")?.cgColor
+//        button.layer.shadowOffset = CGSize(width: 0, height: 2)
+//        button.layer.shadowRadius = 2
+//        button.layer.shadowOpacity = 0.5
+        button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+    }
     
     @objc func buttonTapped(_ sender: UIButton) {
         UIView.animate(withDuration: 0.1, animations: {
@@ -315,6 +330,23 @@ extension QuestionsCollectionViewCell{
                     // Restore original position
                     label.transform = originalTransform
                 }, completion: completion)
+            })
+        }
+    }
+    
+    func simpleAnimateLabel(_ label: UILabel) {
+        let originalTransform = label.transform
+        
+        // Create a scale transform to make the label bigger
+        let scaleTransform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        
+        // Animate the label to the bigger size
+        UIView.animate(withDuration: 0.2, animations: {
+            label.transform = scaleTransform
+        }) { _ in
+            // After the animation completes, animate the label back to its original size
+            UIView.animate(withDuration: 0.2, animations: {
+                label.transform = originalTransform
             })
         }
     }
