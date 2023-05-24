@@ -223,7 +223,7 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
     }
     
     func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-        self.timerView.start(beginingValue: 5)
+        self.timerView.start(beginingValue: 70)
         print("Ad did dismiss full screen content.")
     }
     
