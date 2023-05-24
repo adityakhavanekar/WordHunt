@@ -11,6 +11,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuestionsViewController" customModule="WordHunt" customModuleProvider="target">
             <connections>
                 <outlet property="adView" destination="AL4-fH-3aR" id="tfP-wj-yrb"/>
+                <outlet property="adViewHeightConstraint" destination="p2I-x8-6Tc" id="pVd-eG-sRl"/>
+                <outlet property="collectionViewBottomConstraint" destination="dyC-zT-Wqp" id="vc9-6y-WLK"/>
                 <outlet property="collectionViewQuestions" destination="SxT-yE-veN" id="fgg-uz-lUB"/>
                 <outlet property="featuredImgView" destination="4Wh-ch-WuI" id="Jnz-Nc-3rB"/>
                 <outlet property="highScoreLbl" destination="7wU-Z6-sth" id="x2g-Wf-c2C"/>
@@ -75,6 +77,9 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AL4-fH-3aR" userLabel="adView">
                             <rect key="frame" x="0.0" y="709" width="393" height="50"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="p2I-x8-6Tc"/>
+                            </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" red="0.99215686270000003" green="0.6705882353" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

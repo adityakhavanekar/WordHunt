@@ -11,6 +11,8 @@ import GoogleMobileAds
 
 class QuestionsViewController: UIViewController {
     
+    @IBOutlet weak var collectionViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var adViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var adView: UIView!
     @IBOutlet weak var scoreLbl: UILabel!
     @IBOutlet weak var highScoreLbl: UILabel!
@@ -51,6 +53,10 @@ class QuestionsViewController: UIViewController {
     }
     
     private func setupUI(){
+        if UIScreen.main.bounds.height <= 700{
+            adViewHeightConstraint.constant = adViewHeightConstraint.constant - 20
+            collectionViewBottomConstraint.constant = collectionViewBottomConstraint.constant - 10
+        }
         loadRewardedAd()
         self.navigationController?.navigationBar.isHidden = true
         score = 0

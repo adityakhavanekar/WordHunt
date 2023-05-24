@@ -45,7 +45,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         if UIScreen.main.bounds.height <= 700{
-            answerLblTopConstraint.constant = answerLblTopConstraint.constant - 50
+            answerLblTopConstraint.constant = answerLblTopConstraint.constant - 30
         }
         setupUI()
     }
