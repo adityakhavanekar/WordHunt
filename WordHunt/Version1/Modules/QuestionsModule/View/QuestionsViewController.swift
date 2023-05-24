@@ -53,26 +53,26 @@ class QuestionsViewController: UIViewController {
     }
     
     private func setupUI(){
+        if let img = featuredImageStr{
+            featuredImgView.image = UIImage(named: img)
+        }
+        if isClassic == false{
+            self.highScoreLbl.isHidden = true
+        }
         if UIScreen.main.bounds.height <= 700{
             adViewHeightConstraint.constant = adViewHeightConstraint.constant - 20
             collectionViewBottomConstraint.constant = collectionViewBottomConstraint.constant - 10
         }
-        loadRewardedAd()
         self.navigationController?.navigationBar.isHidden = true
         score = 0
-        if isClassic == false{
-            self.highScoreLbl.isHidden = true
-        }
+        loadRewardedAd()
         configureTimer()
         setupCollectionView()
         setupUserDefaults()
-        if let img = featuredImageStr{
-            featuredImgView.image = UIImage(named: img)
-        }
-        configureAd()
+        configureBannerAd()
     }
     
-    private func configureAd(){
+    private func configureBannerAd(){
         banner.rootViewController = self
         DispatchQueue.main.asyncAfter(deadline: .now()+0.2){
             self.banner.frame = self.adView.bounds
@@ -154,12 +154,7 @@ extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionViewQuestions.dequeueReusableCell(withReuseIdentifier: "QuestionsCollectionViewCell", for: indexPath) as? QuestionsCollectionViewCell else {return UICollectionViewCell()}
         if let object = viewModel?.getElement(index: indexPath.row){
-            if isClassic == true{
-                cell.letterCountLbl.isHidden = false
-                cell.letterCountLbl.text = "*No of letters \(object.answers[0].word.count)"
-            }else{
-                cell.letterCountLbl.isHidden = true
-            }
+            cell.letterCountLbl.text = "*No of letters \(object.answers[0].word.count)"
             var newObject = object
             newObject.chars = newObject.chars.shuffled()
             cell.delegate = self
