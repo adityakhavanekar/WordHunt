@@ -102,15 +102,15 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         switch indexPath.row{
         case 0:
             vc.isClassic = true
-            vc.viewModel = QuestionsViewModel(url: URL(string: "http://127.0.0.1:3050/wordQuestions")!)
+            vc.viewModel = QuestionsViewModel(url: URL(string: "http://207.154.204.149:3051/wordHunt/classicWords")!)
         case 1:
             vc.isClassic = false
             vc.featuredImageStr = "animalsV"
-            vc.viewModel = QuestionsViewModel(url: URL(string: "http://127.0.0.1:3050/animalQuestions")!)
+            vc.viewModel = QuestionsViewModel(url: URL(string: "http://207.154.204.149:3051/wordHunt/animalWords")!)
         case 2:
             vc.isClassic = false
             vc.featuredImageStr = "brandsV"
-            vc.viewModel = QuestionsViewModel(url: URL(string: "http://127.0.0.1:3050/brandQuestions")!)
+            vc.viewModel = QuestionsViewModel(url: URL(string: "http://207.154.204.149:3051/wordHunt/brandWords")!)
         default:
             print("Error")
         }
