@@ -17,7 +17,7 @@ class QuestionsViewController: UIViewController {
     @IBOutlet weak var collectionViewQuestions: UICollectionView!
     @IBOutlet weak var timerView: SRCountdownTimer!
     @IBOutlet weak var featuredImgView: UIImageView!
-    
+    private var rewardedAd: GADRewardedAd?
     private let banner:GADBannerView = {
         let banner = GADBannerView()
 //        ca-app-pub-8260816350989246/6510909087
@@ -50,6 +50,7 @@ class QuestionsViewController: UIViewController {
     }
     
     private func setupUI(){
+        loadRewardedAd()
         self.navigationController?.navigationBar.isHidden = true
         score = 0
         if isClassic == false{
@@ -206,5 +207,49 @@ extension QuestionsViewController:AnsweredAll{
                 
             }
         }
+    }
+}
+
+extension QuestionsViewController:GADFullScreenContentDelegate{
+//    Test: ca-app-pub-3940256099942544/1712485313
+//    ca-app-pub-8260816350989246/3635094615
+    func loadRewardedAd() {
+        let request = GADRequest()
+        GADRewardedAd.load(withAdUnitID:"ca-app-pub-3940256099942544/1712485313",
+                           request: request,
+                           completionHandler: { [self] ad, error in
+            if let error = error {
+                print("Failed to load rewarded ad with error: \(error.localizedDescription)")
+                return
+            }
+            rewardedAd = ad
+            print("Rewarded ad loaded.")
+            rewardedAd?.fullScreenContentDelegate = self
+        }
+        )
+    }
+    
+    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+        print("Ad did fail to present full screen content.")
+      }
+
+      func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("Ad will present full screen content.")
+      }
+
+      func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("Ad did dismiss full screen content.")
+      }
+    
+    func show() {
+      if let ad = rewardedAd {
+        ad.present(fromRootViewController: self) {
+          let reward = ad.adReward
+          print("Reward received with currency \(reward.amount), amount \(reward.amount.doubleValue)")
+          // TODO: Reward the user.
+        }
+      } else {
+        print("Ad wasn't ready")
+      }
     }
 }
