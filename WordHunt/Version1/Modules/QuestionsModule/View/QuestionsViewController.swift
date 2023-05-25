@@ -123,6 +123,7 @@ class QuestionsViewController: UIViewController {
     
 }
 
+// MARK: - Countdown Timer Delegate
 extension QuestionsViewController: SRCountdownTimerDelegate{
     func timerDidEnd(sender: SRCountdownTimer, elapsedTime: TimeInterval) {
         let vc = HelpViewController()
@@ -146,6 +147,7 @@ extension QuestionsViewController: SRCountdownTimerDelegate{
     }
 }
 
+// MARK: - CollectionView Functions
 extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel?.getCount() ?? 0
@@ -178,6 +180,7 @@ extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewData
     
 }
 
+// MARK: - Cell Delegate Function
 extension QuestionsViewController:Answered{
     func answered(cell:QuestionsCollectionViewCell,points:Int) {
         if isClassic == true{
@@ -212,6 +215,7 @@ extension QuestionsViewController:Answered{
     }
 }
 
+//MARK: - Advertsitement
 extension QuestionsViewController:GADFullScreenContentDelegate{
     func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
         loadRewardedAd(completion: {
