@@ -102,7 +102,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
                     self.answerLbl.backgroundColor = .white
                     self.collectionViewAlphabet.reloadData()
                     if self.myAnswers.count == self.element?.answers.count{
-                        self.showTemporaryLabel(text: "Done")
+//                        self.showTemporaryLabel(text: "Done")
                         print("Done")
                         self.isUserInteractionEnabled = false
                         self.delegate?.answered(cell: self, points: 1)
@@ -118,7 +118,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
                     self.answerLbl.backgroundColor = .white
                     self.collectionViewAlphabet.reloadData()
                     if self.myAnswers.count == self.element?.answers.count{
-                        self.showTemporaryLabel(text: "Done")
+//                        self.showTemporaryLabel(text: "Done")
                         print("Done")
                     }
                     self.isUserInteractionEnabled = true
@@ -148,7 +148,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
                 isAnswerCorrect(isCorrect: true)
             }else{
                 isAnswerCorrect(isCorrect: false)
-                showTemporaryLabel(text: "Wrong Answer")
+//                showTemporaryLabel(text: "Wrong Answer")
             }
         }
     }

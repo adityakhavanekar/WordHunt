@@ -202,7 +202,7 @@ extension QuestionsViewController:Answered{
         if let count = viewModel?.getCount(){
             if indexPath.row < count - 1 {
                 let nextIndexPath = IndexPath(row: indexPath.row + 1, section: indexPath.section)
-                DispatchQueue.main.asyncAfter(deadline: .now()+0.5){
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.1){
                     self.collectionViewQuestions.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
                     if let count = cell.element?.answers.count{
                         self.timerView.start(beginingValue: count * 70)
