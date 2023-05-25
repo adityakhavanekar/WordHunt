@@ -21,6 +21,7 @@ protocol Answered{
 
 class QuestionsCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var seeWordBtn: UIButton!
     @IBOutlet weak var hintLbl: PaddingLabel!
     @IBOutlet weak var letterCountLbl: UILabel!
     @IBOutlet weak var hintBtn: UIButton!
@@ -81,6 +82,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         configure3DButton(button: submitBtn)
         configure3DButton(button: resetBtn)
         configure3DButtonNew(button: hintBtn)
+        configure3DButton(button: seeWordBtn)
     }
     
     private func setupLbl(){
@@ -162,6 +164,12 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         hintLbl.isHidden = false
         simpleAnimateLabel(hintLbl)
         print(element?.answers[0].hint ?? "")
+    }
+    
+    @IBAction func seeWordBtnClicked(_ sender: UIButton) {
+        if let word = element?.answers[0].word{
+            answer = word.uppercased()
+        }
     }
 }
 
