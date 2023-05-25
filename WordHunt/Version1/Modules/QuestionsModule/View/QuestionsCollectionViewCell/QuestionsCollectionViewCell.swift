@@ -8,11 +8,11 @@
 import UIKit
 
 enum Help{
-    case hint
+    case word
 }
 
-protocol HintPressed{
-    func helpNeeded(type:Help)
+protocol HelpPressed{
+    func helpNeeded(element:WordHuntElement,type:Help,cell:QuestionsCollectionViewCell)
 }
 
 protocol Answered{
@@ -33,6 +33,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var answerLblTopConstraint: NSLayoutConstraint!
     
     var delegate:Answered?
+    var helpDelegate:HelpPressed?
     
     var answer:String = "" {
         didSet{
@@ -167,8 +168,8 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func seeWordBtnClicked(_ sender: UIButton) {
-        if let word = element?.answers[0].word{
-            answer = word.uppercased()
+        if let element = element{
+            helpDelegate?.helpNeeded(element: element, type: .word, cell: self)
         }
     }
 }

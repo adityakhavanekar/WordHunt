@@ -160,6 +160,7 @@ extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewData
             var newObject = object
             newObject.chars = newObject.chars.shuffled()
             cell.delegate = self
+            cell.helpDelegate = self
             cell.element = newObject
         }
         
@@ -181,7 +182,21 @@ extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewData
 }
 
 // MARK: - Cell Delegate Function
-extension QuestionsViewController:Answered{
+extension QuestionsViewController:Answered,HelpPressed{
+    
+    func helpNeeded(element: WordHuntElement, type: Help, cell: QuestionsCollectionViewCell) {
+        self.timerView.pause()
+        loadRewardedAd {
+            switch type{
+            case .word:
+                self.show {
+                    cell.answer = element.answers[0].word.uppercased()
+                    self.timerView.resume()
+                }
+            }
+        }
+    }
+    
     func answered(cell:QuestionsCollectionViewCell,points:Int) {
         if isClassic == true{
             if defaults.object(forKey: "Highscore") != nil{
@@ -232,12 +247,12 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
         print("Ad did dismiss full screen content.")
     }
     
-    func show() {
+    func show(completion:(()->())?=nil) {
         if let ad = rewardedAd {
             ad.present(fromRootViewController: self) {
                 let reward = ad.adReward
                 print("Reward received with currency \(reward.amount), amount \(reward.amount.doubleValue)")
-                // TODO: Reward the user.
+                completion?()
             }
         } else {
             
