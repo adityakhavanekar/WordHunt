@@ -69,20 +69,11 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01){
             switch indexPath.row{
             case 0:
-                cell.internalImgView.image = UIImage(named: "alphabet")
-                cell.internalView.applyGradientBackground(color1: "#0094B2", color2: "#00BBD4")
-                cell.categoryLbl.text = "Classic"
-                cell.categoryDescLbl.text = "Unlimited words\nUnlimited Hints"
+                cell.setupCell(internalImgString: "alphabet", gradient1: "#0094B2", gradient2: "#00BBD4", category: "Classic", desc: "Unlimited words\nUnlimited Hints")
             case 1:
-                cell.internalImgView.image = UIImage(named:"animals")
-                cell.internalView.applyGradientBackground(color1: "#629135", color2: "#CBDD6F")
-                cell.categoryLbl.text = "Animals"
-                cell.categoryDescLbl.text = ""
+                cell.setupCell(internalImgString: "animals", gradient1: "#629135", gradient2: "#CBDD6F", category: "Animals", desc: "")
             case 2:
-                cell.internalImgView.image = UIImage(named: "brand")
-                cell.internalView.applyGradientBackground(color1: "#F73758", color2: "#FB638B")
-                cell.categoryLbl.text = "Brands"
-                cell.categoryDescLbl.text = ""
+                cell.setupCell(internalImgString: "brand", gradient1: "#F73758", gradient2: "#FB638B", category: "Brands", desc: "")
             default:
                 cell.internalView.backgroundColor = .lightGray
             }

@@ -30,6 +30,14 @@ class HomeTableViewCell: UITableViewCell {
         internalView.layer.cornerRadius = 20
     }
     
+    func setupCell(internalImgString:String,gradient1:String,gradient2:String,category:String,desc:String){
+        self.internalImgView.image = UIImage(named: internalImgString)
+        self.internalView.applyGradientBackground(color1: gradient1, color2: gradient2)
+        self.categoryLbl.text = category
+        self.categoryDescLbl.text = desc
+        
+    }
+    
 }
 
 extension HomeTableViewCell{
