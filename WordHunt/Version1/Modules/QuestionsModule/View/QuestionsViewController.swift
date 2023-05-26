@@ -79,9 +79,10 @@ class QuestionsViewController: UIViewController {
         configureBannerAd()
     }
     private func configureForIpad(){
-        timerViewHeightConstraint.constant = timerViewHeightConstraint.constant * 1.5
-        timerViewWidthConstraint.constant = timerViewWidthConstraint.constant * 1.5
+        timerViewHeightConstraint.constant = timerViewHeightConstraint.constant * 2
+        timerViewWidthConstraint.constant = timerViewWidthConstraint.constant * 2
         timerViewTopConstraint.constant = timerViewHeightConstraint.constant * (-0.5)
+        timerView.labelFont = UIFont.systemFont(ofSize: 40)
         timerView.layer.cornerRadius = timerViewHeightConstraint.constant/2
         timerView.lineWidth = 20
     }
