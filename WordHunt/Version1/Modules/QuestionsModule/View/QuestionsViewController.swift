@@ -171,15 +171,12 @@ extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionViewQuestions.dequeueReusableCell(withReuseIdentifier: "QuestionsCollectionViewCell", for: indexPath) as? QuestionsCollectionViewCell else {return UICollectionViewCell()}
         if let object = viewModel?.getElement(index: indexPath.row){
-            cell.letterCountLbl.text = "*No of letters \(object.answers[0].word.count)"
             var newObject = object
             newObject.chars = newObject.chars.shuffled()
+            cell.setupCell(element: newObject)
             cell.delegate = self
             cell.helpDelegate = self
-            cell.element = newObject
-            cell.setupUI()
         }
-        
         return cell
     }
     
@@ -272,7 +269,6 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
                 completion?()
             }
         } else {
-            
             print("Ad wasn't ready")
         }
     }

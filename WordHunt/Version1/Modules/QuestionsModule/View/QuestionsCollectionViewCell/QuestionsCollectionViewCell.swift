@@ -7,14 +7,9 @@
 
 import UIKit
 
-enum Help{
-    case word
-}
-
 protocol HelpPressed{
     func helpNeeded(element:WordHuntElement,type:Help,cell:QuestionsCollectionViewCell)
 }
-
 protocol Answered{
     func answered(cell:QuestionsCollectionViewCell,points:Int)
 }
@@ -63,9 +58,14 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         setupUI()
     }
     
-    func setupUI(){
+    func setupCell(element:WordHuntElement){
+        hintLbl.text = element.answers[0].hint
+        letterCountLbl.text = "*No of letters \(element.answers[0].word.count)"
+        self.element = element
+    }
+    
+    private func setupUI(){
         isAdRewarded = false
-        setupHintLbl()
         helpView.layer.cornerRadius = 5
         setupCollectionView()
         setupButtons()
@@ -73,13 +73,6 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         myAnswers.removeAll()
     }
     
-    private func setupHintLbl(){
-        if let element = element{
-            hintLbl.text = "\(element.answers[0].hint)"
-            print(element.answers[0].hint)
-        }
-        
-    }
     private func setupCollectionView(){
         collectionViewAlphabet.register(UINib(nibName: "AlphabetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AlphabetCollectionViewCell")
         collectionViewAlphabet.delegate = self
@@ -118,8 +111,6 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
                     self.answerLbl.backgroundColor = .white
                     self.collectionViewAlphabet.reloadData()
                     if self.myAnswers.count == self.element?.answers.count{
-//                        self.showTemporaryLabel(text: "Done")
-                        print("Done")
                         self.isUserInteractionEnabled = false
                         self.delegate?.answered(cell: self, points: 1)
                     }
@@ -133,10 +124,6 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
                     self.answerLbl.textColor = .black
                     self.answerLbl.backgroundColor = .white
                     self.collectionViewAlphabet.reloadData()
-                    if self.myAnswers.count == self.element?.answers.count{
-//                        self.showTemporaryLabel(text: "Done")
-                        print("Done")
-                    }
                     self.isUserInteractionEnabled = true
                 }
             }
@@ -164,7 +151,6 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
                 isAnswerCorrect(isCorrect: true)
             }else{
                 isAnswerCorrect(isCorrect: false)
-//                showTemporaryLabel(text: "Wrong Answer")
             }
         }
     }
@@ -304,10 +290,6 @@ extension QuestionsCollectionViewCell{
         button.layer.cornerRadius = 5
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.clear.cgColor
-//        button.layer.shadowColor = UIColor.init(hexString: "#013220")?.cgColor
-//        button.layer.shadowOffset = CGSize(width: 0, height: 2)
-//        button.layer.shadowRadius = 2
-//        button.layer.shadowOpacity = 0.5
         button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
     }
     
@@ -359,17 +341,19 @@ extension QuestionsCollectionViewCell{
     func simpleAnimateLabel(_ label: UILabel) {
         let originalTransform = label.transform
         
-        // Create a scale transform to make the label bigger
         let scaleTransform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         
-        // Animate the label to the bigger size
         UIView.animate(withDuration: 0.2, animations: {
             label.transform = scaleTransform
         }) { _ in
-            // After the animation completes, animate the label back to its original size
             UIView.animate(withDuration: 0.2, animations: {
                 label.transform = originalTransform
             })
         }
     }
+}
+
+
+enum Help{
+    case word
 }
