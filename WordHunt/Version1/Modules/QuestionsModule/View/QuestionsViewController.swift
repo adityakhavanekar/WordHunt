@@ -11,6 +11,7 @@ import GoogleMobileAds
 
 class QuestionsViewController: UIViewController {
     
+    @IBOutlet weak var featuredImgViewHeigthConstraint: NSLayoutConstraint!
     @IBOutlet weak var timerViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var timerViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var timerViewHeightConstraint: NSLayoutConstraint!
@@ -69,6 +70,7 @@ class QuestionsViewController: UIViewController {
         if UIScreen.main.bounds.height <= 700{
             adViewHeightConstraint.constant = adViewHeightConstraint.constant - 20
             collectionViewBottomConstraint.constant = collectionViewBottomConstraint.constant - 10
+            featuredImgViewHeigthConstraint.constant = featuredImgViewHeigthConstraint.constant - 30
         }
         self.navigationController?.navigationBar.isHidden = true
         score = 0
@@ -79,8 +81,8 @@ class QuestionsViewController: UIViewController {
         configureBannerAd()
     }
     private func configureForIpad(){
-        timerViewHeightConstraint.constant = timerViewHeightConstraint.constant * 2
-        timerViewWidthConstraint.constant = timerViewWidthConstraint.constant * 2
+        timerViewHeightConstraint.constant = timerViewHeightConstraint.constant * 1.8
+        timerViewWidthConstraint.constant = timerViewWidthConstraint.constant * 1.8
         timerViewTopConstraint.constant = timerViewHeightConstraint.constant * (-0.5)
         timerView.labelFont = UIFont.systemFont(ofSize: 40)
         timerView.layer.cornerRadius = timerViewHeightConstraint.constant/2

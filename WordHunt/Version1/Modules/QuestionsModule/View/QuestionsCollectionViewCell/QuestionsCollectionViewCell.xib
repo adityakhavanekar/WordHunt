@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEb-cg-yQf" customClass="PaddingLabel" customModule="WordHunt" customModuleProvider="target">
-                        <rect key="frame" x="35" y="100" width="446" height="50"/>
+                        <rect key="frame" x="35" y="266" width="446" height="50"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="grJ-X8-Z4O"/>
@@ -89,15 +89,6 @@
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                         </variation>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Hint:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KDn-DH-jLb" customClass="PaddingLabel" customModule="WordHunt" customModuleProvider="target">
-                        <rect key="frame" x="35" y="160" width="446" height="20.333333333333343"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                        <variation key="heightClass=regular-widthClass=regular">
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                        </variation>
-                    </label>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="uWB-Wc-yE0">
                         <rect key="frame" x="20" y="484" width="476" height="50"/>
                         <subviews>
@@ -136,6 +127,15 @@
                             <constraint firstAttribute="height" constant="50" id="X1b-gh-GMU"/>
                         </constraints>
                     </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Hint:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KDn-DH-jLb" customClass="PaddingLabel" customModule="WordHunt" customModuleProvider="target">
+                        <rect key="frame" x="35" y="225.66666666666666" width="446" height="20.333333333333343"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                        </variation>
+                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -143,7 +143,7 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="WQR-vo-D7c" secondAttribute="trailing" constant="20" id="09c-eE-1A3"/>
                 <constraint firstAttribute="trailing" secondItem="QGq-Vu-CpR" secondAttribute="trailing" constant="15" id="0aA-Js-QrB"/>
-                <constraint firstItem="jEb-cg-yQf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="100" id="3mJ-VT-ypY"/>
+                <constraint firstItem="uvg-xv-4MW" firstAttribute="top" secondItem="jEb-cg-yQf" secondAttribute="bottom" constant="30" id="3O2-Nw-hJB"/>
                 <constraint firstAttribute="trailing" secondItem="jEb-cg-yQf" secondAttribute="trailing" constant="35" id="DLu-fa-fCe"/>
                 <constraint firstItem="WQR-vo-D7c" firstAttribute="top" secondItem="uvg-xv-4MW" secondAttribute="bottom" constant="10" id="GeS-n6-761"/>
                 <constraint firstItem="QGq-Vu-CpR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="IOl-9I-C2E"/>
@@ -155,7 +155,7 @@
                 <constraint firstItem="jEb-cg-yQf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="35" id="fYX-a0-ej6"/>
                 <constraint firstItem="uvg-xv-4MW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="imP-7U-LIV"/>
                 <constraint firstItem="uWB-Wc-yE0" firstAttribute="top" secondItem="WQR-vo-D7c" secondAttribute="bottom" constant="10" id="kFH-wK-a5j"/>
-                <constraint firstItem="KDn-DH-jLb" firstAttribute="top" secondItem="jEb-cg-yQf" secondAttribute="bottom" constant="10" id="ubI-yC-49f"/>
+                <constraint firstItem="jEb-cg-yQf" firstAttribute="top" secondItem="KDn-DH-jLb" secondAttribute="bottom" constant="20" id="oNM-GX-GLl"/>
                 <constraint firstAttribute="bottom" secondItem="uWB-Wc-yE0" secondAttribute="bottom" constant="10" id="um9-bP-ctN"/>
                 <constraint firstItem="WQR-vo-D7c" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="uvZ-cu-sX4"/>
                 <constraint firstItem="KDn-DH-jLb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="35" id="z1d-hf-a0v"/>
@@ -163,8 +163,8 @@
             <size key="customSize" width="516" height="544"/>
             <connections>
                 <outlet property="answerLbl" destination="jEb-cg-yQf" id="LdA-Lb-PGc"/>
+                <outlet property="answerLblBottomConstraint" destination="3O2-Nw-hJB" id="ugR-Yt-gub"/>
                 <outlet property="answerLblHeightConstraint" destination="grJ-X8-Z4O" id="LGF-yV-DMj"/>
-                <outlet property="answerLblTopConstraint" destination="3mJ-VT-ypY" id="Pg3-h7-bWj"/>
                 <outlet property="btnStackViewHeightConstraint" destination="X1b-gh-GMU" id="SPB-Ji-Mvz"/>
                 <outlet property="collectionViewAlphabet" destination="WQR-vo-D7c" id="xjC-nQ-9yx"/>
                 <outlet property="collectionViewHeightConstraint" destination="urE-1m-yiB" id="wsZ-Lv-lOb"/>

@@ -26,7 +26,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var helpViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var helpViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var answerLblHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var answerLblTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var answerLblBottomConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var seeWordBtn: UIButton!
     @IBOutlet weak var hintLbl: PaddingLabel!
@@ -52,7 +52,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         if UIScreen.main.bounds.height <= 700{
-            answerLblTopConstraint.constant = answerLblTopConstraint.constant - 30
+            answerLblBottomConstraint.constant = answerLblBottomConstraint.constant - 20
         }
         if UIDevice.current.userInterfaceIdiom == .pad{
             configureForIpad()
@@ -106,7 +106,6 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         helpViewHeightConstraint.constant = helpViewHeightConstraint.constant + 30
         helpViewWidthConstraint.constant = helpViewWidthConstraint.constant + 50
         answerLblHeightConstraint.constant = answerLblHeightConstraint.constant * 2
-        answerLblTopConstraint.constant = answerLblTopConstraint.constant + 30
     }
     
     private func isAnswerCorrect(isCorrect:Bool){
