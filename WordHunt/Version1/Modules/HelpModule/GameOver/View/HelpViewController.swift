@@ -9,6 +9,7 @@ import UIKit
 
 class HelpViewController: UIViewController {
     
+    @IBOutlet weak var btnViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var internalViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var btnView: UIView!
     @IBOutlet weak var internalView: UIView!
@@ -26,6 +27,9 @@ class HelpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UIDevice.current.userInterfaceIdiom == .pad{
+            btnViewHeightConstraint.constant = btnViewHeightConstraint.constant*2
+        }
         setupUI()
     }
     
