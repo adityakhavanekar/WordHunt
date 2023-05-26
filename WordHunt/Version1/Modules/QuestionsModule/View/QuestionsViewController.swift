@@ -203,12 +203,13 @@ extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewData
 extension QuestionsViewController:Answered,HelpPressed{
     
     func helpNeeded(element: WordHuntElement, type: Help, cell: QuestionsCollectionViewCell) {
-        self.timerView.pause()
         loadRewardedAd {
+            self.timerView.pause()
             switch type{
             case .word:
                 self.show {
                     cell.answer = element.answers[0].word.uppercased()
+                    cell.isAdRewarded = true
                     self.timerView.resume()
                 }
             }

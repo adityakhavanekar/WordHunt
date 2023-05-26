@@ -31,7 +31,6 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var seeWordBtn: UIButton!
     @IBOutlet weak var hintLbl: UILabel!
     @IBOutlet weak var letterCountLbl: UILabel!
-    @IBOutlet weak var hintBtn: UIButton!
     @IBOutlet weak var helpView: UIView!
     @IBOutlet weak var resetBtn: UIButton!
     @IBOutlet weak var submitBtn: UIButton!
@@ -42,7 +41,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     var helpDelegate:HelpPressed?
     var element:WordHuntElement?
     var myAnswers = [String]()
-    
+    var isAdRewarded:Bool?
     var answer:String = "" {
         didSet{
             self.answerLbl.text = answer
@@ -65,6 +64,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     }
     
     func setupUI(){
+        isAdRewarded = false
         setupHintLbl()
         helpView.layer.cornerRadius = 5
         setupCollectionView()
@@ -90,7 +90,6 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     private func setupButtons(){
         configure3DButton(button: submitBtn)
         configure3DButton(button: resetBtn)
-        configure3DButtonNew(button: hintBtn)
         configure3DButton(button: seeWordBtn)
     }
     
@@ -176,17 +175,15 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         collectionViewAlphabet.reloadData()
         isUserInteractionEnabled = true
     }
-    @IBAction func hintTapped(_ sender: UIButton) {
-        
-        hintLbl.isHidden = false
-        simpleAnimateLabel(hintLbl)
-        print(element?.answers[0].hint ?? "")
-    }
     
     @IBAction func seeWordBtnClicked(_ sender: UIButton) {
-        if let element = element{
+        guard let element = element else {return}
+        if isAdRewarded == nil || isAdRewarded == false{
             helpDelegate?.helpNeeded(element: element, type: .word, cell: self)
+        }else if isAdRewarded == true{
+            answer = element.answers[0].word.uppercased()
         }
+        self.collectionViewAlphabet.reloadData()
     }
 }
 

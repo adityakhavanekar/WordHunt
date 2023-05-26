@@ -16,7 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
+//        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers =
+                    [ "4a831eaa40225c62e4f8710f14897b79" ]
         return true
     }
 

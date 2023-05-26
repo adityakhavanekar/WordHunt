@@ -45,25 +45,17 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QGq-Vu-CpR">
-                        <rect key="frame" x="391" y="15" width="110" height="50"/>
+                        <rect key="frame" x="451" y="15" width="50" height="50"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ghi-Zj-g3Z">
-                                <rect key="frame" x="5" y="5" width="100" height="40"/>
+                                <rect key="frame" x="5" y="5" width="40" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jcv-Lv-Q8o">
-                                        <rect key="frame" x="0.0" y="0.0" width="42.666666666666664" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="writeAd"/>
                                         <connections>
                                             <action selector="seeWordBtnClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="j8C-og-jUu"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cT5-z6-3zP">
-                                        <rect key="frame" x="57.666666666666686" y="0.0" width="42.333333333333343" height="40"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="tip"/>
-                                        <connections>
-                                            <action selector="hintTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="BhG-5q-7Gs"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -73,7 +65,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ghi-Zj-g3Z" secondAttribute="trailing" constant="5" id="8hk-20-cvO"/>
-                            <constraint firstAttribute="width" constant="110" id="Ddi-4u-kdi"/>
+                            <constraint firstAttribute="width" constant="50" id="Ddi-4u-kdi"/>
                             <constraint firstAttribute="height" constant="50" id="RuD-8C-dwL"/>
                             <constraint firstItem="ghi-Zj-g3Z" firstAttribute="top" secondItem="QGq-Vu-CpR" secondAttribute="top" constant="5" id="TU4-uE-5Vg"/>
                             <constraint firstItem="ghi-Zj-g3Z" firstAttribute="leading" secondItem="QGq-Vu-CpR" secondAttribute="leading" constant="5" id="X3X-H0-KAt"/>
@@ -171,7 +163,6 @@
                 <outlet property="helpView" destination="QGq-Vu-CpR" id="2du-vg-Z8C"/>
                 <outlet property="helpViewHeightConstraint" destination="RuD-8C-dwL" id="owv-32-XLm"/>
                 <outlet property="helpViewWidthConstraint" destination="Ddi-4u-kdi" id="Aqq-bE-stO"/>
-                <outlet property="hintBtn" destination="cT5-z6-3zP" id="pC8-Jc-bFj"/>
                 <outlet property="hintLbl" destination="KDn-DH-jLb" id="Uz6-zo-619"/>
                 <outlet property="letterCountLbl" destination="uvg-xv-4MW" id="HMd-NO-bB6"/>
                 <outlet property="resetBtn" destination="Z0k-Pr-SZp" id="So9-43-t2v"/>
@@ -182,7 +173,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="tip" width="512" height="512"/>
         <image name="writeAd" width="337" height="331"/>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
