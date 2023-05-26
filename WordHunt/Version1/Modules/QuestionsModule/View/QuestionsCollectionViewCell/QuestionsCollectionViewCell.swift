@@ -54,6 +54,9 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         if UIScreen.main.bounds.height <= 700{
             answerLblTopConstraint.constant = answerLblTopConstraint.constant - 30
         }
+        if UIDevice.current.userInterfaceIdiom == .pad{
+            configureForIpad()
+        }
         setupUI()
     }
     
@@ -68,9 +71,6 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         setupButtons()
         setupLbl()
         myAnswers.removeAll()
-        if UIDevice.current.userInterfaceIdiom == .pad{
-            configureForIpad()
-        }
     }
     
     private func setupHintLbl(){
