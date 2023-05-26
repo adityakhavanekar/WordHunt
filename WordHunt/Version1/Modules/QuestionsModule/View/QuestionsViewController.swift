@@ -11,8 +11,12 @@ import GoogleMobileAds
 
 class QuestionsViewController: UIViewController {
     
+    @IBOutlet weak var timerViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var timerViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var timerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var collectionViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var adViewHeightConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var adView: UIView!
     @IBOutlet weak var scoreLbl: UILabel!
     @IBOutlet weak var highScoreLbl: UILabel!
@@ -50,6 +54,9 @@ class QuestionsViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         callViewModel()
+        if UIDevice.current.userInterfaceIdiom == .pad{
+            configureForIpad()
+        }
     }
     
     private func setupUI(){
@@ -70,6 +77,13 @@ class QuestionsViewController: UIViewController {
         setupCollectionView()
         setupUserDefaults()
         configureBannerAd()
+    }
+    private func configureForIpad(){
+        timerViewHeightConstraint.constant = timerViewHeightConstraint.constant * 1.5
+        timerViewWidthConstraint.constant = timerViewWidthConstraint.constant * 1.5
+        timerViewTopConstraint.constant = timerViewHeightConstraint.constant * (-0.5)
+        timerView.layer.cornerRadius = timerViewHeightConstraint.constant/2
+        timerView.lineWidth = 20
     }
     
     private func configureBannerAd(){
