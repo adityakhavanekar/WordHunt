@@ -88,27 +88,27 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc2 = CounterViewController()
-        let vc = QuestionsViewController()
+        let counterVc = CounterViewController()
+        let questionsVc = QuestionsViewController()
         switch indexPath.row{
         case 0:
-            vc.isClassic = true
-            vc.viewModel = QuestionsViewModel(url: URL(string: "http://207.154.204.149:3051/wordHunt/classicWords")!)
+            questionsVc.isClassic = true
+            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "http://207.154.204.149:3051/wordHunt/classicWords")!)
         case 1:
-            vc.isClassic = false
-            vc.featuredImageStr = "animalsV"
-            vc.viewModel = QuestionsViewModel(url: URL(string: "http://207.154.204.149:3051/wordHunt/animalWords")!)
+            questionsVc.isClassic = false
+            questionsVc.featuredImageStr = "animalsV"
+            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "http://207.154.204.149:3051/wordHunt/animalWords")!)
         case 2:
-            vc.isClassic = false
-            vc.featuredImageStr = "brandsV"
-            vc.viewModel = QuestionsViewModel(url: URL(string: "http://207.154.204.149:3051/wordHunt/brandWords")!)
+            questionsVc.isClassic = false
+            questionsVc.featuredImageStr = "brandsV"
+            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "http://207.154.204.149:3051/wordHunt/brandWords")!)
         default:
             print("Error")
         }
-        vc2.completion = {
-            self.navigationController?.pushViewController(vc, animated: true)
+        counterVc.completion = {
+            self.navigationController?.pushViewController(questionsVc, animated: true)
         }
-        vc2.modalPresentationStyle = .overFullScreen
-        self.present(vc2, animated: true)
+        counterVc.modalPresentationStyle = .overFullScreen
+        self.present(counterVc, animated: true)
     }
 }
