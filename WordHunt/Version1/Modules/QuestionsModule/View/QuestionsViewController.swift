@@ -28,8 +28,6 @@ class QuestionsViewController: UIViewController {
     private var rewardedAd: GADRewardedAd?
     private let banner:GADBannerView = {
         let banner = GADBannerView()
-//        ca-app-pub-8260816350989246/6510909087
-//TESTAD: ca-app-pub-3940256099942544/2934735716
         banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         banner.load(GADRequest())
         banner.backgroundColor = .clear
@@ -37,8 +35,9 @@ class QuestionsViewController: UIViewController {
     }()
     
     var featuredImageStr:String?
-    var viewModel:QuestionsViewModel?
     var isClassic:Bool = true
+    let defaults = UserDefaults.standard
+    var viewModel:QuestionsViewModel?
     var highScore:Int = 0 {
         didSet{
             self.highScoreLbl.text = "High Score: \(highScore)"
@@ -49,7 +48,6 @@ class QuestionsViewController: UIViewController {
             self.scoreLbl.text = "Score: \(score)"
         }
     }
-    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -280,8 +278,6 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
     }
     
     
-    //    Test: ca-app-pub-3940256099942544/1712485313
-    //    ca-app-pub-8260816350989246/3635094615
     func loadRewardedAd(completion:(()->())?=nil) {
         let request = GADRequest()
         GADRewardedAd.load(withAdUnitID:"ca-app-pub-3940256099942544/1712485313",
@@ -299,3 +295,12 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
         )
     }
 }
+
+
+//Banner:
+//        ca-app-pub-8260816350989246/6510909087
+//TESTAD: ca-app-pub-3940256099942544/2934735716
+
+//Rewarded
+//    Test: ca-app-pub-3940256099942544/1712485313
+//    ca-app-pub-8260816350989246/3635094615
