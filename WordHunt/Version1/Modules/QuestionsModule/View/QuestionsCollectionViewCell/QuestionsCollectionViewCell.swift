@@ -29,7 +29,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var answerLblBottomConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var seeWordBtn: UIButton!
-    @IBOutlet weak var hintLbl: PaddingLabel!
+    @IBOutlet weak var hintLbl: UILabel!
     @IBOutlet weak var letterCountLbl: UILabel!
     @IBOutlet weak var hintBtn: UIButton!
     @IBOutlet weak var helpView: UIView!
@@ -64,7 +64,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         setupUI()
     }
     
-    private func setupUI(){
+    func setupUI(){
         setupHintLbl()
         helpView.layer.cornerRadius = 5
         setupCollectionView()
@@ -74,11 +74,11 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupHintLbl(){
-        hintLbl.isHidden = true
-        hintLbl.layer.cornerRadius = 5
-        hintLbl.layer.borderColor = UIColor.white.cgColor
-        hintLbl.layer.borderWidth = 2
-        hintLbl.clipsToBounds = true
+        if let element = element{
+            hintLbl.text = "\(element.answers[0].hint)"
+            print(element.answers[0].hint)
+        }
+        
     }
     private func setupCollectionView(){
         collectionViewAlphabet.register(UINib(nibName: "AlphabetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AlphabetCollectionViewCell")
@@ -177,7 +177,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         isUserInteractionEnabled = true
     }
     @IBAction func hintTapped(_ sender: UIButton) {
-        hintLbl.text = "*Hint: \(element?.answers[0].hint ?? "")"
+        
         hintLbl.isHidden = false
         simpleAnimateLabel(hintLbl)
         print(element?.answers[0].hint ?? "")

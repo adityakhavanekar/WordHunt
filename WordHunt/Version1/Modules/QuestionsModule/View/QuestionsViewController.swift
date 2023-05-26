@@ -179,6 +179,7 @@ extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewData
             cell.delegate = self
             cell.helpDelegate = self
             cell.element = newObject
+            cell.setupUI()
         }
         
         return cell
