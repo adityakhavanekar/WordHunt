@@ -21,6 +21,13 @@ protocol Answered{
 
 class QuestionsCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var btnStackViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var helpViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var helpViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var answerLblHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var answerLblTopConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var seeWordBtn: UIButton!
     @IBOutlet weak var hintLbl: PaddingLabel!
     @IBOutlet weak var letterCountLbl: UILabel!
@@ -30,19 +37,17 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var submitBtn: UIButton!
     @IBOutlet weak var answerLbl: PaddingLabel!
     @IBOutlet weak var collectionViewAlphabet: UICollectionView!
-    @IBOutlet weak var answerLblTopConstraint: NSLayoutConstraint!
     
     var delegate:Answered?
     var helpDelegate:HelpPressed?
+    var element:WordHuntElement?
+    var myAnswers = [String]()
     
     var answer:String = "" {
         didSet{
             self.answerLbl.text = answer
         }
     }
-    
-    var myAnswers = [String]()
-    var element:WordHuntElement?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -63,6 +68,9 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         setupButtons()
         setupLbl()
         myAnswers.removeAll()
+        if UIDevice.current.userInterfaceIdiom == .pad{
+            configureForIpad()
+        }
     }
     
     private func setupHintLbl(){
@@ -90,6 +98,15 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         answerLbl.layer.cornerRadius = 20
         answerLbl.clipsToBounds = true
         answer = ""
+    }
+    
+    private func configureForIpad(){
+        btnStackViewHeightConstraint.constant = btnStackViewHeightConstraint.constant + 50
+        collectionViewHeightConstraint.constant = collectionViewHeightConstraint.constant + 50
+        helpViewHeightConstraint.constant = helpViewHeightConstraint.constant + 30
+        helpViewWidthConstraint.constant = helpViewWidthConstraint.constant + 50
+        answerLblHeightConstraint.constant = answerLblHeightConstraint.constant * 2
+        answerLblTopConstraint.constant = answerLblTopConstraint.constant + 30
     }
     
     private func isAnswerCorrect(isCorrect:Bool){
