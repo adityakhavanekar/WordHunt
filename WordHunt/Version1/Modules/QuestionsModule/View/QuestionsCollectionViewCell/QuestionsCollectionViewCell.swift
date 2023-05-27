@@ -213,7 +213,7 @@ extension QuestionsCollectionViewCell:UICollectionViewDelegate,UICollectionViewD
             cell.isThisSelected = false
             cell.alphabetLbl.textColor = .black
             cell.internalView.backgroundColor = .white
-            answer = removeFirstOccurrenceOf(cell.alphabetLbl.text!, from: answer)
+            answer = removeLastOccurrenceOf(cell.alphabetLbl.text!, from: answer)
         case false:
             cell.isThisSelected = true
             cell.alphabetLbl.textColor = .white
@@ -244,6 +244,14 @@ extension QuestionsCollectionViewCell{
     private func removeFirstOccurrenceOf(_ characterToRemove: String, from inputString: String) -> String {
         var modifiedString = inputString
         if let range = modifiedString.range(of: String(characterToRemove)) {
+            modifiedString.replaceSubrange(range, with: "")
+        }
+        return modifiedString
+    }
+    
+    private func removeLastOccurrenceOf(_ characterToRemove: String, from inputString: String) -> String {
+        var modifiedString = inputString
+        if let range = modifiedString.range(of: String(characterToRemove), options: .backwards) {
             modifiedString.replaceSubrange(range, with: "")
         }
         return modifiedString
