@@ -9,7 +9,7 @@ import UIKit
 import SRCountdownTimer
 
 class CounterViewController: UIViewController {
-
+    
     @IBOutlet weak var timerView: SRCountdownTimer!
     
     var completion : (()->(Void))?

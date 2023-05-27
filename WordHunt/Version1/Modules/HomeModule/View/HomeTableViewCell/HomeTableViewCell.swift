@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var internalImgView: UIImageView!
     @IBOutlet weak var categoryLbl: UILabel!
     @IBOutlet weak var categoryDescLbl: UILabel!

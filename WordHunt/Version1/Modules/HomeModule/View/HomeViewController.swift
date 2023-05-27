@@ -9,7 +9,7 @@ import UIKit
 import GoogleMobileAds
 
 class HomeViewController: UIViewController {
-
+    
     @IBOutlet weak var adView: UIView!
     @IBOutlet weak var highscoreLbl: UILabel!
     @IBOutlet weak var scoreView: UIView!
@@ -19,8 +19,8 @@ class HomeViewController: UIViewController {
     
     private let banner:GADBannerView = {
         let banner = GADBannerView()
-//        ca-app-pub-8260816350989246/6510909087
-//TESTAD: ca-app-pub-3940256099942544/2934735716
+        //        ca-app-pub-8260816350989246/6510909087
+        //TESTAD: ca-app-pub-3940256099942544/2934735716
         banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         banner.load(GADRequest())
         banner.backgroundColor = .clear

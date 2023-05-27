@@ -23,7 +23,7 @@ class DoneViewController: UIViewController {
     
     var modeCompletionStr:String = ""
     var completion: (()->())?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -53,7 +53,7 @@ class DoneViewController: UIViewController {
         animationView?.loopMode = .loop
         animationView?.play()
     }
-
+    
     @IBAction func doneBtnClicked(_ sender: UIButton) {
         self.dismiss(animated: true,completion: completion)
     }

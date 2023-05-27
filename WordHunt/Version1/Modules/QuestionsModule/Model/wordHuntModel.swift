@@ -10,7 +10,7 @@ struct WordHuntElement: Codable {
     let id: String
     var chars: [String]
     var answers: [Answer]
-
+    
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case chars, answers
@@ -20,7 +20,7 @@ struct WordHuntElement: Codable {
 // MARK: - Answer
 struct Answer: Codable {
     let id, word, hint: String
-
+    
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case word, hint

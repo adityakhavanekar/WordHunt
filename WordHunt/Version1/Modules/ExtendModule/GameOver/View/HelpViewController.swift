@@ -56,7 +56,7 @@ class HelpViewController: UIViewController {
             self.dismiss(animated: true,completion: self.continueCompletion)
         }
     }
-
+    
 }
 
 //Animation and UI
@@ -78,18 +78,18 @@ extension HelpViewController{
                 view.transform = .identity
                 view.alpha = 1.0
                 completion()
-
+                
             })
         }
     }
-//    private func addLiftedShadow(to view: UIView) {
-//        view.layer.shadowColor = UIColor.black.cgColor
-//        view.layer.shadowOffset = CGSize(width: 0, height: 2)
-//        view.layer.shadowOpacity = 0.1
-//        view.layer.shadowRadius = 2
-//        view.layer.shadowPath = UIBezierPath(rect: view.bounds).cgPath
-//        view.layer.shouldRasterize = true
-//        view.clipsToBounds = true
-//        view.layer.rasterizationScale = UIScreen.main.scale
-//    }
+    //    private func addLiftedShadow(to view: UIView) {
+    //        view.layer.shadowColor = UIColor.black.cgColor
+    //        view.layer.shadowOffset = CGSize(width: 0, height: 2)
+    //        view.layer.shadowOpacity = 0.1
+    //        view.layer.shadowRadius = 2
+    //        view.layer.shadowPath = UIBezierPath(rect: view.bounds).cgPath
+    //        view.layer.shouldRasterize = true
+    //        view.clipsToBounds = true
+    //        view.layer.rasterizationScale = UIScreen.main.scale
+    //    }
 }
