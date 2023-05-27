@@ -150,7 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				183356D32A1CFAD600906776 /* Counter */,
-				18EE4DBD2A190D6100F7B842 /* HelpModule */,
+				18EE4DBD2A190D6100F7B842 /* ExtendModule */,
 				186880CA2A16007B00848325 /* QuestionsModule */,
 				186880C92A16007300848325 /* HomeModule */,
 			);
@@ -330,12 +330,12 @@
 			path = AlphabetCollectionViewCell;
 			sourceTree = "<group>";
 		};
-		18EE4DBD2A190D6100F7B842 /* HelpModule */ = {
+		18EE4DBD2A190D6100F7B842 /* ExtendModule */ = {
 			isa = PBXGroup;
 			children = (
 				18EE4DC32A19146400F7B842 /* GameOver */,
 			);
-			path = HelpModule;
+			path = ExtendModule;
 			sourceTree = "<group>";
 		};
 		18EE4DBE2A190D7000F7B842 /* View */ = {
