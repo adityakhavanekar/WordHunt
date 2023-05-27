@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEb-cg-yQf" customClass="PaddingLabel" customModule="WordHunt" customModuleProvider="target">
-                        <rect key="frame" x="35" y="266" width="446" height="50"/>
+                        <rect key="frame" x="35" y="125" width="446" height="50"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="grJ-X8-Z4O"/>
@@ -73,7 +73,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*No of letters: 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvg-xv-4MW">
-                        <rect key="frame" x="20.000000000000007" y="346" width="113.66666666666669" height="18"/>
+                        <rect key="frame" x="20.000000000000007" y="205" width="113.66666666666669" height="159"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -119,8 +119,8 @@
                             <constraint firstAttribute="height" constant="50" id="X1b-gh-GMU"/>
                         </constraints>
                     </stackView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Hint:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KDn-DH-jLb">
-                        <rect key="frame" x="20" y="216" width="476" height="30"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="*Hint:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KDn-DH-jLb">
+                        <rect key="frame" x="20" y="75" width="476" height="30"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -135,6 +135,7 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="WQR-vo-D7c" secondAttribute="trailing" constant="20" id="09c-eE-1A3"/>
                 <constraint firstAttribute="trailing" secondItem="QGq-Vu-CpR" secondAttribute="trailing" constant="15" id="0aA-Js-QrB"/>
+                <constraint firstItem="KDn-DH-jLb" firstAttribute="top" secondItem="QGq-Vu-CpR" secondAttribute="bottom" constant="10" id="2Kz-Tk-a8A"/>
                 <constraint firstItem="uvg-xv-4MW" firstAttribute="top" secondItem="jEb-cg-yQf" secondAttribute="bottom" constant="30" id="3O2-Nw-hJB"/>
                 <constraint firstAttribute="trailing" secondItem="jEb-cg-yQf" secondAttribute="trailing" constant="35" id="DLu-fa-fCe"/>
                 <constraint firstItem="WQR-vo-D7c" firstAttribute="top" secondItem="uvg-xv-4MW" secondAttribute="bottom" constant="10" id="GeS-n6-761"/>

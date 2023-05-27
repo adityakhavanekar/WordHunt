@@ -269,6 +269,7 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
                 completion?()
             }
         } else {
+            showTemporaryLabel(text: "Error occured")
             print("Ad wasn't ready")
         }
     }
@@ -281,6 +282,7 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
                            completionHandler: { [self] ad, error in
             if let error = error {
                 print("Failed to load rewarded ad with error: \(error.localizedDescription)")
+                showTemporaryLabel(text: "Error occured")
                 return
             }
             rewardedAd = ad
@@ -292,6 +294,24 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
     }
 }
 
+// UI UX:
+extension QuestionsViewController{
+    private func showTemporaryLabel(text: String) {
+        let label = UILabel()
+        label.text = text
+        label.textAlignment = .center
+        label.textColor = .white
+        label.backgroundColor = .black
+        label.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width / 2, height: 50)
+        label.center = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY)
+        label.clipsToBounds = true
+        label.layer.cornerRadius = 10
+        self.view.addSubview(label)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            label.removeFromSuperview()
+        }
+    }
+}
 
 //Banner:
 //        ca-app-pub-8260816350989246/6510909087
