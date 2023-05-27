@@ -34,6 +34,8 @@
 		188426032A16525400EE4251 /* QuestionsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188426012A16525400EE4251 /* QuestionsCollectionViewCell.xib */; };
 		188426072A1652FE00EE4251 /* AlphabetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188426052A1652FE00EE4251 /* AlphabetCollectionViewCell.swift */; };
 		188426082A1652FE00EE4251 /* AlphabetCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188426062A1652FE00EE4251 /* AlphabetCollectionViewCell.xib */; };
+		188469382A21FB0F00412C20 /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188469362A21FB0F00412C20 /* DoneViewController.swift */; };
+		188469392A21FB0F00412C20 /* DoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188469372A21FB0F00412C20 /* DoneViewController.xib */; };
 		18E227212A1D09420017F306 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 18E227202A1D09420017F306 /* GoogleMobileAds */; };
 		18EE4DC12A190D8400F7B842 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE4DBF2A190D8400F7B842 /* HelpViewController.swift */; };
 		18EE4DC22A190D8400F7B842 /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EE4DC02A190D8400F7B842 /* HelpViewController.xib */; };
@@ -93,6 +95,8 @@
 		188426012A16525400EE4251 /* QuestionsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionsCollectionViewCell.xib; sourceTree = "<group>"; };
 		188426052A1652FE00EE4251 /* AlphabetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetCollectionViewCell.swift; sourceTree = "<group>"; };
 		188426062A1652FE00EE4251 /* AlphabetCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlphabetCollectionViewCell.xib; sourceTree = "<group>"; };
+		188469362A21FB0F00412C20 /* DoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
+		188469372A21FB0F00412C20 /* DoneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoneViewController.xib; sourceTree = "<group>"; };
 		18EE4DBF2A190D8400F7B842 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		18EE4DC02A190D8400F7B842 /* HelpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpViewController.xib; sourceTree = "<group>"; };
 		491ACA907A48757C98A29BC4 /* Pods-WordHuntTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordHuntTests.debug.xcconfig"; path = "Target Support Files/Pods-WordHuntTests/Pods-WordHuntTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -330,9 +334,27 @@
 			path = AlphabetCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		188469342A21FAE600412C20 /* Done */ = {
+			isa = PBXGroup;
+			children = (
+				188469352A21FAF400412C20 /* View */,
+			);
+			path = Done;
+			sourceTree = "<group>";
+		};
+		188469352A21FAF400412C20 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				188469362A21FB0F00412C20 /* DoneViewController.swift */,
+				188469372A21FB0F00412C20 /* DoneViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		18EE4DBD2A190D6100F7B842 /* ExtendModule */ = {
 			isa = PBXGroup;
 			children = (
+				188469342A21FAE600412C20 /* Done */,
 				18EE4DC32A19146400F7B842 /* GameOver */,
 			);
 			path = ExtendModule;
@@ -485,6 +507,7 @@
 				183356D72A1CFAF200906776 /* CounterViewController.xib in Resources */,
 				186880A22A16006300848325 /* Assets.xcassets in Resources */,
 				188425FE2A16514800EE4251 /* QuestionsViewController.xib in Resources */,
+				188469392A21FB0F00412C20 /* DoneViewController.xib in Resources */,
 				183356CC2A1A669F00906776 /* HomeTableViewCell.xib in Resources */,
 				1868809D2A16006100848325 /* Main.storyboard in Resources */,
 				18EE4DC22A190D8400F7B842 /* HelpViewController.xib in Resources */,
@@ -633,6 +656,7 @@
 				186880982A16006100848325 /* SceneDelegate.swift in Sources */,
 				186880D72A16010200848325 /* PaddingLbl.swift in Sources */,
 				1842774B2A175587004B09CE /* QuestionsViewModel.swift in Sources */,
+				188469382A21FB0F00412C20 /* DoneViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

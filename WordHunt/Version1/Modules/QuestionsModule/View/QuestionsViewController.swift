@@ -250,7 +250,16 @@ extension QuestionsViewController:Answered,HelpPressed{
                     }
                 }
             }else{
-                
+                self.timerView.pause()
+                let vc = DoneViewController()
+                vc.completion = {
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
+                vc.modeCompletionStr = "Completed"
+                vc.modalPresentationStyle = .overFullScreen
+                self.present(vc, animated: true)
             }
         }
     }
