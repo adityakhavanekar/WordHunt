@@ -133,7 +133,7 @@
     </objects>
     <resources>
         <image name="home" width="512" height="512"/>
-        <image name="jum" width="540" height="360"/>
+        <image name="jum" width="3200" height="2133"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
