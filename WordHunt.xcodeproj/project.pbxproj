@@ -241,14 +241,9 @@
 			isa = PBXGroup;
 			children = (
 				186880C82A16006B00848325 /* Version1 */,
-				186880952A16006100848325 /* AppDelegate.swift */,
-				186880972A16006100848325 /* SceneDelegate.swift */,
-				186880992A16006100848325 /* ViewController.swift */,
-				1868809B2A16006100848325 /* Main.storyboard */,
 				1884693A2A2223F900412C20 /* Assets */,
-				186880A32A16006300848325 /* LaunchScreen.storyboard */,
+				1884693E2A2224A400412C20 /* SystemFiles */,
 				186880A62A16006300848325 /* Info.plist */,
-				1868809E2A16006100848325 /* WordHunt.xcdatamodeld */,
 			);
 			path = WordHunt;
 			sourceTree = "<group>";
@@ -368,6 +363,19 @@
 				1884693C2A22241A00412C20 /* Celebration.json */,
 			);
 			path = Animations;
+			sourceTree = "<group>";
+		};
+		1884693E2A2224A400412C20 /* SystemFiles */ = {
+			isa = PBXGroup;
+			children = (
+				186880952A16006100848325 /* AppDelegate.swift */,
+				186880972A16006100848325 /* SceneDelegate.swift */,
+				186880992A16006100848325 /* ViewController.swift */,
+				1868809B2A16006100848325 /* Main.storyboard */,
+				186880A32A16006300848325 /* LaunchScreen.storyboard */,
+				1868809E2A16006100848325 /* WordHunt.xcdatamodeld */,
+			);
+			path = SystemFiles;
 			sourceTree = "<group>";
 		};
 		18EE4DBD2A190D6100F7B842 /* ExtendModule */ = {
