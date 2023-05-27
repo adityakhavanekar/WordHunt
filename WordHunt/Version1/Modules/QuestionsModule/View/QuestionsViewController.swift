@@ -172,6 +172,12 @@ extension QuestionsViewController: SRCountdownTimerDelegate{
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true)
     }
+    
+    func timerDidUpdateCounterValue(sender: SRCountdownTimer, newValue: Int) {
+        if newValue <= 5{
+            timerView.lineColor = .red
+        }
+    }
 }
 
 // MARK: - CollectionView Functions
@@ -278,6 +284,7 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
     }
     
     func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        self.timerView.lineColor = .systemTeal
         self.timerView.start(beginingValue: 70)
         print("Ad did dismiss full screen content.")
     }
