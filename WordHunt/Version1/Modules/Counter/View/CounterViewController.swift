@@ -20,12 +20,13 @@ class CounterViewController: UIViewController {
     }
     
     private func configureTimerView(){
-        timerView.start(beginingValue: 3)
+        timerView.labelFont = UIFont.systemFont(ofSize: 100,weight: .heavy)
         timerView.lineColor = .white
         timerView.lineWidth = 100
         timerView.layer.cornerRadius = 100
         timerView.clipsToBounds = true
         timerView.delegate = self
+        timerView.start(beginingValue: 3)
     }
 }
 
