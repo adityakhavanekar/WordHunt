@@ -11,6 +11,8 @@ import GoogleMobileAds
 
 class QuestionsViewController: UIViewController {
     
+    @IBOutlet weak var homeBtnWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var homeBtnHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var featuredImgViewHeigthConstraint: NSLayoutConstraint!
     @IBOutlet weak var timerViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var timerViewWidthConstraint: NSLayoutConstraint!
@@ -85,6 +87,8 @@ class QuestionsViewController: UIViewController {
         timerView.labelFont = UIFont.systemFont(ofSize: 40)
         timerView.layer.cornerRadius = timerViewHeightConstraint.constant/2
         timerView.lineWidth = 20
+        homeBtnHeightConstraint.constant = homeBtnHeightConstraint.constant * 2
+        homeBtnWidthConstraint.constant = homeBtnWidthConstraint.constant * 2
     }
     
     private func configureBannerAd(){
