@@ -18,7 +18,7 @@
                 <outlet property="featuredImgView" destination="4Wh-ch-WuI" id="Jnz-Nc-3rB"/>
                 <outlet property="featuredImgViewHeigthConstraint" destination="4ev-E6-1kJ" id="oeA-XX-TXJ"/>
                 <outlet property="highScoreLbl" destination="7wU-Z6-sth" id="x2g-Wf-c2C"/>
-                <outlet property="homeBtnHeightConstraint" destination="qf5-Ye-WXG" id="69h-Q2-Cxj"/>
+                <outlet property="homeBtnHeightConstraint" destination="qf5-Ye-WXG" id="MK2-05-J0b"/>
                 <outlet property="homeBtnWidthConstraint" destination="Lu5-Vd-prz" id="nDA-DU-S9H"/>
                 <outlet property="scoreLbl" destination="dKL-5n-wgc" id="8kL-je-usu"/>
                 <outlet property="timerView" destination="LNF-De-fwo" id="H11-fq-yhe"/>
