@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 class DoneViewController: UIViewController {
     
@@ -18,6 +19,7 @@ class DoneViewController: UIViewController {
     @IBOutlet weak var modeCompletionLbl: UILabel!
     @IBOutlet weak var doneBtn: UIButton!
     
+    var animationView: LottieAnimationView?
     
     var modeCompletionStr:String = ""
     var completion: (()->())?
@@ -36,8 +38,20 @@ class DoneViewController: UIViewController {
         if UIDevice.current.userInterfaceIdiom == .pad{
             configureForIpad()
         }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+            self.setAnimationView(animationName: "Celebration", speed: 1.5)
+        }
         modeCompletionLbl.text = modeCompletionStr
         internalView.layer.cornerRadius = 20
+    }
+    
+    private func setAnimationView(animationName:String, speed:Float){
+        animationView = .init(name:animationName)
+        animationView?.frame = animationContView.bounds
+        animationView?.animationSpeed = CGFloat(speed)
+        animationContView.addSubview(animationView!)
+        animationView?.loopMode = .loop
+        animationView?.play()
     }
 
     @IBAction func doneBtnClicked(_ sender: UIButton) {

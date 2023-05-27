@@ -8,6 +8,7 @@ target 'WordHunt' do
   # Pods for WordHunt
   pod 'MagicTimer'
   pod 'SRCountdownTimer'
+  pod 'lottie-ios'
 
   target 'WordHuntTests' do
     inherit! :search_paths

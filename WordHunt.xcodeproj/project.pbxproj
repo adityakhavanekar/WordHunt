@@ -36,6 +36,7 @@
 		188426082A1652FE00EE4251 /* AlphabetCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188426062A1652FE00EE4251 /* AlphabetCollectionViewCell.xib */; };
 		188469382A21FB0F00412C20 /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188469362A21FB0F00412C20 /* DoneViewController.swift */; };
 		188469392A21FB0F00412C20 /* DoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188469372A21FB0F00412C20 /* DoneViewController.xib */; };
+		1884693D2A22241A00412C20 /* Celebration.json in Resources */ = {isa = PBXBuildFile; fileRef = 1884693C2A22241A00412C20 /* Celebration.json */; };
 		18E227212A1D09420017F306 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 18E227202A1D09420017F306 /* GoogleMobileAds */; };
 		18EE4DC12A190D8400F7B842 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE4DBF2A190D8400F7B842 /* HelpViewController.swift */; };
 		18EE4DC22A190D8400F7B842 /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EE4DC02A190D8400F7B842 /* HelpViewController.xib */; };
@@ -97,6 +98,7 @@
 		188426062A1652FE00EE4251 /* AlphabetCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlphabetCollectionViewCell.xib; sourceTree = "<group>"; };
 		188469362A21FB0F00412C20 /* DoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
 		188469372A21FB0F00412C20 /* DoneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoneViewController.xib; sourceTree = "<group>"; };
+		1884693C2A22241A00412C20 /* Celebration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Celebration.json; sourceTree = "<group>"; };
 		18EE4DBF2A190D8400F7B842 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		18EE4DC02A190D8400F7B842 /* HelpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpViewController.xib; sourceTree = "<group>"; };
 		491ACA907A48757C98A29BC4 /* Pods-WordHuntTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordHuntTests.debug.xcconfig"; path = "Target Support Files/Pods-WordHuntTests/Pods-WordHuntTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -243,7 +245,7 @@
 				186880972A16006100848325 /* SceneDelegate.swift */,
 				186880992A16006100848325 /* ViewController.swift */,
 				1868809B2A16006100848325 /* Main.storyboard */,
-				186880A12A16006300848325 /* Assets.xcassets */,
+				1884693A2A2223F900412C20 /* Assets */,
 				186880A32A16006300848325 /* LaunchScreen.storyboard */,
 				186880A62A16006300848325 /* Info.plist */,
 				1868809E2A16006100848325 /* WordHunt.xcdatamodeld */,
@@ -349,6 +351,23 @@
 				188469372A21FB0F00412C20 /* DoneViewController.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		1884693A2A2223F900412C20 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				1884693B2A22240100412C20 /* Animations */,
+				186880A12A16006300848325 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		1884693B2A22240100412C20 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				1884693C2A22241A00412C20 /* Celebration.json */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		18EE4DBD2A190D6100F7B842 /* ExtendModule */ = {
@@ -510,6 +529,7 @@
 				188469392A21FB0F00412C20 /* DoneViewController.xib in Resources */,
 				183356CC2A1A669F00906776 /* HomeTableViewCell.xib in Resources */,
 				1868809D2A16006100848325 /* Main.storyboard in Resources */,
+				1884693D2A22241A00412C20 /* Celebration.json in Resources */,
 				18EE4DC22A190D8400F7B842 /* HelpViewController.xib in Resources */,
 				188426032A16525400EE4251 /* QuestionsCollectionViewCell.xib in Resources */,
 				183356C72A1A60D000906776 /* HomeViewController.xib in Resources */,
