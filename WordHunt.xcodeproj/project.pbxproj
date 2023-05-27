@@ -284,8 +284,8 @@
 		186880CA2A16007B00848325 /* QuestionsModule */ = {
 			isa = PBXGroup;
 			children = (
-				184277492A17556A004B09CE /* ViewModel */,
 				184277462A174354004B09CE /* Model */,
+				184277492A17556A004B09CE /* ViewModel */,
 				188425FA2A16512B00EE4251 /* View */,
 			);
 			path = QuestionsModule;

@@ -16,19 +16,21 @@ class QuestionsViewModel{
         self.url = url
     }
     
-    func getWords(completion:@escaping ()->()){
+    func getWords(completion:@escaping (Bool)->()){
         NetworkManager.shared.request(url: url) { result in
             switch result{
             case .success(let gotData):
                 do{
                     let jsonData = try JSONDecoder().decode([WordHuntElement].self, from: gotData)
                     self.wordHunt = jsonData.shuffled()
-                    completion()
+                    completion(true)
                 }catch{
+                    completion(false)
                     print("error")
                 }
             case .failure(_):
-                print("Error")
+                print("error")
+                completion(false)
             }
         }
     }

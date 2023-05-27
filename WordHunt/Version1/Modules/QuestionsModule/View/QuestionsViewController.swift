@@ -126,11 +126,19 @@ class QuestionsViewController: UIViewController {
     }
     
     private func callViewModel(){
-        viewModel?.getWords(completion: {
-            DispatchQueue.main.async {
-                self.collectionViewQuestions.reloadData()
-                if let count = self.viewModel?.getElement(index: 0)?.answers.count{
-                    self.timerView.start(beginingValue:count*70)
+        viewModel?.getWords(completion: { result in
+            switch result{
+            case true:
+                DispatchQueue.main.async {
+                    self.collectionViewQuestions.reloadData()
+                    if let count = self.viewModel?.getElement(index: 0)?.answers.count{
+                        self.timerView.start(beginingValue:count*70)
+                    }
+                }
+            case false:
+                DispatchQueue.main.async {
+                    self.showAlert(title: "Error Occured", message: "Please check network connection", preferedStyle: .alert)
+                    self.navigationController?.popViewController(animated: true)
                 }
             }
         })
@@ -314,6 +322,15 @@ extension QuestionsViewController{
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             label.removeFromSuperview()
         }
+    }
+    
+    private func showAlert(title:String,message:String,preferedStyle:UIAlertController.Style){
+        let alertcontroller = UIAlertController(title: title, message: message, preferredStyle: preferedStyle)
+        let action = UIAlertAction(title: "OK", style: .default){ _ in
+            self.navigationController?.popViewController(animated: true)
+        }
+        alertcontroller.addAction(action)
+        self.present(alertcontroller, animated: true)
     }
 }
 
