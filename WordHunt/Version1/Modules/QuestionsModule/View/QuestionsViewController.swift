@@ -174,8 +174,10 @@ extension QuestionsViewController: SRCountdownTimerDelegate{
     }
     
     func timerDidUpdateCounterValue(sender: SRCountdownTimer, newValue: Int) {
-        if newValue <= 5{
+        if newValue <= 20{
             timerView.lineColor = .red
+        }else{
+            timerView.lineColor = .systemTeal
         }
     }
 }
