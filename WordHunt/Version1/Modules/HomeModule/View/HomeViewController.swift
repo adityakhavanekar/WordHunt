@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
         let banner = GADBannerView()
         //        ca-app-pub-8260816350989246/6510909087
         //TESTAD: ca-app-pub-3940256099942544/2934735716
-        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        banner.adUnitID = "ca-app-pub-8260816350989246/6510909087"
         banner.load(GADRequest())
         banner.backgroundColor = .clear
         return banner

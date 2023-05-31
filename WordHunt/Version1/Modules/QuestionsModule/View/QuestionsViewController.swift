@@ -30,7 +30,7 @@ class QuestionsViewController: UIViewController {
     private var rewardedAd: GADRewardedAd?
     private let banner:GADBannerView = {
         let banner = GADBannerView()
-        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        banner.adUnitID = "ca-app-pub-8260816350989246/6510909087"
         banner.load(GADRequest())
         banner.backgroundColor = .clear
         return banner
@@ -308,7 +308,7 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
     
     func loadRewardedAd(completion:(()->())?=nil) {
         let request = GADRequest()
-        GADRewardedAd.load(withAdUnitID:"ca-app-pub-3940256099942544/1712485313",
+        GADRewardedAd.load(withAdUnitID:"ca-app-pub-8260816350989246/3635094615",
                            request: request,
                            completionHandler: { [self] ad, error in
             if let error = error {
