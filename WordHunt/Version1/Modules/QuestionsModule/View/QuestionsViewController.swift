@@ -74,7 +74,7 @@ class QuestionsViewController: UIViewController {
         }
         self.navigationController?.navigationBar.isHidden = true
         score = 0
-        loadRewardedAd()
+//        loadRewardedAd()
         configureTimer()
         setupCollectionView()
         setupUserDefaults()
@@ -167,7 +167,12 @@ extension QuestionsViewController: SRCountdownTimerDelegate{
             self.navigationController?.popViewController(animated: true)
         }
         vc.continueCompletion = {
-            self.show()
+            self.loadRewardedAd {
+                self.show {
+                    self.timerView.lineColor = .systemTeal
+                    self.timerView.start(beginingValue: 70)
+                }
+            }
         }
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true)
@@ -276,9 +281,7 @@ extension QuestionsViewController:Answered,HelpPressed{
 //MARK: - Advertsitement
 extension QuestionsViewController:GADFullScreenContentDelegate{
     func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
-        loadRewardedAd(completion: {
-            self.show()
-        })
+        print("error occured")
     }
     
     func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
@@ -286,8 +289,6 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
     }
     
     func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-        self.timerView.lineColor = .systemTeal
-        self.timerView.start(beginingValue: 70)
         print("Ad did dismiss full screen content.")
     }
     
