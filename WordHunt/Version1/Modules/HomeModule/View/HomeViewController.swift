@@ -69,7 +69,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01){
             switch indexPath.row{
             case 0:
-                cell.setupCell(internalImgString: "alphabet", gradient1: "#0094B2", gradient2: "#00BBD4", category: "Classic", desc: "Unlimited words")
+                cell.setupCell(internalImgString: "alphabet", gradient1: "#0094B2", gradient2: "#00BBD4", category: "Classic", desc: "")
             case 1:
                 cell.setupCell(internalImgString: "animals", gradient1: "#629135", gradient2: "#CBDD6F", category: "Animals", desc: "")
             case 2:
