@@ -132,7 +132,7 @@ class QuestionsViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.collectionViewQuestions.reloadData()
                     if let count = self.viewModel?.getElement(index: 0)?.answers.count{
-                        self.timerView.start(beginingValue:count*70)
+                        self.timerView.start(beginingValue:count*45)
                     }
                 }
             case false:
@@ -170,7 +170,7 @@ extension QuestionsViewController: SRCountdownTimerDelegate{
             self.loadRewardedAd {
                 self.show {
                     self.timerView.lineColor = .systemTeal
-                    self.timerView.start(beginingValue: 70)
+                    self.timerView.start(beginingValue: 45)
                 }
             }
         }
@@ -259,7 +259,7 @@ extension QuestionsViewController:Answered,HelpPressed{
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.1){
                     self.collectionViewQuestions.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
                     if let count = cell.element?.answers.count{
-                        self.timerView.start(beginingValue: count * 70)
+                        self.timerView.start(beginingValue: count * 45)
                     }
                 }
             }else{

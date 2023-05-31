@@ -36,7 +36,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNa-B9-Ke3">
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jum" translatesAutoresizingMaskIntoConstraints="NO" id="4Wh-ch-WuI">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wordBack" translatesAutoresizingMaskIntoConstraints="NO" id="4Wh-ch-WuI">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="265.66666666666669"/>
                         </imageView>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="SxT-yE-veN">
@@ -133,7 +133,7 @@
     </objects>
     <resources>
         <image name="home" width="512" height="512"/>
-        <image name="jum" width="3200" height="2133"/>
+        <image name="wordBack" width="2500" height="2500"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
