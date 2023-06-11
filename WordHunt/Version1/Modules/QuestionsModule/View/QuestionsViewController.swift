@@ -30,7 +30,7 @@ class QuestionsViewController: UIViewController {
     private var rewardedAd: GADRewardedAd?
     private let banner:GADBannerView = {
         let banner = GADBannerView()
-        banner.adUnitID = "ca-app-pub-8260816350989246/6510909087"
+        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         banner.load(GADRequest())
         banner.backgroundColor = .clear
         return banner
@@ -167,8 +167,8 @@ extension QuestionsViewController: SRCountdownTimerDelegate{
             self.navigationController?.popViewController(animated: true)
         }
         vc.continueCompletion = {
-            self.loadRewardedAd {
-                self.show {
+            self.loadRewardedAd(fromHelperScreen: true) {
+                self.show{
                     self.timerView.lineColor = .systemTeal
                     self.timerView.start(beginingValue: 45)
                 }
@@ -223,7 +223,7 @@ extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewData
 extension QuestionsViewController:Answered,HelpPressed{
     
     func helpNeeded(element: WordHuntElement, type: Help, cell: QuestionsCollectionViewCell) {
-        loadRewardedAd {
+        loadRewardedAd(fromHelperScreen: false) {
             self.timerView.pause()
             switch type{
             case .word:
@@ -306,14 +306,17 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
     }
     
     
-    func loadRewardedAd(completion:(()->())?=nil) {
+    func loadRewardedAd(fromHelperScreen:Bool,completion:(()->())?=nil) {
         let request = GADRequest()
-        GADRewardedAd.load(withAdUnitID:"ca-app-pub-8260816350989246/3635094615",
+        GADRewardedAd.load(withAdUnitID:"ca-app-pub-3940256099942544/1712485313",
                            request: request,
                            completionHandler: { [self] ad, error in
             if let error = error {
                 print("Failed to load rewarded ad with error: \(error.localizedDescription)")
                 showTemporaryLabel(text: "Error occured")
+                if fromHelperScreen == true{
+                    self.navigationController?.popViewController(animated: true)
+                }
                 return
             }
             rewardedAd = ad

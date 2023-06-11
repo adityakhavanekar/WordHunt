@@ -37,7 +37,7 @@
 		188469382A21FB0F00412C20 /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188469362A21FB0F00412C20 /* DoneViewController.swift */; };
 		188469392A21FB0F00412C20 /* DoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188469372A21FB0F00412C20 /* DoneViewController.xib */; };
 		1884693D2A22241A00412C20 /* Celebration.json in Resources */ = {isa = PBXBuildFile; fileRef = 1884693C2A22241A00412C20 /* Celebration.json */; };
-		18E227212A1D09420017F306 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 18E227202A1D09420017F306 /* GoogleMobileAds */; };
+		189862492A3302E300BA4F59 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 189862482A3302E300BA4F59 /* GoogleMobileAds */; };
 		18EE4DC12A190D8400F7B842 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE4DBF2A190D8400F7B842 /* HelpViewController.swift */; };
 		18EE4DC22A190D8400F7B842 /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EE4DC02A190D8400F7B842 /* HelpViewController.xib */; };
 		6735E4F99A9042CD7E3347FC /* Pods_WordHuntTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0BFBCCAAC4DE88BBE043FB4 /* Pods_WordHuntTests.framework */; };
@@ -115,7 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18E227212A1D09420017F306 /* GoogleMobileAds in Frameworks */,
+				189862492A3302E300BA4F59 /* GoogleMobileAds in Frameworks */,
 				F5F676A4E012A082B5D8100C /* Pods_WordHunt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,7 +433,7 @@
 			);
 			name = WordHunt;
 			packageProductDependencies = (
-				18E227202A1D09420017F306 /* GoogleMobileAds */,
+				189862482A3302E300BA4F59 /* GoogleMobileAds */,
 			);
 			productName = WordHunt;
 			productReference = 186880922A16006100848325 /* WordHunt.app */;
@@ -511,7 +511,7 @@
 			);
 			mainGroup = 186880892A16006100848325;
 			packageReferences = (
-				18E2271F2A1D09420017F306 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				189862472A3302E300BA4F59 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = 186880932A16006100848325 /* Products */;
 			projectDirPath = "";
@@ -1054,7 +1054,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		18E2271F2A1D09420017F306 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+		189862472A3302E300BA4F59 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
 			requirement = {
@@ -1065,9 +1065,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		18E227202A1D09420017F306 /* GoogleMobileAds */ = {
+		189862482A3302E300BA4F59 /* GoogleMobileAds */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 18E2271F2A1D09420017F306 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			package = 189862472A3302E300BA4F59 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
 			productName = GoogleMobileAds;
 		};
 /* End XCSwiftPackageProductDependency section */
