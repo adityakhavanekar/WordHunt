@@ -88,7 +88,6 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let counterVc = CounterViewController()
         let questionsVc = QuestionsViewController()
         switch indexPath.row{
         case 0:
@@ -105,10 +104,6 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         default:
             print("Error")
         }
-        counterVc.completion = {
-            self.navigationController?.pushViewController(questionsVc, animated: true)
-        }
-        counterVc.modalPresentationStyle = .overFullScreen
-        self.present(counterVc, animated: true)
+        self.navigationController?.pushViewController(questionsVc, animated: true)
     }
 }
