@@ -332,14 +332,12 @@ extension QuestionsCollectionViewCell{
         DispatchQueue.main.async {
             
             UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
-                // Shake animation
                 let shakeTransform = CGAffineTransform(translationX: -shakeDistance, y: 0)
                 label.transform = shakeTransform
                 label.textColor = .white
                 label.backgroundColor = .systemRed
             }, completion: { _ in
                 UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
-                    // Restore original position
                     label.transform = originalTransform
                 }, completion: completion)
             })
@@ -348,9 +346,7 @@ extension QuestionsCollectionViewCell{
     
     func simpleAnimateLabel(_ label: UILabel) {
         let originalTransform = label.transform
-        
         let scaleTransform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-        
         UIView.animate(withDuration: 0.2, animations: {
             label.transform = scaleTransform
         }) { _ in
@@ -360,7 +356,6 @@ extension QuestionsCollectionViewCell{
         }
     }
 }
-
 
 enum Help{
     case word
