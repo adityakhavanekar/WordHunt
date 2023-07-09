@@ -74,7 +74,6 @@ class QuestionsViewController: UIViewController {
         }
         self.navigationController?.navigationBar.isHidden = true
         score = 0
-//        loadRewardedAd()
         configureTimer()
         setupCollectionView()
         setupUserDefaults()
