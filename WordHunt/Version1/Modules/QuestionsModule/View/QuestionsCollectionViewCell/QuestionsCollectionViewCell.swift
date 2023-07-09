@@ -173,7 +173,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     }
 }
 
-// CollectionViewCells
+// MARK: -  CollectionViewCells
 extension QuestionsCollectionViewCell:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return element?.chars.count ?? 0
@@ -223,7 +223,7 @@ extension QuestionsCollectionViewCell:UICollectionViewDelegate,UICollectionViewD
     }
 }
 
-//Animations and UI
+//MARK: - Animations and UI
 extension QuestionsCollectionViewCell{
     private func showTemporaryLabel(text: String) {
         let label = UILabel()
