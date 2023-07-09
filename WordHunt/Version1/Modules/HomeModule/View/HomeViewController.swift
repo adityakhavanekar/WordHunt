@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
         let banner = GADBannerView()
         //        ca-app-pub-8260816350989246/6510909087
         //TESTAD: ca-app-pub-3940256099942544/2934735716
-        banner.adUnitID = "ca-app-pub-8260816350989246/6510909087"
+        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         banner.load(GADRequest())
         banner.backgroundColor = .clear
         return banner
@@ -92,18 +92,24 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         switch indexPath.row{
         case 0:
             questionsVc.isClassic = true
-            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "http://207.154.204.149:3051/wordHunt/classicWords")!)
+            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/wordHunts")!)
         case 1:
             questionsVc.isClassic = false
             questionsVc.featuredImageStr = "animalsV"
-            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "http://207.154.204.149:3051/wordHunt/animalWords")!)
+            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/animalWords")!)
         case 2:
             questionsVc.isClassic = false
             questionsVc.featuredImageStr = "brandsV"
-            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "http://207.154.204.149:3051/wordHunt/brandWords")!)
+            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/brandWords")!)
         default:
             print("Error")
         }
         self.navigationController?.pushViewController(questionsVc, animated: true)
     }
 }
+
+
+//MARK: - Old APIs
+//http://207.154.204.149:3051/wordHunt/animalWords
+//http://207.154.204.149:3051/wordHunt/classicWords
+//http://207.154.204.149:3051/wordHunt/brandWords

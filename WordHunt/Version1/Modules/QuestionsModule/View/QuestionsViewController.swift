@@ -126,7 +126,7 @@ class QuestionsViewController: UIViewController {
     }
     
     private func callViewModel(){
-        viewModel?.getWords(completion: { result in
+        viewModel?.getWordsNewApi(completion: { result in
             switch result{
             case true:
                 DispatchQueue.main.async {
