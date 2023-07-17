@@ -257,23 +257,6 @@ extension QuestionsCollectionViewCell{
         return modifiedString
     }
     
-    private func animatePopEffect(for label: UILabel) {
-        label.alpha = 0.0
-        label.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
-        UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseInOut, animations: {
-            label.alpha = 1.0
-            label.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-        }, completion: { _ in
-            UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseInOut, animations: {
-                label.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-            }, completion: { _ in
-                UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseInOut, animations: {
-                    label.transform = CGAffineTransform.identity
-                }, completion: nil)
-            })
-        })
-    }
-    
     private func animateViewScaling(view: UIView) {
         UIView.animate(withDuration: 0.1, delay: 0.0, options: [], animations: {
             view.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
@@ -292,16 +275,10 @@ extension QuestionsCollectionViewCell{
         button.layer.shadowOffset = CGSize(width: 0, height: 2)
         button.layer.shadowRadius = 2
         button.layer.shadowOpacity = 0.5
-        button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
-    }
-    private func configure3DButtonNew(button: UIButton) {
-        button.layer.cornerRadius = 5
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.clear.cgColor
-        button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(button3DTapped(_:)), for: .touchUpInside)
     }
     
-    @objc func buttonTapped(_ sender: UIButton) {
+    @objc func button3DTapped(_ sender: UIButton) {
         UIView.animate(withDuration: 0.1, animations: {
             sender.transform = CGAffineTransform(translationX: 0, y: 5)
         }) { (_) in
@@ -340,18 +317,6 @@ extension QuestionsCollectionViewCell{
                 UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
                     label.transform = originalTransform
                 }, completion: completion)
-            })
-        }
-    }
-    
-    func simpleAnimateLabel(_ label: UILabel) {
-        let originalTransform = label.transform
-        let scaleTransform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-        UIView.animate(withDuration: 0.2, animations: {
-            label.transform = scaleTransform
-        }) { _ in
-            UIView.animate(withDuration: 0.2, animations: {
-                label.transform = originalTransform
             })
         }
     }
