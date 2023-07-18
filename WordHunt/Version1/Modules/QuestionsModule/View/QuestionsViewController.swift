@@ -36,6 +36,7 @@ class QuestionsViewController: UIViewController {
         return banner
     }()
     
+    var activityIndicator:UIActivityIndicatorView?
     var featuredImageStr:String?
     var isClassic:Bool = true
     let defaults = UserDefaults.standard
@@ -125,22 +126,47 @@ class QuestionsViewController: UIViewController {
     }
     
     private func callViewModel(){
+        activityIndicator = showActivityIndicator(in: self.view)
         viewModel?.getWordsNewApi(completion: { result in
             switch result{
             case true:
                 DispatchQueue.main.async {
                     self.collectionViewQuestions.reloadData()
+                    self.hideActivityIndicator(self.activityIndicator ?? UIActivityIndicatorView())
                     if let count = self.viewModel?.getElement(index: 0)?.answers.count{
                         self.timerView.start(beginingValue:count*45)
                     }
                 }
             case false:
                 DispatchQueue.main.async {
+                    self.hideActivityIndicator(self.activityIndicator ?? UIActivityIndicatorView())
                     self.showAlert(title: "Error Occured", message: "Please check network connection", preferedStyle: .alert)
                     self.navigationController?.popViewController(animated: true)
                 }
             }
         })
+    }
+    
+    func showActivityIndicator(in view: UIView) -> UIActivityIndicatorView {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.color = .gray
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(activityIndicator)
+        
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+        
+        return activityIndicator
+    }
+    
+    func hideActivityIndicator(_ activityIndicator: UIActivityIndicatorView) {
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
     }
     
     @IBAction func homeBtnClicked(_ sender: UIButton) {
@@ -170,6 +196,7 @@ extension QuestionsViewController: SRCountdownTimerDelegate{
                 self.show{
                     self.timerView.lineColor = .systemTeal
                     self.timerView.start(beginingValue: 45)
+                    self.timerView.pause()
                 }
             }
         }
@@ -288,6 +315,7 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
     }
     
     func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        self.timerView.resume()
         print("Ad did dismiss full screen content.")
     }
     
