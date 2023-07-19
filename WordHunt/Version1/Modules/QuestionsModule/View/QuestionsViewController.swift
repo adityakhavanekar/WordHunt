@@ -146,13 +146,12 @@ class QuestionsViewController: UIViewController {
             }
         })
     }
-    
     func showActivityIndicator(in view: UIView) -> UIActivityIndicatorView {
         let activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.color = .white
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(activityIndicator)
-        
+        self.view.isUserInteractionEnabled = false
         NSLayoutConstraint.activate([
             activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
@@ -167,6 +166,7 @@ class QuestionsViewController: UIViewController {
     func hideActivityIndicator(_ activityIndicator: UIActivityIndicatorView) {
         activityIndicator.stopAnimating()
         activityIndicator.removeFromSuperview()
+        self.view.isUserInteractionEnabled = true
     }
     
     @IBAction func homeBtnClicked(_ sender: UIButton) {
@@ -256,7 +256,6 @@ extension QuestionsViewController:Answered,HelpPressed{
                 self.show {
                     cell.answer = element.answers[0].word.uppercased()
                     cell.isAdRewarded = true
-                    self.timerView.resume()
                 }
             }
         }
@@ -335,12 +334,14 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
     
     func loadRewardedAd(fromHelperScreen:Bool,completion:(()->())?=nil) {
         let request = GADRequest()
+        let adIndi = showActivityIndicator(in: self.view)
         GADRewardedAd.load(withAdUnitID:"ca-app-pub-3940256099942544/1712485313",
                            request: request,
                            completionHandler: { [self] ad, error in
             if let error = error {
                 print("Failed to load rewarded ad with error: \(error.localizedDescription)")
                 showTemporaryLabel(text: "Error occured")
+                hideActivityIndicator(adIndi)
                 if fromHelperScreen == true{
                     self.navigationController?.popViewController(animated: true)
                 }
@@ -349,6 +350,7 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
             rewardedAd = ad
             print("Rewarded ad loaded.")
             rewardedAd?.fullScreenContentDelegate = self
+            hideActivityIndicator(adIndi)
             completion?()
         }
         )

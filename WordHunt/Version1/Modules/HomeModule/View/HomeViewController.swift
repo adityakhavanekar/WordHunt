@@ -90,15 +90,15 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         switch indexPath.row{
         case 0:
             questionsVc.isClassic = true
-            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/wordHunts")!)
+            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "http://207.154.204.149:3051/wordHunt/classicWords")!)
         case 1:
             questionsVc.isClassic = false
             questionsVc.featuredImageStr = "animalsV"
-            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/animalWords")!)
+            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "http://207.154.204.149:3051/wordHunt/animalWords")!)
         case 2:
             questionsVc.isClassic = false
             questionsVc.featuredImageStr = "brandsV"
-            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/brandWords")!)
+            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "http://207.154.204.149:3051/wordHunt/brandWords")!)
         default:
             print("Error")
         }
@@ -111,6 +111,11 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
 //http://207.154.204.149:3051/wordHunt/animalWords
 //http://207.154.204.149:3051/wordHunt/classicWords
 //http://207.154.204.149:3051/wordHunt/brandWords
+
+//MARK: - New APIs
+//https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/brandWords
+//https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/animalWords
+//https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/wordHunts
 
 // MARK: - ADS
 //        ca-app-pub-8260816350989246/6510909087
