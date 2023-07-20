@@ -9,8 +9,12 @@ import UIKit
 
 class LaunchScreenViewController: UIViewController {
 
+    @IBOutlet weak var splashIconImgView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        splashIconImgView.layer.cornerRadius = 20
+        splashIconImgView.layer.masksToBounds = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.transitionToMainScreen()
         }

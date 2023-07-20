@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LaunchScreenViewController" customModule="WordHunt" customModuleProvider="target">
             <connections>
+                <outlet property="splashIconImgView" destination="VuI-Q3-xEC" id="RVn-4u-RpM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -54,6 +55,6 @@
     </objects>
     <resources>
         <image name="LaunchBackground" width="1242" height="2688"/>
-        <image name="splashIcon" width="500" height="500"/>
+        <image name="splashIcon" width="1024" height="1024"/>
     </resources>
 </document>
