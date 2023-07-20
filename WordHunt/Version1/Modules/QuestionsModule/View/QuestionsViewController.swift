@@ -30,7 +30,7 @@ class QuestionsViewController: UIViewController {
     private var rewardedAd: GADRewardedAd?
     private let banner:GADBannerView = {
         let banner = GADBannerView()
-        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        banner.adUnitID = "ca-app-pub-8260816350989246/1684325870"
         banner.load(GADRequest())
         banner.backgroundColor = .clear
         return banner
@@ -335,7 +335,7 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
     func loadRewardedAd(fromHelperScreen:Bool,completion:(()->())?=nil) {
         let request = GADRequest()
         let adIndi = showActivityIndicator(in: self.view)
-        GADRewardedAd.load(withAdUnitID:"ca-app-pub-3940256099942544/1712485313",
+        GADRewardedAd.load(withAdUnitID:"ca-app-pub-8260816350989246/9671724588",
                            request: request,
                            completionHandler: { [self] ad, error in
             if let error = error {
@@ -386,9 +386,9 @@ extension QuestionsViewController{
 }
 
 //Banner:
-//        ca-app-pub-8260816350989246/6510909087
+//        ca-app-pub-8260816350989246/1684325870
 //TESTAD: ca-app-pub-3940256099942544/2934735716
 
 //Rewarded
 //    Test: ca-app-pub-3940256099942544/1712485313
-//    ca-app-pub-8260816350989246/3635094615
+//    ca-app-pub-8260816350989246/9671724588

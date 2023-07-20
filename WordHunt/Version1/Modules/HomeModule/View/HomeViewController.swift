@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
     
     private let banner:GADBannerView = {
         let banner = GADBannerView()
-        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        banner.adUnitID = "ca-app-pub-8260816350989246/1684325870"
         banner.load(GADRequest())
         banner.backgroundColor = .clear
         return banner
@@ -124,5 +124,5 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
 //https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/wordHunts
 
 // MARK: - ADS
-//        ca-app-pub-8260816350989246/6510909087
+//        ca-app-pub-8260816350989246/1684325870
 //TESTAD: ca-app-pub-3940256099942544/2934735716
