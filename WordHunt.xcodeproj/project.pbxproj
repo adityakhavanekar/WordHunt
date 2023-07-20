@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182818722A6907980018FE13 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182818702A6907970018FE13 /* LaunchScreenViewController.swift */; };
+		182818732A6907980018FE13 /* LaunchScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182818712A6907970018FE13 /* LaunchScreenViewController.xib */; };
 		183356C62A1A60D000906776 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183356C42A1A60D000906776 /* HomeViewController.swift */; };
 		183356C72A1A60D000906776 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183356C52A1A60D000906776 /* HomeViewController.xib */; };
 		183356CB2A1A669F00906776 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183356C92A1A669F00906776 /* HomeTableViewCell.swift */; };
@@ -22,7 +24,6 @@
 		1868809D2A16006100848325 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1868809B2A16006100848325 /* Main.storyboard */; };
 		186880A02A16006100848325 /* WordHunt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1868809E2A16006100848325 /* WordHunt.xcdatamodeld */; };
 		186880A22A16006300848325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186880A12A16006300848325 /* Assets.xcassets */; };
-		186880A52A16006300848325 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186880A32A16006300848325 /* LaunchScreen.storyboard */; };
 		186880B02A16006300848325 /* WordHuntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186880AF2A16006300848325 /* WordHuntTests.swift */; };
 		186880BA2A16006300848325 /* WordHuntUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186880B92A16006300848325 /* WordHuntUITests.swift */; };
 		186880BC2A16006300848325 /* WordHuntUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186880BB2A16006300848325 /* WordHuntUITestsLaunchTests.swift */; };
@@ -65,6 +66,8 @@
 /* Begin PBXFileReference section */
 		0958D609331A95A0833268EB /* Pods-WordHunt-WordHuntUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordHunt-WordHuntUITests.release.xcconfig"; path = "Target Support Files/Pods-WordHunt-WordHuntUITests/Pods-WordHunt-WordHuntUITests.release.xcconfig"; sourceTree = "<group>"; };
 		181E01336390CDC44516A8AF /* Pods_WordHunt_WordHuntUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WordHunt_WordHuntUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		182818702A6907970018FE13 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		182818712A6907970018FE13 /* LaunchScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreenViewController.xib; sourceTree = "<group>"; };
 		183356C42A1A60D000906776 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		183356C52A1A60D000906776 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		183356C92A1A669F00906776 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
@@ -81,7 +84,6 @@
 		1868809C2A16006100848325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1868809F2A16006100848325 /* WordHunt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WordHunt.xcdatamodel; sourceTree = "<group>"; };
 		186880A12A16006300848325 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		186880A42A16006300848325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		186880A62A16006300848325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		186880AB2A16006300848325 /* WordHuntTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordHuntTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		186880AF2A16006300848325 /* WordHuntTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordHuntTests.swift; sourceTree = "<group>"; };
@@ -155,12 +157,30 @@
 		181830D32A16216B004309DA /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				1828186D2A6907790018FE13 /* LaunchScreen */,
 				183356D32A1CFAD600906776 /* Counter */,
 				18EE4DBD2A190D6100F7B842 /* ExtendModule */,
 				186880CA2A16007B00848325 /* QuestionsModule */,
 				186880C92A16007300848325 /* HomeModule */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		1828186D2A6907790018FE13 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1828186E2A6907830018FE13 /* View */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		1828186E2A6907830018FE13 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				182818702A6907970018FE13 /* LaunchScreenViewController.swift */,
+				182818712A6907970018FE13 /* LaunchScreenViewController.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		183356C32A1A609F00906776 /* View */ = {
@@ -372,7 +392,6 @@
 				186880972A16006100848325 /* SceneDelegate.swift */,
 				186880992A16006100848325 /* ViewController.swift */,
 				1868809B2A16006100848325 /* Main.storyboard */,
-				186880A32A16006300848325 /* LaunchScreen.storyboard */,
 				1868809E2A16006100848325 /* WordHunt.xcdatamodeld */,
 			);
 			path = SystemFiles;
@@ -529,7 +548,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				186880A52A16006300848325 /* LaunchScreen.storyboard in Resources */,
+				182818732A6907980018FE13 /* LaunchScreenViewController.xib in Resources */,
 				188426082A1652FE00EE4251 /* AlphabetCollectionViewCell.xib in Resources */,
 				183356D72A1CFAF200906776 /* CounterViewController.xib in Resources */,
 				186880A22A16006300848325 /* Assets.xcassets in Resources */,
@@ -684,6 +703,7 @@
 				186880982A16006100848325 /* SceneDelegate.swift in Sources */,
 				186880D72A16010200848325 /* PaddingLbl.swift in Sources */,
 				1842774B2A175587004B09CE /* QuestionsViewModel.swift in Sources */,
+				182818722A6907980018FE13 /* LaunchScreenViewController.swift in Sources */,
 				188469382A21FB0F00412C20 /* DoneViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -727,14 +747,6 @@
 				1868809C2A16006100848325 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		186880A32A16006300848325 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				186880A42A16006300848325 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

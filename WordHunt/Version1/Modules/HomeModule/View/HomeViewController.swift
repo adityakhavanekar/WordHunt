@@ -27,6 +27,12 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let viewControllers = self.navigationController?.viewControllers{
+            var views = viewControllers
+            views.removeFirst()
+            self.navigationController?.setViewControllers(views, animated: false)
+        }
+        self.navigationController?.navigationBar.isHidden = true
         setupUI()
     }
     override func viewDidAppear(_ animated: Bool) {

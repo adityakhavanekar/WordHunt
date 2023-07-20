@@ -292,7 +292,7 @@ extension QuestionsViewController:Answered,HelpPressed{
                 let vc = DoneViewController()
                 vc.completion = {
                     DispatchQueue.main.async {
-                        self.navigationController?.popViewController(animated: true)
+                        self.navigationController?.popToRootViewController(animated: true)
                     }
                 }
                 vc.modeCompletionStr = "Completed"
