@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/GoogleAppMeasurement.git",
       "state" : {
-        "revision" : "9209b95a2593985569918e5e5ee2bf4ef8ff3640",
-        "version" : "10.9.0"
+        "revision" : "0a226a8c50494c4cb877fbde27ab6374520a3354",
+        "version" : "10.12.0"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/GoogleUtilities.git",
       "state" : {
-        "revision" : "871d43135925cde39ef7421d8723ce47edfdcc39",
-        "version" : "7.11.1"
+        "revision" : "4446686bc3714d49ce043d0f68318f42ed718cb6",
+        "version" : "7.11.4"
       }
     },
     {
@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/googleads/swift-package-manager-google-mobile-ads.git",
       "state" : {
-        "revision" : "d4d967ef26da506ab9b1d39d936144d99bcc95e2",
-        "version" : "10.5.0"
+        "revision" : "44fee5519785604f056eab6d0400decf160f6ca8",
+        "version" : "10.8.0"
       }
     },
     {

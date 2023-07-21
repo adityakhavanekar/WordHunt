@@ -69,8 +69,8 @@ extension UIView{
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = self.bounds
         
-        let color1 = UIColor(hexString: color1)?.cgColor
-        let color2 = UIColor(hexString: color2)?.cgColor
+        guard let color1 = UIColor(hexString: color1)?.cgColor else {return}
+        guard let color2 = UIColor(hexString: color2)?.cgColor else {return}
         
         gradientLayer.colors = [color1, color2]
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)

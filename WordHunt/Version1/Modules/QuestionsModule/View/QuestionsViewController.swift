@@ -30,12 +30,13 @@ class QuestionsViewController: UIViewController {
     private var rewardedAd: GADRewardedAd?
     private let banner:GADBannerView = {
         let banner = GADBannerView()
-        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        banner.adUnitID = "ca-app-pub-8260816350989246/1684325870"
         banner.load(GADRequest())
         banner.backgroundColor = .clear
         return banner
     }()
     
+    var activityIndicator:UIActivityIndicatorView?
     var featuredImageStr:String?
     var isClassic:Bool = true
     let defaults = UserDefaults.standard
@@ -74,7 +75,6 @@ class QuestionsViewController: UIViewController {
         }
         self.navigationController?.navigationBar.isHidden = true
         score = 0
-//        loadRewardedAd()
         configureTimer()
         setupCollectionView()
         setupUserDefaults()
@@ -126,22 +126,47 @@ class QuestionsViewController: UIViewController {
     }
     
     private func callViewModel(){
-        viewModel?.getWords(completion: { result in
+        activityIndicator = showActivityIndicator(in: self.view)
+        viewModel?.getWordsNewApi(completion: { result in
             switch result{
             case true:
                 DispatchQueue.main.async {
                     self.collectionViewQuestions.reloadData()
+                    self.hideActivityIndicator(self.activityIndicator ?? UIActivityIndicatorView())
                     if let count = self.viewModel?.getElement(index: 0)?.answers.count{
                         self.timerView.start(beginingValue:count*45)
                     }
                 }
             case false:
                 DispatchQueue.main.async {
+                    self.hideActivityIndicator(self.activityIndicator ?? UIActivityIndicatorView())
                     self.showAlert(title: "Error Occured", message: "Please check network connection", preferedStyle: .alert)
                     self.navigationController?.popViewController(animated: true)
                 }
             }
         })
+    }
+    func showActivityIndicator(in view: UIView) -> UIActivityIndicatorView {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.color = .white
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(activityIndicator)
+        self.view.isUserInteractionEnabled = false
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+        
+        return activityIndicator
+    }
+    
+    func hideActivityIndicator(_ activityIndicator: UIActivityIndicatorView) {
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
+        self.view.isUserInteractionEnabled = true
     }
     
     @IBAction func homeBtnClicked(_ sender: UIButton) {
@@ -171,6 +196,7 @@ extension QuestionsViewController: SRCountdownTimerDelegate{
                 self.show{
                     self.timerView.lineColor = .systemTeal
                     self.timerView.start(beginingValue: 45)
+                    self.timerView.pause()
                 }
             }
         }
@@ -230,7 +256,6 @@ extension QuestionsViewController:Answered,HelpPressed{
                 self.show {
                     cell.answer = element.answers[0].word.uppercased()
                     cell.isAdRewarded = true
-                    self.timerView.resume()
                 }
             }
         }
@@ -267,7 +292,7 @@ extension QuestionsViewController:Answered,HelpPressed{
                 let vc = DoneViewController()
                 vc.completion = {
                     DispatchQueue.main.async {
-                        self.navigationController?.popViewController(animated: true)
+                        self.navigationController?.popToRootViewController(animated: true)
                     }
                 }
                 vc.modeCompletionStr = "Completed"
@@ -289,6 +314,7 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
     }
     
     func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        self.timerView.resume()
         print("Ad did dismiss full screen content.")
     }
     
@@ -308,12 +334,14 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
     
     func loadRewardedAd(fromHelperScreen:Bool,completion:(()->())?=nil) {
         let request = GADRequest()
-        GADRewardedAd.load(withAdUnitID:"ca-app-pub-3940256099942544/1712485313",
+        let adIndi = showActivityIndicator(in: self.view)
+        GADRewardedAd.load(withAdUnitID:"ca-app-pub-8260816350989246/9671724588",
                            request: request,
                            completionHandler: { [self] ad, error in
             if let error = error {
                 print("Failed to load rewarded ad with error: \(error.localizedDescription)")
                 showTemporaryLabel(text: "Error occured")
+                hideActivityIndicator(adIndi)
                 if fromHelperScreen == true{
                     self.navigationController?.popViewController(animated: true)
                 }
@@ -322,6 +350,7 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
             rewardedAd = ad
             print("Rewarded ad loaded.")
             rewardedAd?.fullScreenContentDelegate = self
+            hideActivityIndicator(adIndi)
             completion?()
         }
         )
@@ -357,9 +386,9 @@ extension QuestionsViewController{
 }
 
 //Banner:
-//        ca-app-pub-8260816350989246/6510909087
+//        ca-app-pub-8260816350989246/1684325870
 //TESTAD: ca-app-pub-3940256099942544/2934735716
 
 //Rewarded
 //    Test: ca-app-pub-3940256099942544/1712485313
-//    ca-app-pub-8260816350989246/3635094615
+//    ca-app-pub-8260816350989246/9671724588
