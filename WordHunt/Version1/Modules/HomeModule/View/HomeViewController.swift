@@ -79,7 +79,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
             case 2:
                 cell.setupCell(internalImgString: "brand", gradient1: "#F73758", gradient2: "#FB638B", category: "Brands", desc: "")
             case 3:
-                cell.setupCell(internalImgString: "Cities", gradient1: "#060F40", gradient2: "#FF565D", category: "Cities", desc: "")
+                cell.setupCell(internalImgString: "Cities", gradient1: "#020E3D", gradient2: "#4C3D88", category: "Cities", desc: "")
             default:
                 cell.internalView.backgroundColor = .lightGray
             }
