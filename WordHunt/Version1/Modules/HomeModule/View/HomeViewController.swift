@@ -65,7 +65,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -78,6 +78,8 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
                 cell.setupCell(internalImgString: "animals", gradient1: "#629135", gradient2: "#CBDD6F", category: "Animals", desc: "")
             case 2:
                 cell.setupCell(internalImgString: "brand", gradient1: "#F73758", gradient2: "#FB638B", category: "Brands", desc: "")
+            case 3:
+                cell.setupCell(internalImgString: "Cities", gradient1: "#060F40", gradient2: "#FF565D", category: "Cities", desc: "")
             default:
                 cell.internalView.backgroundColor = .lightGray
             }
@@ -105,6 +107,10 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
             questionsVc.isClassic = false
             questionsVc.featuredImageStr = "brandsV"
             questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/brandWords")!)
+        case 3:
+            questionsVc.isClassic = false
+            questionsVc.featuredImageStr = "CitiesBack"
+            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/cityWords")!)
         default:
             print("Error")
         }
@@ -122,6 +128,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
 //https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/brandWords
 //https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/animalWords
 //https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/wordHunts
+//https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/cityWords
 
 // MARK: - ADS
 //        ca-app-pub-8260816350989246/1684325870
