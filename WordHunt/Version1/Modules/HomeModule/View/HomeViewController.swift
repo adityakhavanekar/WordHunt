@@ -79,7 +79,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
             case 2:
                 cell.setupCell(internalImgString: "brand", gradient1: "#F73758", gradient2: "#FB638B", category: "Brands", desc: "")
             case 3:
-                cell.setupCell(internalImgString: "Cities", gradient1: "#020E3D", gradient2: "#4C3D88", category: "Cities", desc: "")
+                cell.setupCell(internalImgString: "cities", gradient1: "#020E3D", gradient2: "#4C3D88", category: "Cities", desc: "")
             case 4:
                 cell.setupCell(internalImgString: "countries", gradient1: "#FF2B00", gradient2: "#FEE000", category: "Countries", desc: "")
             default:
@@ -111,7 +111,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
             questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/brandWords")!)
         case 3:
             questionsVc.isClassic = false
-            questionsVc.featuredImageStr = "CitiesBack"
+            questionsVc.featuredImageStr = "citiesBack"
             questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/cityWords")!)
         case 4:
             questionsVc.isClassic = false
