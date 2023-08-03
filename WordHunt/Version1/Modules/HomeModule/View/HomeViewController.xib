@@ -31,23 +31,40 @@
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
+                            <variation key="heightClass=regular-widthClass=regular">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                            </variation>
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="point" translatesAutoresizingMaskIntoConstraints="NO" id="z1L-PX-o12">
                             <rect key="frame" x="125" y="7.6666666666666714" width="35" height="35"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="35" id="T2a-65-HUy"/>
-                                <constraint firstAttribute="height" constant="35" id="ip3-31-llJ"/>
+                                <constraint firstAttribute="width" constant="35" id="T2a-65-HUy">
+                                    <variation key="heightClass=regular-widthClass=regular" constant="70"/>
+                                </constraint>
+                                <constraint firstAttribute="height" constant="35" id="ip3-31-llJ">
+                                    <variation key="heightClass=regular-widthClass=regular" constant="70"/>
+                                </constraint>
                             </constraints>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemGreenColor"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="z1L-PX-o12" secondAttribute="trailing" constant="5" id="3ri-Ik-zrg"/>
+                        <constraint firstAttribute="trailing" secondItem="z1L-PX-o12" secondAttribute="trailing" constant="5" id="3ri-Ik-zrg">
+                            <variation key="heightClass=regular-widthClass=regular" constant="10"/>
+                        </constraint>
                         <constraint firstItem="hsx-y9-6Ks" firstAttribute="centerY" secondItem="SzR-K2-0dL" secondAttribute="centerY" id="NeV-5U-TV2"/>
-                        <constraint firstAttribute="width" constant="165" id="aPM-BO-FJM"/>
-                        <constraint firstAttribute="trailing" secondItem="z1L-PX-o12" secondAttribute="trailing" constant="5" id="aS9-66-Gl8"/>
-                        <constraint firstItem="hsx-y9-6Ks" firstAttribute="leading" secondItem="SzR-K2-0dL" secondAttribute="leading" constant="8" id="ecc-Gi-quw"/>
-                        <constraint firstAttribute="height" constant="50" id="fk6-K1-egS"/>
+                        <constraint firstAttribute="width" constant="165" id="aPM-BO-FJM">
+                            <variation key="heightClass=regular-widthClass=regular" constant="330"/>
+                        </constraint>
+                        <constraint firstAttribute="trailing" secondItem="z1L-PX-o12" secondAttribute="trailing" constant="5" id="aS9-66-Gl8">
+                            <variation key="heightClass=regular-widthClass=regular" constant="10"/>
+                        </constraint>
+                        <constraint firstItem="hsx-y9-6Ks" firstAttribute="leading" secondItem="SzR-K2-0dL" secondAttribute="leading" constant="8" id="ecc-Gi-quw">
+                            <variation key="heightClass=regular-widthClass=regular" constant="16"/>
+                        </constraint>
+                        <constraint firstAttribute="height" constant="50" id="fk6-K1-egS">
+                            <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                        </constraint>
                         <constraint firstItem="z1L-PX-o12" firstAttribute="centerY" secondItem="hsx-y9-6Ks" secondAttribute="centerY" id="lij-jC-YyJ"/>
                     </constraints>
                 </view>
@@ -56,6 +73,9 @@
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="60"/>
+                    </variation>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MIP-LD-Sn5">
                     <rect key="frame" x="10" y="129" width="373" height="639"/>
