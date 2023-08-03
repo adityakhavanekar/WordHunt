@@ -64,6 +64,9 @@ class QuestionsViewController: UIViewController {
     private func setupUI(){
         if let img = featuredImageStr{
             featuredImgView.image = UIImage(named: img)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+                self.featuredImgView.addBlackGradientLayer()
+            }
         }
         if isClassic == false{
             self.highScoreLbl.isHidden = true

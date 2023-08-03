@@ -102,6 +102,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         switch indexPath.row{
         case 0:
             questionsVc.isClassic = true
+            questionsVc.featuredImageStr = "classicBack"
             questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/wordHunts")!)
         case 1:
             questionsVc.isClassic = false
@@ -109,7 +110,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
             questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/animalWords")!)
         case 2:
             questionsVc.isClassic = false
-            questionsVc.featuredImageStr = "brandsV"
+            questionsVc.featuredImageStr = "brandsBack"
             questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/brandWords")!)
         case 3:
             questionsVc.isClassic = false
