@@ -118,7 +118,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
             questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/cityWords")!)
         case 4:
             questionsVc.isClassic = false
-            questionsVc.featuredImageStr = "countriesBack"
+            questionsVc.featuredImageStr = "countriesBack2"
             questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/countryWords")!)
         case 5:
             questionsVc.isClassic = false
