@@ -32,6 +32,8 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var answerLbl: PaddingLabel!
     @IBOutlet weak var collectionViewAlphabet: UICollectionView!
     
+    @IBOutlet weak var shuffleBtn: UIButton!
+    
     var delegate:Answered?
     var helpDelegate:HelpPressed?
     var element:WordHuntElement?
@@ -84,6 +86,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         configure3DButton(button: submitBtn)
         configure3DButton(button: resetBtn)
         configure3DButton(button: seeWordBtn)
+        configure3DButton(button: shuffleBtn)
     }
     
     private func setupLbl(){
@@ -170,6 +173,15 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
             answer = element.answers[0].word.uppercased()
         }
         self.collectionViewAlphabet.reloadData()
+    }
+    @IBAction func shuffleBtnClicked(_ sender: UIButton) {
+        guard let element = element else {return}
+//        helpDelegate?.helpNeeded(element: element, type: .shuffle, cell: self)
+        var ele = element
+        ele.chars.shuffle()
+        self.element = ele
+        answer = ""
+        collectionViewAlphabet.reloadData()
     }
 }
 
@@ -324,4 +336,5 @@ extension QuestionsCollectionViewCell{
 
 enum Help{
     case word
+    case shuffle
 }

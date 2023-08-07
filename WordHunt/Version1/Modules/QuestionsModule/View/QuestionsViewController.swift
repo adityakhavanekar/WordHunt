@@ -64,6 +64,9 @@ class QuestionsViewController: UIViewController {
     private func setupUI(){
         if let img = featuredImageStr{
             featuredImgView.image = UIImage(named: img)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+                self.featuredImgView.addBlackGradientLayer()
+            }
         }
         if isClassic == false{
             self.highScoreLbl.isHidden = true
@@ -249,15 +252,19 @@ extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewData
 extension QuestionsViewController:Answered,HelpPressed{
     
     func helpNeeded(element: WordHuntElement, type: Help, cell: QuestionsCollectionViewCell) {
-        loadRewardedAd(fromHelperScreen: false) {
-            self.timerView.pause()
-            switch type{
-            case .word:
+        switch type{
+        case .word:
+            print("Word")
+            loadRewardedAd(fromHelperScreen: false){
                 self.show {
                     cell.answer = element.answers[0].word.uppercased()
                     cell.isAdRewarded = true
                 }
             }
+        case .shuffle:
+            var ele = element
+            ele.chars.shuffle()
+            cell.setupCell(element: ele)
         }
     }
     
@@ -335,6 +342,7 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
     func loadRewardedAd(fromHelperScreen:Bool,completion:(()->())?=nil) {
         let request = GADRequest()
         let adIndi = showActivityIndicator(in: self.view)
+        self.timerView.pause()
         GADRewardedAd.load(withAdUnitID:"ca-app-pub-8260816350989246/9671724588",
                            request: request,
                            completionHandler: { [self] ad, error in
@@ -342,6 +350,7 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
                 print("Failed to load rewarded ad with error: \(error.localizedDescription)")
                 showTemporaryLabel(text: "Error occured")
                 hideActivityIndicator(adIndi)
+                self.timerView.resume()
                 if fromHelperScreen == true{
                     self.navigationController?.popViewController(animated: true)
                 }

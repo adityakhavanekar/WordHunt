@@ -39,6 +39,7 @@ class DoneViewController: UIViewController {
             configureForIpad()
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+            self.doneBtn.layer.cornerRadius = self.doneBtn.layer.frame.height/2
             self.setAnimationView(animationName: "Celebration", speed: 1.5)
         }
         modeCompletionLbl.text = modeCompletionStr

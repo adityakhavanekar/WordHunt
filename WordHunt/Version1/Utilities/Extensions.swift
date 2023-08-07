@@ -79,3 +79,15 @@ extension UIView{
         self.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
+
+extension UIImageView {
+    func addBlackGradientLayer() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        gradientLayer.locations = [0.9, 1.0] // Adjust the values to control the gradient's position
+        gradientLayer.frame = bounds
+        
+        // Add the gradient layer as a sublayer to the UIImageView
+        layer.addSublayer(gradientLayer)
+    }
+}

@@ -65,7 +65,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 6
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -79,7 +79,11 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
             case 2:
                 cell.setupCell(internalImgString: "brand", gradient1: "#F73758", gradient2: "#FB638B", category: "Brands", desc: "")
             case 3:
-                cell.setupCell(internalImgString: "Cities", gradient1: "#020E3D", gradient2: "#4C3D88", category: "Cities", desc: "")
+                cell.setupCell(internalImgString: "cities", gradient1: "#020E3D", gradient2: "#4C3D88", category: "Cities", desc: "")
+            case 4:
+                cell.setupCell(internalImgString: "countries", gradient1: "#FF2B00", gradient2: "#FEE000", category: "Countries", desc: "")
+            case 5:
+                cell.setupCell(internalImgString: "gadgets", gradient1: "#10110B", gradient2: "#474948", category: "Gadgets", desc: "")
             default:
                 cell.internalView.backgroundColor = .lightGray
             }
@@ -98,15 +102,28 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         switch indexPath.row{
         case 0:
             questionsVc.isClassic = true
+            questionsVc.featuredImageStr = "classicBack"
             questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/wordHunts")!)
         case 1:
             questionsVc.isClassic = false
-            questionsVc.featuredImageStr = "animalsV"
+            questionsVc.featuredImageStr = "animalsBack"
             questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/animalWords")!)
         case 2:
             questionsVc.isClassic = false
-            questionsVc.featuredImageStr = "brandsV"
+            questionsVc.featuredImageStr = "brandsBack"
             questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/brandWords")!)
+        case 3:
+            questionsVc.isClassic = false
+            questionsVc.featuredImageStr = "citiesBack"
+            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/cityWords")!)
+        case 4:
+            questionsVc.isClassic = false
+            questionsVc.featuredImageStr = "countriesBack2"
+            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/countryWords")!)
+        case 5:
+            questionsVc.isClassic = false
+            questionsVc.featuredImageStr = "gadgetsBack"
+            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/deviceWords")!)
         default:
             print("Error")
         }
@@ -124,6 +141,9 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
 //https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/brandWords
 //https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/animalWords
 //https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/wordHunts
+//https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/cityWords
+//https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/countryWords
+//https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/deviceWords
 
 // MARK: - ADS
 //        ca-app-pub-8260816350989246/1684325870
