@@ -91,3 +91,27 @@ extension UIImageView {
         layer.addSublayer(gradientLayer)
     }
 }
+
+
+extension UICollectionView {
+    func scrollToNextIndex(animated: Bool = true) {
+        guard let collectionViewFlowLayout = collectionViewLayout as? UICollectionViewFlowLayout else {
+            return
+        }
+
+        let visibleRect = CGRect(origin: contentOffset, size: bounds.size)
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+
+        if let indexPath = indexPathForItem(at: visiblePoint) {
+            var nextItem = indexPath.item + 1
+
+            if nextItem >= numberOfItems(inSection: indexPath.section) {
+                // If the next index is out of bounds, wrap around to the first index.
+                nextItem = 0
+            }
+
+            let nextIndexPath = IndexPath(item: nextItem, section: indexPath.section)
+            scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: animated)
+        }
+    }
+}

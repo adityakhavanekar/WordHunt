@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         if let windowScene = scene as? UIWindowScene{
             let window = UIWindow(windowScene: windowScene)
-            let vc = LaunchScreenViewController()
+            let vc = QuestionsViewControllerV2()
             navigationController = UINavigationController(rootViewController:vc)
             
             window.rootViewController = navigationController
