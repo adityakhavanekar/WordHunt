@@ -53,6 +53,8 @@
 		92E5D2FF2AB169BE008F2233 /* QuestionsCollectionViewCellV2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E5D2FD2AB169BE008F2233 /* QuestionsCollectionViewCellV2.xib */; };
 		92E5D3032AB16F73008F2233 /* AlphabetCollectionViewCellV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5D3012AB16F73008F2233 /* AlphabetCollectionViewCellV2.swift */; };
 		92E5D3042AB16F73008F2233 /* AlphabetCollectionViewCellV2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E5D3022AB16F73008F2233 /* AlphabetCollectionViewCellV2.xib */; };
+		92E5D3D42AB46719008F2233 /* QuestionsViewModelV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5D3D32AB46719008F2233 /* QuestionsViewModelV2.swift */; };
+		92E5D3D72AB46778008F2233 /* WordHuntModelV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5D3D62AB46778008F2233 /* WordHuntModelV2.swift */; };
 		B5DD62A87A1ECD93785133F1 /* Pods_WordHunt_WordHuntUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181E01336390CDC44516A8AF /* Pods_WordHunt_WordHuntUITests.framework */; };
 		F5F676A4E012A082B5D8100C /* Pods_WordHunt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B8A8767BE0E3CE0ECA3960 /* Pods_WordHunt.framework */; };
 /* End PBXBuildFile section */
@@ -128,6 +130,8 @@
 		92E5D2FD2AB169BE008F2233 /* QuestionsCollectionViewCellV2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionsCollectionViewCellV2.xib; sourceTree = "<group>"; };
 		92E5D3012AB16F73008F2233 /* AlphabetCollectionViewCellV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetCollectionViewCellV2.swift; sourceTree = "<group>"; };
 		92E5D3022AB16F73008F2233 /* AlphabetCollectionViewCellV2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlphabetCollectionViewCellV2.xib; sourceTree = "<group>"; };
+		92E5D3D32AB46719008F2233 /* QuestionsViewModelV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewModelV2.swift; sourceTree = "<group>"; };
+		92E5D3D62AB46778008F2233 /* WordHuntModelV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordHuntModelV2.swift; sourceTree = "<group>"; };
 		B813573DC1FEEDD5DD241784 /* Pods-WordHunt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordHunt.release.xcconfig"; path = "Target Support Files/Pods-WordHunt/Pods-WordHunt.release.xcconfig"; sourceTree = "<group>"; };
 		C0205F3F38B6C0C35411EB76 /* Pods-WordHunt-WordHuntUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordHunt-WordHuntUITests.debug.xcconfig"; path = "Target Support Files/Pods-WordHunt-WordHuntUITests/Pods-WordHunt-WordHuntUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D7A4988E41AEA97D503DE8C5 /* Pods-WordHuntTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordHuntTests.release.xcconfig"; path = "Target Support Files/Pods-WordHuntTests/Pods-WordHuntTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -480,6 +484,8 @@
 		92E5D2EE2AB02DBF008F2233 /* QuestionsModule */ = {
 			isa = PBXGroup;
 			children = (
+				92E5D3D52AB46761008F2233 /* Model */,
+				92E5D3D22AB466A3008F2233 /* ViewModel */,
 				92E5D2EF2AB02DCB008F2233 /* View */,
 			);
 			path = QuestionsModule;
@@ -512,6 +518,22 @@
 				92E5D3022AB16F73008F2233 /* AlphabetCollectionViewCellV2.xib */,
 			);
 			path = AlphabetCollectionViewCellV2;
+			sourceTree = "<group>";
+		};
+		92E5D3D22AB466A3008F2233 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				92E5D3D32AB46719008F2233 /* QuestionsViewModelV2.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		92E5D3D52AB46761008F2233 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				92E5D3D62AB46778008F2233 /* WordHuntModelV2.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -794,6 +816,8 @@
 				186880982A16006100848325 /* SceneDelegate.swift in Sources */,
 				186880D72A16010200848325 /* PaddingLbl.swift in Sources */,
 				921F8A6B2AAAE9AE001F0F9E /* NewViewController.swift in Sources */,
+				92E5D3D72AB46778008F2233 /* WordHuntModelV2.swift in Sources */,
+				92E5D3D42AB46719008F2233 /* QuestionsViewModelV2.swift in Sources */,
 				1842774B2A175587004B09CE /* QuestionsViewModel.swift in Sources */,
 				182818722A6907980018FE13 /* LaunchScreenViewController.swift in Sources */,
 				188469382A21FB0F00412C20 /* DoneViewController.swift in Sources */,

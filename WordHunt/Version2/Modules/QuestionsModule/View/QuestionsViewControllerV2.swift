@@ -14,10 +14,13 @@ class QuestionsViewControllerV2: UIViewController {
     @IBOutlet weak var timerView: SRCountdownTimer!
     @IBOutlet weak var questionsCollectionView: UICollectionView!
     
+    var viewModel:QuestionsViewModelV2?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTimer()
         configureCollectionView()
+        callApi()
     }
     
     private func configureCollectionView(){
@@ -37,16 +40,35 @@ class QuestionsViewControllerV2: UIViewController {
         timerView.delegate = self
         timerView.start(beginingValue: 20)
     }
+    
+    private func callApi(){
+        viewModel = QuestionsViewModelV2(url:URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/wordHunts")!)
+        viewModel?.getWords(){res in
+            switch res{
+            case true:
+                DispatchQueue.main.async {
+                    self.questionsCollectionView.reloadData()
+                    print(self.viewModel?.getCount())
+                }
+            case false:
+                print("False, Error")
+            }
+        }
+    }
 }
 
 
 extension QuestionsViewControllerV2:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return viewModel?.getCount() ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuestionsCollectionViewCellV2", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuestionsCollectionViewCellV2", for: indexPath)
+                as? QuestionsCollectionViewCellV2 else{return UICollectionViewCell()}
+        if let element = viewModel?.getElement(index: indexPath.row){
+            cell.setupCell(element: element)
+        }
         return cell
     }
     
@@ -70,8 +92,4 @@ extension QuestionsViewControllerV2:SRCountdownTimerDelegate{
     func timerDidEnd(sender: SRCountdownTimer, elapsedTime: TimeInterval) {
         self.questionsCollectionView.scrollToNextIndex(animated: true)
     }
-}
-
-extension QuestionsViewControllerV2{
-    
 }
