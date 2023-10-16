@@ -7,15 +7,6 @@
 
 import Foundation
 
-enum Topics:String{
-    case classic = "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/wordHunts"
-    case animals = "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/animalWords"
-    case brands = "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/brandWords"
-    case cities = "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/cityWords"
-    case countries = "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/countryWords"
-    case gadgets = "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/deviceWords"
-}
-
 class QuestionsViewModel{
     private var wordHunt : [WordHuntElement]?
     private var topic:Topics
