@@ -76,7 +76,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupCollectionView(){
-        collectionViewAlphabet.register(UINib(nibName: "AlphabetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AlphabetCollectionViewCell")
+        collectionViewAlphabet.register(UINib(nibName: Cells.alphabetCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: Cells.alphabetCollectionViewCell)
         collectionViewAlphabet.delegate = self
         collectionViewAlphabet.dataSource = self
         collectionViewAlphabet.reloadData()
@@ -192,7 +192,7 @@ extension QuestionsCollectionViewCell:UICollectionViewDelegate,UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionViewAlphabet.dequeueReusableCell(withReuseIdentifier: "AlphabetCollectionViewCell", for: indexPath) as? AlphabetCollectionViewCell else {return UICollectionViewCell()}
+        guard let cell = collectionViewAlphabet.dequeueReusableCell(withReuseIdentifier: Cells.alphabetCollectionViewCell, for: indexPath) as? AlphabetCollectionViewCell else {return UICollectionViewCell()}
         cell.alphabetLbl.text = element?.chars[indexPath.row].uppercased()
         return cell
     }

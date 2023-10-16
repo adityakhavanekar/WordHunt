@@ -113,7 +113,7 @@ class QuestionsViewController: UIViewController {
     }
     
     private func setupCollectionView(){
-        collectionViewQuestions.register(UINib(nibName: "QuestionsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "QuestionsCollectionViewCell")
+        collectionViewQuestions.register(UINib(nibName: Cells.questionsCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: Cells.questionsCollectionViewCell)
         collectionViewQuestions.dataSource = self
         collectionViewQuestions.delegate = self
     }
@@ -223,7 +223,7 @@ extension QuestionsViewController: UICollectionViewDelegate,UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionViewQuestions.dequeueReusableCell(withReuseIdentifier: "QuestionsCollectionViewCell", for: indexPath) as? QuestionsCollectionViewCell else {return UICollectionViewCell()}
+        guard let cell = collectionViewQuestions.dequeueReusableCell(withReuseIdentifier: Cells.questionsCollectionViewCell, for: indexPath) as? QuestionsCollectionViewCell else {return UICollectionViewCell()}
         if let object = viewModel?.getElement(index: indexPath.row){
             var newObject = object
             newObject.chars = newObject.chars.shuffled()
