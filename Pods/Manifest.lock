@@ -1,0 +1,24 @@
+PODS:
+  - lottie-ios (4.3.3)
+  - MagicTimer (1.0.4)
+  - SRCountdownTimer (1.3)
+
+DEPENDENCIES:
+  - lottie-ios
+  - MagicTimer
+  - SRCountdownTimer
+
+SPEC REPOS:
+  trunk:
+    - lottie-ios
+    - MagicTimer
+    - SRCountdownTimer
+
+SPEC CHECKSUMS:
+  lottie-ios: 25e7b2675dad5c3ddad369ac9baab03560c5bfdd
+  MagicTimer: e39ab4d63c759eed0cee34f521002f099bdcc472
+  SRCountdownTimer: b7f833a51cd33003d55df17667b71d26ee17357f
+
+PODFILE CHECKSUM: 76081cd6b74314c74e608697a4f83410bb34751b
+
+COCOAPODS: 1.13.0
