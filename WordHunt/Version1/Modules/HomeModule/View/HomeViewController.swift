@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
     
     private let banner:GADBannerView = {
         let banner = GADBannerView()
-        banner.adUnitID = "ca-app-pub-8260816350989246/1684325870"
+        banner.adUnitID = AdKeys.bannerAd
         banner.load(GADRequest())
         banner.backgroundColor = .clear
         return banner
@@ -57,7 +57,7 @@ class HomeViewController: UIViewController {
     private func setupTableView(){
         homeTableView.dataSource = self
         homeTableView.delegate = self
-        homeTableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")
+        homeTableView.register(UINib(nibName: Cells.homeTableViewCell, bundle: nil), forCellReuseIdentifier: Cells.homeTableViewCell)
         homeTableView.separatorStyle = .none
     }
     
@@ -69,21 +69,21 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = homeTableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
+        let cell = homeTableView.dequeueReusableCell(withIdentifier: Cells.homeTableViewCell, for: indexPath) as! HomeTableViewCell
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01){
             switch indexPath.row{
             case 0:
-                cell.setupCell(internalImgString: "alphabet", gradient1: "#0094B2", gradient2: "#00BBD4", category: "Classic", desc: "")
+                cell.setupCell(internalImgString: InternalImages.classic, gradient1: "#0094B2", gradient2: "#00BBD4", category: "Classic", desc: "")
             case 1:
-                cell.setupCell(internalImgString: "animals", gradient1: "#629135", gradient2: "#CBDD6F", category: "Animals", desc: "")
+                cell.setupCell(internalImgString: InternalImages.animals, gradient1: "#629135", gradient2: "#CBDD6F", category: "Animals", desc: "")
             case 2:
-                cell.setupCell(internalImgString: "brand", gradient1: "#F73758", gradient2: "#FB638B", category: "Brands", desc: "")
+                cell.setupCell(internalImgString: InternalImages.brands, gradient1: "#F73758", gradient2: "#FB638B", category: "Brands", desc: "")
             case 3:
-                cell.setupCell(internalImgString: "cities", gradient1: "#020E3D", gradient2: "#4C3D88", category: "Cities", desc: "")
+                cell.setupCell(internalImgString: InternalImages.cities, gradient1: "#020E3D", gradient2: "#4C3D88", category: "Cities", desc: "")
             case 4:
-                cell.setupCell(internalImgString: "countries", gradient1: "#FF2B00", gradient2: "#FEE000", category: "Countries", desc: "")
+                cell.setupCell(internalImgString: InternalImages.countries, gradient1: "#FF2B00", gradient2: "#FEE000", category: "Countries", desc: "")
             case 5:
-                cell.setupCell(internalImgString: "gadgets", gradient1: "#10110B", gradient2: "#474948", category: "Gadgets", desc: "")
+                cell.setupCell(internalImgString: InternalImages.gadgets, gradient1: "#10110B", gradient2: "#474948", category: "Gadgets", desc: "")
             default:
                 cell.internalView.backgroundColor = .lightGray
             }
@@ -102,27 +102,27 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         switch indexPath.row{
         case 0:
             questionsVc.isClassic = true
-            questionsVc.featuredImageStr = "classicBack"
+            questionsVc.featuredImageStr = BackgroundImages.classic
             questionsVc.viewModel = QuestionsViewModel(topic: .classic)
         case 1:
             questionsVc.isClassic = false
-            questionsVc.featuredImageStr = "animalsBack"
+            questionsVc.featuredImageStr = BackgroundImages.animals
             questionsVc.viewModel = QuestionsViewModel(topic: .animals)
         case 2:
             questionsVc.isClassic = false
-            questionsVc.featuredImageStr = "brandsBack"
+            questionsVc.featuredImageStr = BackgroundImages.brands
             questionsVc.viewModel = QuestionsViewModel(topic: .brands)
         case 3:
             questionsVc.isClassic = false
-            questionsVc.featuredImageStr = "citiesBack"
+            questionsVc.featuredImageStr = BackgroundImages.cities
             questionsVc.viewModel = QuestionsViewModel(topic: .cities)
         case 4:
             questionsVc.isClassic = false
-            questionsVc.featuredImageStr = "countriesBack2"
+            questionsVc.featuredImageStr = BackgroundImages.countries
             questionsVc.viewModel = QuestionsViewModel(topic: .countries)
         case 5:
             questionsVc.isClassic = false
-            questionsVc.featuredImageStr = "gadgetsBack"
+            questionsVc.featuredImageStr = BackgroundImages.gadgets
             questionsVc.viewModel = QuestionsViewModel(topic: .gadgets)
         default:
             print("Error")

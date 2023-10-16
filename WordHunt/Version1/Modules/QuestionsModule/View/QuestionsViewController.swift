@@ -30,7 +30,7 @@ class QuestionsViewController: UIViewController {
     private var rewardedAd: GADRewardedAd?
     private let banner:GADBannerView = {
         let banner = GADBannerView()
-        banner.adUnitID = "ca-app-pub-8260816350989246/1684325870"
+        banner.adUnitID = AdKeys.bannerAd
         banner.load(GADRequest())
         banner.backgroundColor = .clear
         return banner
