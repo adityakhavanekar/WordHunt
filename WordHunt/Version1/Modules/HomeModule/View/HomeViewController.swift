@@ -103,27 +103,27 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         case 0:
             questionsVc.isClassic = true
             questionsVc.featuredImageStr = "classicBack"
-            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/wordHunts")!)
+            questionsVc.viewModel = QuestionsViewModel(topic: .classic)
         case 1:
             questionsVc.isClassic = false
             questionsVc.featuredImageStr = "animalsBack"
-            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/animalWords")!)
+            questionsVc.viewModel = QuestionsViewModel(topic: .animals)
         case 2:
             questionsVc.isClassic = false
             questionsVc.featuredImageStr = "brandsBack"
-            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/brandWords")!)
+            questionsVc.viewModel = QuestionsViewModel(topic: .brands)
         case 3:
             questionsVc.isClassic = false
             questionsVc.featuredImageStr = "citiesBack"
-            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/cityWords")!)
+            questionsVc.viewModel = QuestionsViewModel(topic: .cities)
         case 4:
             questionsVc.isClassic = false
             questionsVc.featuredImageStr = "countriesBack2"
-            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/countryWords")!)
+            questionsVc.viewModel = QuestionsViewModel(topic: .countries)
         case 5:
             questionsVc.isClassic = false
             questionsVc.featuredImageStr = "gadgetsBack"
-            questionsVc.viewModel = QuestionsViewModel(url: URL(string: "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/deviceWords")!)
+            questionsVc.viewModel = QuestionsViewModel(topic: .gadgets)
         default:
             print("Error")
         }
