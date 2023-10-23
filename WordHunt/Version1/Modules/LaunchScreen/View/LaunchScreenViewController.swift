@@ -30,9 +30,9 @@ class LaunchScreenViewController: UIViewController {
     
     private func pushWithFadeOut(_ viewController: UIViewController) {
         let transition = CATransition()
-        transition.duration = 0.5 // Adjust the duration as per your preference
+        transition.duration = 0.5
         transition.type = .fade
-        transition.subtype = .fromRight // You can change the transition direction if needed
+        transition.subtype = .fromRight
         view.window?.layer.add(transition, forKey: kCATransition)
         navigationController?.pushViewController(viewController, animated: false)
     }

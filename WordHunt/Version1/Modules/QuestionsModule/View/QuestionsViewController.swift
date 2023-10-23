@@ -26,6 +26,7 @@ class QuestionsViewController: UIViewController {
     @IBOutlet weak var collectionViewQuestions: UICollectionView!
     @IBOutlet weak var timerView: SRCountdownTimer!
     @IBOutlet weak var featuredImgView: UIImageView!
+    var activityIndicator:UIActivityIndicatorView?
     
     private var rewardedAd: GADRewardedAd?
     private let banner:GADBannerView = {
@@ -36,7 +37,6 @@ class QuestionsViewController: UIViewController {
         return banner
     }()
     
-    var activityIndicator:UIActivityIndicatorView?
     var featuredImageStr:String?
     var isClassic:Bool = true
     let defaults = UserDefaults.standard
@@ -143,8 +143,10 @@ class QuestionsViewController: UIViewController {
             case false:
                 DispatchQueue.main.async {
                     self.hideActivityIndicator(self.activityIndicator ?? UIActivityIndicatorView())
-                    self.showAlert(title: "Error Occured", message: "Please check network connection", preferedStyle: .alert)
-                    self.navigationController?.popViewController(animated: true)
+                    let action = UIAlertAction(title: "OK", style: .default){ _ in
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                    UIFunctions().showAlert(title: "Error Occured", message: "Please check network connection", preferedStyle: .alert, action: action, controller: self)
                 }
             }
         })
@@ -186,11 +188,11 @@ extension QuestionsViewController: SRCountdownTimerDelegate{
             vc.scoreString = "Score: \(score)"
             vc.highScoreString = "High score: \(highScore)"
         }else{
-            vc.isTrue = false
+            vc.isClassicTrue = false
             vc.scoreString = ""
             vc.highScoreString = ""
         }
-        vc.completion = {
+        vc.endCompletion = {
             self.collectionViewQuestions.isUserInteractionEnabled = false
             self.navigationController?.popViewController(animated: true)
         }
@@ -333,7 +335,7 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
                 completion?()
             }
         } else {
-            showTemporaryLabel(text: "Error occured")
+            UIFunctions().showTemporaryLabel(text: "Error occured", view: self.view)
             print("Ad wasn't ready")
         }
     }
@@ -348,7 +350,7 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
                            completionHandler: { [self] ad, error in
             if let error = error {
                 print("Failed to load rewarded ad with error: \(error.localizedDescription)")
-                showTemporaryLabel(text: "Error occured")
+                UIFunctions().showTemporaryLabel(text: "Error occured", view: self.view)
                 hideActivityIndicator(adIndi)
                 self.timerView.resume()
                 if fromHelperScreen == true{
@@ -363,34 +365,6 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
             completion?()
         }
         )
-    }
-}
-
-// UI UX:
-extension QuestionsViewController{
-    private func showTemporaryLabel(text: String) {
-        let label = UILabel()
-        label.text = text
-        label.textAlignment = .center
-        label.textColor = .white
-        label.backgroundColor = .black
-        label.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width / 2, height: 50)
-        label.center = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY)
-        label.clipsToBounds = true
-        label.layer.cornerRadius = 10
-        self.view.addSubview(label)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            label.removeFromSuperview()
-        }
-    }
-    
-    private func showAlert(title:String,message:String,preferedStyle:UIAlertController.Style){
-        let alertcontroller = UIAlertController(title: title, message: message, preferredStyle: preferedStyle)
-        let action = UIAlertAction(title: "OK", style: .default){ _ in
-            self.navigationController?.popViewController(animated: true)
-        }
-        alertcontroller.addAction(action)
-        self.present(alertcontroller, animated: true)
     }
 }
 

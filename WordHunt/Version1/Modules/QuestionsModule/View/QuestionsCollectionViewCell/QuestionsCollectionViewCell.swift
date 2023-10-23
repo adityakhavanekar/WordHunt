@@ -83,10 +83,10 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupButtons(){
-        configure3DButton(button: submitBtn)
-        configure3DButton(button: resetBtn)
-        configure3DButton(button: seeWordBtn)
-        configure3DButton(button: shuffleBtn)
+        Animations().configure3DButton(button: submitBtn)
+        Animations().configure3DButton(button: resetBtn)
+        Animations().configure3DButton(button: seeWordBtn)
+        Animations().configure3DButton(button: shuffleBtn)
     }
     
     private func setupLbl(){
@@ -107,7 +107,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         isUserInteractionEnabled = false
         switch isCorrect{
         case true:
-            animateCorrectAnsLbl(label: answerLbl, newText: answer, characterDelay: 0.2, animationDuration: 0.5, scale: 1.2) { _ in
+            Animations().animateCorrectAnsLbl(label: answerLbl, newText: answer, characterDelay: 0.2, animationDuration: 0.5, scale: 1.2) { _ in
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.3){
                     self.answer = ""
                     self.answerLbl.textColor = .black
@@ -121,7 +121,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
                 }
             }
         case false:
-            animateWrongAnsLbl(label: answerLbl, newText: answer, characterDelay: 0.1, animationDuration: 0.1, shakeDistance: 20) { _ in
+            Animations().animateWrongAnsLbl(label: answerLbl, newText: answer, characterDelay: 0.1, animationDuration: 0.1, shakeDistance: 20) { _ in
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.3){
                     self.answer = ""
                     self.answerLbl.textColor = .black
@@ -143,11 +143,11 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     
     @IBAction func submitBtnClicked(_ sender: UIButton) {
         if answer == ""{
-            showTemporaryLabel(text: "Please start typing")
+            UIFunctions().showTemporaryLabel(text: "Please start typing", view: self)
         }else{
             if myAnswers.contains(answer){
                 answer = ""
-                showTemporaryLabel(text: "Already Answered")
+                UIFunctions().showTemporaryLabel(text: "Already Answered", view: self)
                 collectionViewAlphabet.reloadData()
             }else if myAnswers.contains(answer) == false && checkIfStringExists(word: answer) == true{
                 myAnswers.append(answer)
@@ -212,125 +212,24 @@ extension QuestionsCollectionViewCell:UICollectionViewDelegate,UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionViewAlphabet.cellForItem(at: indexPath) as? AlphabetCollectionViewCell else {return}
         if cell.isThisSelected == true{
-            selectedCellAction(cell: cell, isSelected: true)
-        }else{
-            selectedCellAction(cell: cell, isSelected: false)
-        }
-        animateViewScaling(view: cell.internalView)
-    }
-    
-    private func selectedCellAction(cell:AlphabetCollectionViewCell,isSelected:Bool){
-        switch isSelected{
-        case true:
-            cell.isThisSelected = false
-            cell.alphabetLbl.textColor = .black
-            cell.internalView.backgroundColor = .white
+            cell.getSelectedActions(isSelected: true)
             answer = removeLastOccurrenceOf(cell.alphabetLbl.text!, from: answer)
-        case false:
-            cell.isThisSelected = true
-            cell.alphabetLbl.textColor = .white
-            cell.internalView.backgroundColor = .systemGreen
+        }else{
+            cell.getSelectedActions(isSelected: false)
             answer += cell.alphabetLbl.text!
         }
+        Animations().animateViewScaling(view: cell.internalView)
     }
 }
 
 //MARK: - Animations and UI
 extension QuestionsCollectionViewCell{
-    private func showTemporaryLabel(text: String) {
-        let label = UILabel()
-        label.text = text
-        label.textAlignment = .center
-        label.textColor = .white
-        label.backgroundColor = .black
-        label.frame = CGRect(x: 0, y: 0, width: self.bounds.width / 2, height: 50)
-        label.center = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
-        label.clipsToBounds = true
-        label.layer.cornerRadius = 10
-        self.addSubview(label)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            label.removeFromSuperview()
-        }
-    }
-    
-    private func removeFirstOccurrenceOf(_ characterToRemove: String, from inputString: String) -> String {
-        var modifiedString = inputString
-        if let range = modifiedString.range(of: String(characterToRemove)) {
-            modifiedString.replaceSubrange(range, with: "")
-        }
-        return modifiedString
-    }
-    
     private func removeLastOccurrenceOf(_ characterToRemove: String, from inputString: String) -> String {
         var modifiedString = inputString
         if let range = modifiedString.range(of: String(characterToRemove), options: .backwards) {
             modifiedString.replaceSubrange(range, with: "")
         }
         return modifiedString
-    }
-    
-    private func animateViewScaling(view: UIView) {
-        UIView.animate(withDuration: 0.1, delay: 0.0, options: [], animations: {
-            view.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-        }, completion: { _ in
-            UIView.animate(withDuration: 0.1, animations: {
-                view.transform = CGAffineTransform.identity
-            })
-        })
-    }
-    
-    private func configure3DButton(button: UIButton) {
-        button.layer.cornerRadius = 5
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.clear.cgColor
-        button.layer.shadowColor = UIColor.init(hexString: "#013220")?.cgColor
-        button.layer.shadowOffset = CGSize(width: 0, height: 2)
-        button.layer.shadowRadius = 2
-        button.layer.shadowOpacity = 0.5
-        button.addTarget(self, action: #selector(button3DTapped(_:)), for: .touchUpInside)
-    }
-    
-    @objc func button3DTapped(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.1, animations: {
-            sender.transform = CGAffineTransform(translationX: 0, y: 5)
-        }) { (_) in
-            UIView.animate(withDuration: 0.1, animations: {
-                sender.transform = .identity
-            })
-        }
-    }
-    
-    private func animateCorrectAnsLbl(label:UILabel,newText: String, characterDelay: TimeInterval, animationDuration: TimeInterval, scale: CGFloat,completion: ((Bool)->(Void))?) {
-        let originalTransform = transform
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
-                let scaleTransform = CGAffineTransform(scaleX: scale, y: scale)
-                label.transform = scaleTransform
-                label.textColor = .white
-                label.backgroundColor = .systemGreen
-            }, completion: { _ in
-                UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
-                    label.transform = originalTransform
-                }, completion: completion)
-            })
-        }
-    }
-    
-    private func animateWrongAnsLbl(label: UILabel, newText: String, characterDelay: TimeInterval, animationDuration: TimeInterval, shakeDistance: CGFloat, completion: ((Bool) -> Void)?) {
-        let originalTransform = label.transform
-        DispatchQueue.main.async {
-            
-            UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
-                let shakeTransform = CGAffineTransform(translationX: -shakeDistance, y: 0)
-                label.transform = shakeTransform
-                label.textColor = .white
-                label.backgroundColor = .systemRed
-            }, completion: { _ in
-                UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
-                    label.transform = originalTransform
-                }, completion: completion)
-            })
-        }
     }
 }
 

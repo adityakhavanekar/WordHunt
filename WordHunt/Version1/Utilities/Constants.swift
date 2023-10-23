@@ -12,7 +12,7 @@ enum Environment{
     case test
 }
 
-var environment:Environment = .production
+var environment:Environment = .test
 
 enum Topics:String{
     case classic = "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/wordHunts"

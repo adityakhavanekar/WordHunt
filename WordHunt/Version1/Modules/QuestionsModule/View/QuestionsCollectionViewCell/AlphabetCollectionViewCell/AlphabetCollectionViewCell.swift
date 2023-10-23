@@ -33,5 +33,18 @@ class AlphabetCollectionViewCell: UICollectionViewCell {
         internalView.layer.cornerRadius =  5
         internalView.clipsToBounds = true
     }
+    func getSelectedActions(isSelected:Bool){
+        switch isSelected{
+        case true:
+            self.isThisSelected = false
+            self.alphabetLbl.textColor = .black
+            self.internalView.backgroundColor = .white
+        case false:
+            self.isThisSelected = true
+            self.alphabetLbl.textColor = .white
+            self.internalView.backgroundColor = .systemGreen
+        }
+        
+    }
 
 }
