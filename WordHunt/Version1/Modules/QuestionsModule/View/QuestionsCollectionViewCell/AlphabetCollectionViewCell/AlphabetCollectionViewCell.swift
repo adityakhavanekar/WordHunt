@@ -33,6 +33,10 @@ class AlphabetCollectionViewCell: UICollectionViewCell {
         internalView.layer.cornerRadius =  5
         internalView.clipsToBounds = true
     }
+    
+    func setupCell(alphabet:String?){
+        self.alphabetLbl.text = alphabet
+    }
     func getSelectedActions(isSelected:Bool){
         switch isSelected{
         case true:
@@ -44,7 +48,6 @@ class AlphabetCollectionViewCell: UICollectionViewCell {
             self.alphabetLbl.textColor = .white
             self.internalView.backgroundColor = .systemGreen
         }
-        
     }
 
 }

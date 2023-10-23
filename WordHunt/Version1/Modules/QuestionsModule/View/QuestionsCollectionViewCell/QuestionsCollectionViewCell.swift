@@ -8,10 +8,10 @@
 import UIKit
 
 protocol HelpPressed{
-    func helpNeeded(element:WordHuntElement,type:Help,cell:QuestionsCollectionViewCell)
+    func helpNeeded(element:WordHuntElement, type:Help, cell:QuestionsCollectionViewCell)
 }
 protocol Answered{
-    func answered(cell:QuestionsCollectionViewCell,points:Int)
+    func answered(cell:QuestionsCollectionViewCell, points:Int)
 }
 
 class QuestionsCollectionViewCell: UICollectionViewCell {
@@ -174,6 +174,7 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         }
         self.collectionViewAlphabet.reloadData()
     }
+    
     @IBAction func shuffleBtnClicked(_ sender: UIButton) {
         if element != nil{
             element?.chars.shuffle()
@@ -191,7 +192,7 @@ extension QuestionsCollectionViewCell:UICollectionViewDelegate,UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionViewAlphabet.dequeueReusableCell(withReuseIdentifier: Cells.alphabetCollectionViewCell, for: indexPath) as? AlphabetCollectionViewCell else {return UICollectionViewCell()}
-        cell.alphabetLbl.text = element?.chars[indexPath.row].uppercased()
+        cell.setupCell(alphabet: element?.chars[indexPath.row].uppercased())
         return cell
     }
     
@@ -220,7 +221,6 @@ extension QuestionsCollectionViewCell:UICollectionViewDelegate,UICollectionViewD
     }
 }
 
-//MARK: - Animations and UI
 extension QuestionsCollectionViewCell{
     private func removeLastOccurrenceOf(_ characterToRemove: String, from inputString: String) -> String {
         var modifiedString = inputString

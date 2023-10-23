@@ -11,8 +11,7 @@ class QuestionsViewModel{
     private var wordHunt : [WordHuntElement]?
     private var topic:Topics
     
-    init(wordHunt: [WordHuntElement]? = nil,topic:Topics) {
-        self.wordHunt = wordHunt
+    init(topic:Topics) {
         self.topic = topic
     }
     

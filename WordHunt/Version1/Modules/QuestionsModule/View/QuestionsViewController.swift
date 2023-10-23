@@ -342,7 +342,7 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
         let request = GADRequest()
         let adIndi = showActivityIndicator(in: self.view)
         self.timerView.pause()
-        GADRewardedAd.load(withAdUnitID:"ca-app-pub-8260816350989246/9671724588",
+        GADRewardedAd.load(withAdUnitID:AdKeys.rewardedAd,
                            request: request,
                            completionHandler: { [self] ad, error in
             if let error = error {
