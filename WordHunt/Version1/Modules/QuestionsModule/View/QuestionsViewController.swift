@@ -150,7 +150,7 @@ class QuestionsViewController: UIViewController {
         })
     }
     func showActivityIndicator(in view: UIView) -> UIActivityIndicatorView {
-        let activityIndicator = UIActivityIndicatorView(style: .large)
+        let activityIndicator = UIActivityIndicatorView()
         activityIndicator.color = .white
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(activityIndicator)

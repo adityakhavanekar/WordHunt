@@ -24,7 +24,7 @@
 
 import UIKit
 
-@objc public protocol SRCountdownTimerDelegate: class {
+@objc public protocol SRCountdownTimerDelegate: AnyObject {
     @objc optional func timerDidUpdateCounterValue(sender: SRCountdownTimer, newValue: Int)
     @objc optional func timerDidStart(sender: SRCountdownTimer)
     @objc optional func timerDidPause(sender: SRCountdownTimer)

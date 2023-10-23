@@ -13,11 +13,14 @@ class LaunchScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        splashIconImgView.layer.cornerRadius = 20
-        splashIconImgView.layer.masksToBounds = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.transitionToMainScreen()
         }
+    }
+    
+    private func prepareUI(){
+        splashIconImgView.layer.cornerRadius = 20
+        splashIconImgView.layer.masksToBounds = true
     }
     
     private func transitionToMainScreen(){
@@ -25,7 +28,7 @@ class LaunchScreenViewController: UIViewController {
         pushWithFadeOut(mainViewController)
     }
     
-    func pushWithFadeOut(_ viewController: UIViewController) {
+    private func pushWithFadeOut(_ viewController: UIViewController) {
         let transition = CATransition()
         transition.duration = 0.5 // Adjust the duration as per your preference
         transition.type = .fade
