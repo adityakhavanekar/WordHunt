@@ -175,13 +175,11 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
         self.collectionViewAlphabet.reloadData()
     }
     @IBAction func shuffleBtnClicked(_ sender: UIButton) {
-        guard let element = element else {return}
-//        helpDelegate?.helpNeeded(element: element, type: .shuffle, cell: self)
-        var ele = element
-        ele.chars.shuffle()
-        self.element = ele
-        answer = ""
-        collectionViewAlphabet.reloadData()
+        if element != nil{
+            element?.chars.shuffle()
+            answer = ""
+            collectionViewAlphabet.reloadData()
+        }
     }
 }
 

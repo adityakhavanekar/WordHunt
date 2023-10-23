@@ -256,7 +256,6 @@ extension QuestionsViewController:Answered,HelpPressed{
     func helpNeeded(element: WordHuntElement, type: Help, cell: QuestionsCollectionViewCell) {
         switch type{
         case .word:
-            print("Word")
             loadRewardedAd(fromHelperScreen: false){
                 self.show {
                     cell.answer = element.answers[0].word.uppercased()
@@ -264,9 +263,7 @@ extension QuestionsViewController:Answered,HelpPressed{
                 }
             }
         case .shuffle:
-            var ele = element
-            ele.chars.shuffle()
-            cell.setupCell(element: ele)
+            break
         }
     }
     
