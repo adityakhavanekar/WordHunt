@@ -83,10 +83,14 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupButtons(){
-        Animations().configure3DButton(button: submitBtn)
-        Animations().configure3DButton(button: resetBtn)
-        Animations().configure3DButton(button: seeWordBtn)
-        Animations().configure3DButton(button: shuffleBtn)
+        Animations().configure3DButton(button: submitBtn, target: self, action: #selector(button3DTapped))
+        Animations().configure3DButton(button: resetBtn, target: self, action: #selector(button3DTapped))
+        Animations().configure3DButton(button: seeWordBtn, target: self, action: #selector(button3DTapped))
+        Animations().configure3DButton(button: shuffleBtn, target: self, action: #selector(button3DTapped))
+    }
+    
+    @objc func button3DTapped(_ sender: UIButton) {
+        Animations().animateButton(button: sender)
     }
     
     private func setupLbl(){

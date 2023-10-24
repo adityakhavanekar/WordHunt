@@ -66,7 +66,7 @@ class Animations{
         })
     }
     
-    func configure3DButton(button: UIButton) {
+    func configure3DButton(button: UIButton,target: Any, action: Selector) {
         button.layer.cornerRadius = 5
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.clear.cgColor
@@ -74,14 +74,15 @@ class Animations{
         button.layer.shadowOffset = CGSize(width: 0, height: 2)
         button.layer.shadowRadius = 2
         button.layer.shadowOpacity = 0.5
-        button.addTarget(self, action: #selector(button3DTapped(_:)), for: .touchUpInside)
+        button.addTarget(target, action: action, for: .touchUpInside)
     }
-    @objc func button3DTapped(_ sender: UIButton) {
+    
+    func animateButton(button:UIButton){
         UIView.animate(withDuration: 0.1, animations: {
-            sender.transform = CGAffineTransform(translationX: 0, y: 5)
+            button.transform = CGAffineTransform(translationX: 0, y: 5)
         }) { (_) in
             UIView.animate(withDuration: 0.1, animations: {
-                sender.transform = .identity
+                button.transform = .identity
             })
         }
     }
@@ -93,7 +94,7 @@ class Animations{
                 let scaleTransform = CGAffineTransform(scaleX: scale, y: scale)
                 label.transform = scaleTransform
                 label.textColor = .white
-                label.backgroundColor = .systemGreen
+                label.backgroundColor = .init(hexString: ColorEnums.correct.rawValue)
             }, completion: { _ in
                 UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
                     label.transform = originalTransform
@@ -109,7 +110,7 @@ class Animations{
                 let shakeTransform = CGAffineTransform(translationX: -shakeDistance, y: 0)
                 label.transform = shakeTransform
                 label.textColor = .white
-                label.backgroundColor = .systemRed
+                label.backgroundColor = .init(hexString: ColorEnums.wrong.rawValue)
             }, completion: { _ in
                 UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
                     label.transform = originalTransform
