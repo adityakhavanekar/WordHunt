@@ -22,6 +22,7 @@ class NewViewController: UIViewController {
         }
     }
     
+//    hello
     override func viewDidLoad() {
         super.viewDidLoad()
         collView.isHidden = true
