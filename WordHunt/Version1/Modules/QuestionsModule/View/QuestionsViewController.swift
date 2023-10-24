@@ -29,7 +29,7 @@ class QuestionsViewController: UIViewController {
     var activityIndicator:UIActivityIndicatorView?
     
     private var rewardedAd: GADRewardedAd?
-    private let banner:GADBannerView = {
+    private var banner:GADBannerView = {
         let banner = GADBannerView()
         banner.adUnitID = AdKeys.bannerAd
         banner.load(GADRequest())
@@ -83,6 +83,7 @@ class QuestionsViewController: UIViewController {
         setupUserDefaults()
         configureBannerAd()
     }
+    
     private func configureForIpad(){
         timerViewHeightConstraint.constant = timerViewHeightConstraint.constant * 1.8
         timerViewWidthConstraint.constant = timerViewWidthConstraint.constant * 1.8
@@ -95,11 +96,20 @@ class QuestionsViewController: UIViewController {
     }
     
     private func configureBannerAd(){
+        banner = configureBanner()
         banner.rootViewController = self
         DispatchQueue.main.asyncAfter(deadline: .now()+0.2){
             self.banner.frame = self.adView.bounds
             self.adView.addSubview(self.banner)
         }
+    }
+    
+    private func configureBanner()->GADBannerView{
+        let banner = GADBannerView()
+        banner.adUnitID = AdKeys.bannerAd
+        banner.load(GADRequest())
+        banner.backgroundColor = .clear
+        return banner
     }
     
     private func configureTimer(){
@@ -129,20 +139,20 @@ class QuestionsViewController: UIViewController {
     }
     
     private func callViewModel(){
-        activityIndicator = showActivityIndicator(in: self.view)
+        activityIndicator = UIFunctions().showActivityIndicator(in: self.view)
         viewModel?.getWordsNewApi(completion: { result in
             switch result{
             case true:
                 DispatchQueue.main.async {
                     self.collectionViewQuestions.reloadData()
-                    self.hideActivityIndicator(self.activityIndicator ?? UIActivityIndicatorView())
+                    UIFunctions().hideActivityIndicator(activityIndicator: self.activityIndicator ?? UIActivityIndicatorView(), in: self.view)
                     if let count = self.viewModel?.getElement(index: 0)?.answers.count{
                         self.timerView.start(beginingValue:count*45)
                     }
                 }
             case false:
                 DispatchQueue.main.async {
-                    self.hideActivityIndicator(self.activityIndicator ?? UIActivityIndicatorView())
+                    UIFunctions().hideActivityIndicator(activityIndicator: self.activityIndicator ?? UIActivityIndicatorView(), in: self.view)
                     let action = UIAlertAction(title: "OK", style: .default){ _ in
                         self.navigationController?.popViewController(animated: true)
                     }
@@ -151,43 +161,18 @@ class QuestionsViewController: UIViewController {
             }
         })
     }
-    func showActivityIndicator(in view: UIView) -> UIActivityIndicatorView {
-        let activityIndicator = UIActivityIndicatorView()
-        activityIndicator.color = .white
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(activityIndicator)
-        self.view.isUserInteractionEnabled = false
-        NSLayoutConstraint.activate([
-            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
-        
-        activityIndicator.startAnimating()
-        activityIndicator.hidesWhenStopped = true
-        
-        return activityIndicator
-    }
-    
-    func hideActivityIndicator(_ activityIndicator: UIActivityIndicatorView) {
-        activityIndicator.stopAnimating()
-        activityIndicator.removeFromSuperview()
-        self.view.isUserInteractionEnabled = true
-    }
     
     @IBAction func homeBtnClicked(_ sender: UIButton) {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-}
-
-// MARK: - Countdown Timer Delegate
-extension QuestionsViewController: SRCountdownTimerDelegate{
-    func timerDidEnd(sender: SRCountdownTimer, elapsedTime: TimeInterval) {
+    private func timerEnded(){
         let vc = HelpViewController()
-        if isClassic == true{
+        switch isClassic{
+        case true:
             vc.scoreString = "Score: \(score)"
             vc.highScoreString = "High score: \(highScore)"
-        }else{
+        case false:
             vc.isClassicTrue = false
             vc.scoreString = ""
             vc.highScoreString = ""
@@ -207,6 +192,14 @@ extension QuestionsViewController: SRCountdownTimerDelegate{
         }
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true)
+    }
+    
+}
+
+// MARK: - Countdown Timer Delegate
+extension QuestionsViewController: SRCountdownTimerDelegate{
+    func timerDidEnd(sender: SRCountdownTimer, elapsedTime: TimeInterval) {
+        timerEnded()
     }
     
     func timerDidUpdateCounterValue(sender: SRCountdownTimer, newValue: Int) {
@@ -340,7 +333,7 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
     
     func loadRewardedAd(fromHelperScreen:Bool,completion:(()->())?=nil) {
         let request = GADRequest()
-        let adIndi = showActivityIndicator(in: self.view)
+        let adIndi = UIFunctions().showActivityIndicator(in: self.view)
         self.timerView.pause()
         GADRewardedAd.load(withAdUnitID:AdKeys.rewardedAd,
                            request: request,
@@ -348,7 +341,7 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
             if let error = error {
                 print("Failed to load rewarded ad with error: \(error.localizedDescription)")
                 UIFunctions().showTemporaryLabel(text: "Error occured", view: self.view)
-                hideActivityIndicator(adIndi)
+                UIFunctions().hideActivityIndicator(activityIndicator: adIndi, in: self.view)
                 self.timerView.resume()
                 if fromHelperScreen == true{
                     self.navigationController?.popViewController(animated: true)
@@ -358,7 +351,7 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
             rewardedAd = ad
             print("Rewarded ad loaded.")
             rewardedAd?.fullScreenContentDelegate = self
-            hideActivityIndicator(adIndi)
+            UIFunctions().hideActivityIndicator(activityIndicator: adIndi, in: self.view)
             completion?()
         }
         )

@@ -7,38 +7,39 @@
 
 import Foundation
 
+var environment:Environment = .test
+
 enum Environment{
     case production
     case test
 }
 
-var environment:Environment = .test
+enum ColorEnums:String{
+    case correct = "#3CB572"
+    case wrong = "#FF5252"
+}
 
 enum Topics:String{
-    case classic = "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/wordHunts"
-    case animals = "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/animalWords"
-    case brands = "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/brandWords"
-    case cities = "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/cityWords"
-    case countries = "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/countryWords"
-    case gadgets = "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/deviceWords"
-}
-
-class BackgroundImages{
-    static var classic = "classicBack"
-    static var animals = "animalsBack"
-    static var brands = "brandsBack"
-    static var cities = "citiesBack"
-    static var countries = "countriesBack"
-    static var gadgets = "gadgetsBack"
-}
-
-class InternalImages{
-    static var classic = "alphabet"
-    static var animals = "animals"
-    static var brands = "brand"
-    static var cities = "cities"
-    static var countries = "countries"
-    static var gadgets = "gadgets"
+    
+    private var baseUrl:String{
+        switch environment {
+        case .production:
+            return "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/"
+        case .test:
+            return "https://ap-south-1.aws.data.mongodb-api.com/app/application-0-vwxvl/endpoint/wordHunt/"
+        }
+    }
+    
+    case classic = "wordHunts"
+    case animals = "animalWords"
+    case brands = "brandWords"
+    case cities = "cityWords"
+    case countries = "countryWords"
+    case gadgets = "deviceWords"
+    
+    var fullUrl:String{
+        return baseUrl+self.rawValue
+    }
 }
 
 class AdKeys{
@@ -58,6 +59,24 @@ class AdKeys{
             return "ca-app-pub-3940256099942544/1712485313"
         }
     }
+}
+
+class BackgroundImages{
+    static var classic = "classicBack"
+    static var animals = "animalsBack"
+    static var brands = "brandsBack"
+    static var cities = "citiesBack"
+    static var countries = "countriesBack"
+    static var gadgets = "gadgetsBack"
+}
+
+class InternalImages{
+    static var classic = "alphabet"
+    static var animals = "animals"
+    static var brands = "brand"
+    static var cities = "cities"
+    static var countries = "countries"
+    static var gadgets = "gadgets"
 }
 
 class Cells{

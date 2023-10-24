@@ -16,7 +16,7 @@ class QuestionsViewModel{
     }
     
     func getWordsNewApi(completion:@escaping (Bool)->()){
-        guard let url = URL(string: topic.rawValue) else { return }
+        guard let url = URL(string: topic.fullUrl) else { return }
         NetworkManager.shared.request(url: url,headers: ["apiKey":"ytCbxj7MCrYpTm5kt4EWlXXQlQl2bRrsvEjGsSRhEyig7SQeSvfFE7Vrq5WcBDF2"]) { result in
             switch result{
             case .success(let gotData):

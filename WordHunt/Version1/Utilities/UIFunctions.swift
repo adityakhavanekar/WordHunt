@@ -30,6 +30,29 @@ class UIFunctions{
         alertcontroller.addAction(action)
         controller.present(alertcontroller, animated: true)
     }
+    
+    func showActivityIndicator(in view: UIView) -> UIActivityIndicatorView {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.color = .white
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(activityIndicator)
+        view.isUserInteractionEnabled = false
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+        
+        return activityIndicator
+    }
+    
+    func hideActivityIndicator(activityIndicator: UIActivityIndicatorView,in view: UIView) {
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
+        view.isUserInteractionEnabled = true
+    }
 }
 
 class Animations{

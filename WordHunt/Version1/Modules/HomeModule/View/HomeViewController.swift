@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
     
     let defaults = UserDefaults.standard
     
-    private let banner:GADBannerView = {
+    private var banner:GADBannerView = {
         let banner = GADBannerView()
         banner.adUnitID = AdKeys.bannerAd
         banner.load(GADRequest())
@@ -47,11 +47,20 @@ class HomeViewController: UIViewController {
     }
     
     private func configureAd(){
+        banner = configureBanner()
         banner.rootViewController = self
         DispatchQueue.main.asyncAfter(deadline: .now()+0.2){
             self.banner.frame = self.adView.bounds
             self.adView.addSubview(self.banner)
         }
+    }
+    
+    private func configureBanner()->GADBannerView{
+        let banner = GADBannerView()
+        banner.adUnitID = AdKeys.bannerAd
+        banner.load(GADRequest())
+        banner.backgroundColor = .clear
+        return banner
     }
     
     private func setupTableView(){
