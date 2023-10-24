@@ -10,14 +10,10 @@ import UIKit
 class HelpViewController: UIViewController {
     
     @IBOutlet weak var btnViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var internalViewHeightConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var btnView: UIView!
     @IBOutlet weak var internalView: UIView!
-    
     @IBOutlet weak var highScoreLbl: UILabel!
     @IBOutlet weak var scoreLbl: UILabel!
-    
     
     var endCompletion : (()->Void)?
     var continueCompletion : (()->Void)?
@@ -36,11 +32,7 @@ class HelpViewController: UIViewController {
     
     private func setupUI(){
         if isClassicTrue == false{
-            internalViewHeightConstraint.constant = internalViewHeightConstraint.constant - 50
             highScoreLbl.isHidden = true
-        }
-        if UIScreen.main.bounds.height <= 850{
-            internalViewHeightConstraint.constant = internalViewHeightConstraint.constant + 70
         }
         scoreLbl.text = scoreString
         highScoreLbl.text = highScoreString

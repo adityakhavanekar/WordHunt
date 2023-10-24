@@ -7,7 +7,7 @@
 
 import Foundation
 
-var environment:Environment = .test
+let environment:Environment = .test
 
 enum Environment{
     case production
@@ -84,3 +84,11 @@ class Cells{
     static var questionsCollectionViewCell = "QuestionsCollectionViewCell"
     static var alphabetCollectionViewCell = "AlphabetCollectionViewCell"
 }
+
+//Banner:
+//        ca-app-pub-8260816350989246/1684325870
+//TESTAD: ca-app-pub-3940256099942544/2934735716
+
+//Rewarded
+//    Test: ca-app-pub-3940256099942544/1712485313
+//    ca-app-pub-8260816350989246/9671724588

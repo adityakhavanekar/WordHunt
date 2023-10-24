@@ -357,11 +357,3 @@ extension QuestionsViewController:GADFullScreenContentDelegate{
         )
     }
 }
-
-//Banner:
-//        ca-app-pub-8260816350989246/1684325870
-//TESTAD: ca-app-pub-3940256099942544/2934735716
-
-//Rewarded
-//    Test: ca-app-pub-3940256099942544/1712485313
-//    ca-app-pub-8260816350989246/9671724588
