@@ -24,6 +24,7 @@ class UIFunctions{
             label.removeFromSuperview()
         }
     }
+    
     func showAlert(title:String,message:String,preferedStyle:UIAlertController.Style,action:UIAlertAction,controller:UIViewController){
         let alertcontroller = UIAlertController(title: title, message: message, preferredStyle: preferedStyle)
         let action = action
@@ -102,6 +103,7 @@ class Animations{
             })
         }
     }
+    
     func animateWrongAnsLbl(label: UILabel, newText: String, characterDelay: TimeInterval, animationDuration: TimeInterval, shakeDistance: CGFloat, completion: ((Bool) -> Void)?) {
         let originalTransform = label.transform
         DispatchQueue.main.async {
@@ -118,6 +120,4 @@ class Animations{
             })
         }
     }
-    
-    
 }

@@ -49,5 +49,4 @@ class AlphabetCollectionViewCell: UICollectionViewCell {
             self.internalView.backgroundColor = .systemGreen
         }
     }
-
 }
