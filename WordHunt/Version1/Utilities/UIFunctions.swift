@@ -94,7 +94,7 @@ class Animations{
                 let scaleTransform = CGAffineTransform(scaleX: scale, y: scale)
                 label.transform = scaleTransform
                 label.textColor = .white
-                label.backgroundColor = .init(hexString: ColorEnums.correct.rawValue)
+                label.backgroundColor = Colors.correct.color
             }, completion: { _ in
                 UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
                     label.transform = originalTransform
@@ -110,7 +110,7 @@ class Animations{
                 let shakeTransform = CGAffineTransform(translationX: -shakeDistance, y: 0)
                 label.transform = shakeTransform
                 label.textColor = .white
-                label.backgroundColor = .init(hexString: ColorEnums.wrong.rawValue)
+                label.backgroundColor = Colors.wrong.color
             }, completion: { _ in
                 UIView.animate(withDuration: animationDuration, delay: 0.0, options: [.curveEaseInOut], animations: {
                     label.transform = originalTransform

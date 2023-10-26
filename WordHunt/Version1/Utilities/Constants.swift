@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 let environment:Environment = .test
 
@@ -14,9 +15,13 @@ enum Environment{
     case test
 }
 
-enum ColorEnums:String{
+enum Colors: String{
     case correct = "#3CB572"
     case wrong = "#FF5252"
+    
+    var color: UIColor{
+        return UIColor.init(hexString: self.rawValue)!
+    }
 }
 
 enum Topics:String{
