@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -77,29 +77,33 @@
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="60"/>
                     </variation>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MIP-LD-Sn5">
-                    <rect key="frame" x="10" y="129" width="373" height="639"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P9c-hg-SgW" userLabel="adView">
-                    <rect key="frame" x="0.0" y="768" width="393" height="50"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="MGo-SN-gNK">
+                    <rect key="frame" x="10" y="129" width="373" height="689"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MIP-LD-Sn5">
+                            <rect key="frame" x="0.0" y="0.0" width="373" height="639"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="639" id="ckL-4F-VaX"/>
+                            </constraints>
+                        </tableView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P9c-hg-SgW" userLabel="adView">
+                            <rect key="frame" x="0.0" y="639" width="373" height="50"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="SzR-K2-0dL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="1l0-Zt-0NM"/>
+                <constraint firstItem="MGo-SN-gNK" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="3Ph-ae-yfh"/>
                 <constraint firstItem="SzR-K2-0dL" firstAttribute="leading" secondItem="caU-1e-n5p" secondAttribute="trailing" constant="15" id="FEx-rt-AwG"/>
+                <constraint firstItem="MGo-SN-gNK" firstAttribute="top" secondItem="SzR-K2-0dL" secondAttribute="bottom" constant="20" id="GCh-BH-IUg"/>
                 <constraint firstItem="caU-1e-n5p" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="HYp-Bd-oF3"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="P9c-hg-SgW" secondAttribute="trailing" id="RWn-Ds-S9b"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="MIP-LD-Sn5" secondAttribute="bottom" constant="50" id="ThM-qN-BSm"/>
-                <constraint firstItem="P9c-hg-SgW" firstAttribute="top" secondItem="MIP-LD-Sn5" secondAttribute="bottom" id="TwR-cF-sxD"/>
-                <constraint firstItem="MIP-LD-Sn5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="bKO-dv-cQg"/>
-                <constraint firstItem="P9c-hg-SgW" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="fyN-i7-0YA"/>
-                <constraint firstItem="P9c-hg-SgW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hyf-bJ-Jah"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MIP-LD-Sn5" secondAttribute="trailing" constant="10" id="l0t-A7-ZDp"/>
-                <constraint firstItem="MIP-LD-Sn5" firstAttribute="top" secondItem="SzR-K2-0dL" secondAttribute="bottom" constant="20" id="lha-qE-a5C"/>
+                <constraint firstItem="MGo-SN-gNK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="I39-T6-ytW"/>
+                <constraint firstAttribute="trailing" secondItem="MGo-SN-gNK" secondAttribute="trailing" constant="10" id="ivW-Uh-NAc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SzR-K2-0dL" secondAttribute="trailing" constant="16" id="rza-jQ-05s"/>
                 <constraint firstItem="caU-1e-n5p" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="7" id="yIz-88-7Su"/>
             </constraints>
