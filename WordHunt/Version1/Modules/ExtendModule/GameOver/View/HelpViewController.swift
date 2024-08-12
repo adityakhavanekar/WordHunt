@@ -48,10 +48,12 @@ class HelpViewController: UIViewController {
     }
     
     @IBAction func noThanksClicked(_ sender: UIButton) {
+        print("Bye")
         self.dismiss(animated: true,completion: completion)
     }
     
     @objc func handleTap() {
+        print("Hello")
         performInOutAnimation(for: btnView){
             self.dismiss(animated: true,completion: self.continueCompletion)
         }

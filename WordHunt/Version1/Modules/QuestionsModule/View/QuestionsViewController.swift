@@ -197,8 +197,8 @@ extension QuestionsViewController: SRCountdownTimerDelegate{
         vc.continueCompletion = {
 //            self.loadRewardedAd(fromHelperScreen: true) {
 //                self.show{
-//                    self.timerView.lineColor = .systemTeal
-//                    self.timerView.start(beginingValue: 45)
+                    self.timerView.lineColor = .systemTeal
+                    self.timerView.start(beginingValue: 45)
 //                    self.timerView.pause()
 //                }
 //            }
