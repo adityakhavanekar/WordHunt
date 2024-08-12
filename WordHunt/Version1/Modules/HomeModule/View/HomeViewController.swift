@@ -17,13 +17,13 @@ class HomeViewController: UIViewController {
     
     let defaults = UserDefaults.standard
     
-    private let banner:GADBannerView = {
-        let banner = GADBannerView()
-        banner.adUnitID = "ca-app-pub-8260816350989246/1684325870"
-        banner.load(GADRequest())
-        banner.backgroundColor = .clear
-        return banner
-    }()
+//    private let banner:GADBannerView = {
+//        let banner = GADBannerView()
+//        banner.adUnitID = "ca-app-pub-8260816350989246/1684325870"
+//        banner.load(GADRequest())
+//        banner.backgroundColor = .clear
+//        return banner
+//    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,16 +43,17 @@ class HomeViewController: UIViewController {
         scoreView.layer.cornerRadius = 10
         highscoreLbl.text = "Highscore: \(defaults.object(forKey: "Highscore") ?? "")"
         setupTableView()
-        configureAd()
+        adView.isHidden = true
+//        configureAd()
     }
     
-    private func configureAd(){
-        banner.rootViewController = self
-        DispatchQueue.main.asyncAfter(deadline: .now()+0.2){
-            self.banner.frame = self.adView.bounds
-            self.adView.addSubview(self.banner)
-        }
-    }
+//    private func configureAd(){
+//        banner.rootViewController = self
+//        DispatchQueue.main.asyncAfter(deadline: .now()+0.2){
+//            self.banner.frame = self.adView.bounds
+//            self.adView.addSubview(self.banner)
+//        }
+//    }
     
     private func setupTableView(){
         homeTableView.dataSource = self

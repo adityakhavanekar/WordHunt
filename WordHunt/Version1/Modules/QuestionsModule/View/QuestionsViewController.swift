@@ -27,14 +27,14 @@ class QuestionsViewController: UIViewController {
     @IBOutlet weak var timerView: SRCountdownTimer!
     @IBOutlet weak var featuredImgView: UIImageView!
     
-    private var rewardedAd: GADRewardedAd?
-    private let banner:GADBannerView = {
-        let banner = GADBannerView()
-        banner.adUnitID = "ca-app-pub-8260816350989246/1684325870"
-        banner.load(GADRequest())
-        banner.backgroundColor = .clear
-        return banner
-    }()
+//    private var rewardedAd: GADRewardedAd?
+//    private let banner:GADBannerView = {
+//        let banner = GADBannerView()
+//        banner.adUnitID = "ca-app-pub-8260816350989246/1684325870"
+//        banner.load(GADRequest())
+//        banner.backgroundColor = .clear
+//        return banner
+//    }()
     
     var activityIndicator:UIActivityIndicatorView?
     var featuredImageStr:String?
@@ -95,11 +95,11 @@ class QuestionsViewController: UIViewController {
     }
     
     private func configureBannerAd(){
-        banner.rootViewController = self
-        DispatchQueue.main.asyncAfter(deadline: .now()+0.2){
-            self.banner.frame = self.adView.bounds
-            self.adView.addSubview(self.banner)
-        }
+//        banner.rootViewController = self
+//        DispatchQueue.main.asyncAfter(deadline: .now()+0.2){
+//            self.banner.frame = self.adView.bounds
+//            self.adView.addSubview(self.banner)
+//        }
     }
     
     private func configureTimer(){
@@ -195,13 +195,13 @@ extension QuestionsViewController: SRCountdownTimerDelegate{
             self.navigationController?.popViewController(animated: true)
         }
         vc.continueCompletion = {
-            self.loadRewardedAd(fromHelperScreen: true) {
-                self.show{
+//            self.loadRewardedAd(fromHelperScreen: true) {
+//                self.show{
                     self.timerView.lineColor = .systemTeal
                     self.timerView.start(beginingValue: 45)
-                    self.timerView.pause()
-                }
-            }
+//                    self.timerView.pause()
+//                }
+//            }
         }
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true)
@@ -255,12 +255,12 @@ extension QuestionsViewController:Answered,HelpPressed{
         switch type{
         case .word:
             print("Word")
-            loadRewardedAd(fromHelperScreen: false){
-                self.show {
-                    cell.answer = element.answers[0].word.uppercased()
-                    cell.isAdRewarded = true
-                }
-            }
+//            loadRewardedAd(fromHelperScreen: false){
+//                self.show {
+//                    cell.answer = element.answers[0].word.uppercased()
+//                    cell.isAdRewarded = true
+//                }
+//            }
         case .shuffle:
             var ele = element
             ele.chars.shuffle()
@@ -311,60 +311,60 @@ extension QuestionsViewController:Answered,HelpPressed{
 }
 
 //MARK: - Advertsitement
-extension QuestionsViewController:GADFullScreenContentDelegate{
-    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
-        print("error occured")
-    }
+//extension QuestionsViewController:GADFullScreenContentDelegate{
+//    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+//        print("error occured")
+//    }
+//    
+//    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+//        print("Ad will present full screen content.")
+//    }
+//    
+//    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+//        self.timerView.resume()
+//        print("Ad did dismiss full screen content.")
+//    }
     
-    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-        print("Ad will present full screen content.")
-    }
-    
-    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-        self.timerView.resume()
-        print("Ad did dismiss full screen content.")
-    }
-    
-    func show(completion:(()->())?=nil) {
-        if let ad = rewardedAd {
-            ad.present(fromRootViewController: self) {
-                let reward = ad.adReward
-                print("Reward received with currency \(reward.amount), amount \(reward.amount.doubleValue)")
-                completion?()
-            }
-        } else {
-            showTemporaryLabel(text: "Error occured")
-            print("Ad wasn't ready")
-        }
-    }
+//    func show(completion:(()->())?=nil) {
+//        if let ad = rewardedAd {
+//            ad.present(fromRootViewController: self) {
+//                let reward = ad.adReward
+//                print("Reward received with currency \(reward.amount), amount \(reward.amount.doubleValue)")
+//                completion?()
+//            }
+//        } else {
+//            showTemporaryLabel(text: "Error occured")
+//            print("Ad wasn't ready")
+//        }
+//    }
     
     
-    func loadRewardedAd(fromHelperScreen:Bool,completion:(()->())?=nil) {
-        let request = GADRequest()
-        let adIndi = showActivityIndicator(in: self.view)
-        self.timerView.pause()
-        GADRewardedAd.load(withAdUnitID:"ca-app-pub-8260816350989246/9671724588",
-                           request: request,
-                           completionHandler: { [self] ad, error in
-            if let error = error {
-                print("Failed to load rewarded ad with error: \(error.localizedDescription)")
-                showTemporaryLabel(text: "Error occured")
-                hideActivityIndicator(adIndi)
-                self.timerView.resume()
-                if fromHelperScreen == true{
-                    self.navigationController?.popViewController(animated: true)
-                }
-                return
-            }
-            rewardedAd = ad
-            print("Rewarded ad loaded.")
-            rewardedAd?.fullScreenContentDelegate = self
-            hideActivityIndicator(adIndi)
-            completion?()
-        }
-        )
-    }
-}
+//    func loadRewardedAd(fromHelperScreen:Bool,completion:(()->())?=nil) {
+//        let request = GADRequest()
+//        let adIndi = showActivityIndicator(in: self.view)
+//        self.timerView.pause()
+//        GADRewardedAd.load(withAdUnitID:"ca-app-pub-8260816350989246/9671724588",
+//                           request: request,
+//                           completionHandler: { [self] ad, error in
+//            if let error = error {
+//                print("Failed to load rewarded ad with error: \(error.localizedDescription)")
+//                showTemporaryLabel(text: "Error occured")
+//                hideActivityIndicator(adIndi)
+//                self.timerView.resume()
+//                if fromHelperScreen == true{
+//                    self.navigationController?.popViewController(animated: true)
+//                }
+//                return
+//            }
+//            rewardedAd = ad
+//            print("Rewarded ad loaded.")
+//            rewardedAd?.fullScreenContentDelegate = self
+//            hideActivityIndicator(adIndi)
+//            completion?()
+//        }
+//        )
+//    }
+//}
 
 // UI UX:
 extension QuestionsViewController{

@@ -167,11 +167,11 @@ class QuestionsCollectionViewCell: UICollectionViewCell {
     
     @IBAction func seeWordBtnClicked(_ sender: UIButton) {
         guard let element = element else {return}
-        if isAdRewarded == nil || isAdRewarded == false{
-            helpDelegate?.helpNeeded(element: element, type: .word, cell: self)
-        }else if isAdRewarded == true{
+//        if isAdRewarded == nil || isAdRewarded == false{
+//            helpDelegate?.helpNeeded(element: element, type: .word, cell: self)
+//        }else if isAdRewarded == true{
             answer = element.answers[0].word.uppercased()
-        }
+//        }
         self.collectionViewAlphabet.reloadData()
     }
     @IBAction func shuffleBtnClicked(_ sender: UIButton) {
