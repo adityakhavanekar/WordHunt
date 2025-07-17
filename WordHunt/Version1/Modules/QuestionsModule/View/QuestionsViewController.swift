@@ -7,7 +7,7 @@
 
 import UIKit
 import SRCountdownTimer
-import GoogleMobileAds
+//import GoogleMobileAds
 
 class QuestionsViewController: UIViewController {
     
